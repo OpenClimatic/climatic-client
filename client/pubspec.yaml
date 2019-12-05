@@ -21,6 +21,9 @@ dependencies:
     sdk: flutter
   provider: ^3.2.0
   sqflite: ^1.1.7+3
+  flutter_secure_storage: ^3.3.1+1
+  feather_icons_flutter: 4.7.4
+
 
 
   # The following adds the Cupertino Icons font to your application.
