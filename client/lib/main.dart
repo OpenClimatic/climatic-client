@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'pages/settings/Settings.dart';
-import 'pages/authLoading.dart';
-import 'pages/AppIntro/AppIntro.dart';
-import 'pages/app.dart';
+import 'pages/AuthLoading.dart';
+import 'pages/appIntro/AppIntro.dart';
+import 'pages/App.dart';
 
 void main() => runApp(MyApp());
 

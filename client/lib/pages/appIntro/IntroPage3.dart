@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'IntroPage2.dart';
 
 class IntroPage3 extends StatefulWidget {
   IntroPage3({Key key}) : super(key: key);
@@ -18,7 +17,7 @@ class _IntroPage3State extends State<IntroPage3> {
           children: <Widget>[
             Text("AppIntro press next to go through"),
             IconButton(
-              icon: Icon(Icons.arrow_forward,
+              icon: Icon(Icons.arrow_forward),
               tooltip: 'Navigate to the main screen',
               onPressed: () {
                 Navigator.pushNamedAndRemoveUntil(
