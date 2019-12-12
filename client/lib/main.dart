@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
           theme: theme,
           initialRoute: '/',
           routes: {
-            '/': (context) => authLoading(),
+            '/': (context) => AuthLoading(),
             '/Home': (context) => App(),
             '/Settings': (context) => Settings(),
             '/AppIntro': (context) => AppIntro(),

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
-class authLoading extends StatefulWidget {
-  authLoading({Key key}) : super(key: key);
+class AuthLoading extends StatefulWidget {
+  AuthLoading({Key key}) : super(key: key);
 
   @override
-  _authLoadingState createState() => _authLoadingState();
+  _AuthLoadingState createState() => _AuthLoadingState();
 }
 
-class _authLoadingState extends State<authLoading> {
+class _AuthLoadingState extends State<AuthLoading> {
   @override
   void initState() {
     super.initState();
