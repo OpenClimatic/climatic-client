@@ -32,7 +32,6 @@ class _AppState extends State<App> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
-        backgroundColor: Colors.white,
         context: context,
         builder: (BuildContext bc) {
           return Container(
