@@ -4,6 +4,7 @@ import './Allgemein.dart';
 import 'Support.dart';
 import 'UeberUns.dart';
 import 'Datenschutz.dart';
+import 'package:dynamic_theme/dynamic_theme.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -70,6 +71,15 @@ class _SettingsState extends State<Settings> {
                       },
                       icon: Icon(FeatherIcons.lifeBuoy),
                       label: Text("Support")),
+                  FlatButton.icon(
+                      onPressed: () {
+                        DynamicTheme.of(context).setBrightness(
+                            Theme.of(context).brightness == Brightness.dark
+                                ? Brightness.light
+                                : Brightness.dark);
+                      },
+                      icon: Icon(FeatherIcons.sun),
+                      label: Text("Design umstellen"))
                 ],
               ),
             ),
