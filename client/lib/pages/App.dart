@@ -166,22 +166,22 @@ class _AppState extends State<App> {
         child: _pageOptions[_selectedTab],
       ))),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton.extended(
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           _settingModalBottomSheet(context);
         },
         tooltip: 'Increment',
-        icon: Icon(Icons.add),
-        label: Text("track saving"),
+        child: Icon(Icons.add),
         elevation: 2.0,
       ),
       bottomNavigationBar: BottomAppBar(
+        shape: CircularNotchedRectangle(),
         child: Container(
           child: Padding(
-            padding: const EdgeInsets.only(left: 35.0, right: 35.0),
+            padding: const EdgeInsets.only(left: 0.0, right: 0.0),
             child: new Row(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: <Widget>[
                 IconButton(
                     icon: new Icon(FeatherIcons.home),
