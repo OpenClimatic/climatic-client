@@ -64,13 +64,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.1.2"
-  custom_radio_grouped_button:
-    dependency: "direct main"
-    description:
-      name: custom_radio_grouped_button
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.0"
   dynamic_theme:
     dependency: "direct main"
     description:
@@ -90,6 +83,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_circular_chart:
+    dependency: "direct main"
+    description:
+      name: flutter_circular_chart
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.0"
   flutter_launcher_icons:
     dependency: "direct dev"
     description:

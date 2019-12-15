@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
+import 'package:flutter_circular_chart/flutter_circular_chart.dart';
+
+final GlobalKey<AnimatedCircularChartState> _chartKey =
+    new GlobalKey<AnimatedCircularChartState>();
 
 class Dashboard extends StatefulWidget {
   Dashboard({Key key}) : super(key: key);
@@ -9,10 +12,20 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  List<CircularStackEntry> data = <CircularStackEntry>[
+    new CircularStackEntry(
+      <CircularSegmentEntry>[
+        new CircularSegmentEntry(500.0, Colors.red[200], rankKey: 'saved'),
+        new CircularSegmentEntry(1000.0, Colors.green[200], rankKey: 'max'),
+      ],
+      rankKey: 'kg of CO2 saved',
+    ),
+  ];
+
   Widget _header() {
     return Container(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.45,
+        height: MediaQuery.of(context).size.height * 0.6,
         decoration: new BoxDecoration(
           color: Colors.grey[300],
           borderRadius: new BorderRadius.only(
@@ -43,13 +56,25 @@ class _DashboardState extends State<Dashboard> {
             Padding(
               padding: const EdgeInsets.all(0.0),
               child: Container(
-                  height: 200,
+                  height: 250,
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: new BoxDecoration(
                       color: Theme.of(context).primaryColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
-                    child: Text("inside"),
+                    child: AnimatedCircularChart(
+                        key: _chartKey,
+                        size: const Size(250.0, 250.0),
+                        initialChartData: data,
+                        chartType: CircularChartType.Radial,
+                        edgeStyle: SegmentEdgeStyle.round,
+                        holeLabel: "1390 \n kg of CO2 saved",
+                        holeRadius: 100,
+                        labelStyle: new TextStyle(
+                          color: Colors.blueGrey[600],
+                          fontWeight: FontWeight.bold,
+                          fontSize: 22.0,
+                        )),
                   )),
             ),
             Container(alignment: Alignment.center, child: Text("Dates"))
@@ -91,7 +116,11 @@ class _DashboardState extends State<Dashboard> {
         body: SingleChildScrollView(
       child: Container(
         child: Column(
-          children: <Widget>[_header(), _habits(), _impact()],
+          children: <Widget>[
+            _header(),
+            _habits(),
+            _impact(),
+          ],
         ),
       ),
     ));
