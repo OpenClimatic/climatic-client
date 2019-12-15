@@ -11,24 +11,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new DynamicTheme(
-      defaultBrightness: Brightness.light,
-      data: (brightness) => new ThemeData(
-        primarySwatch: Colors.indigo,
-        brightness: brightness,
-      ),
-      themedWidgetBuilder: (context, theme) {
-        return new MaterialApp(
-          title: 'Climalytic',
-          theme: theme,
-          initialRoute: '/',
-          routes: {
-            '/': (context) => AuthLoading(),
-            '/Home': (context) => App(),
-            '/Settings': (context) => Settings(),
-            '/AppIntro': (context) => AppIntro(),
-          }
-        );
-      }
-    );
+        defaultBrightness: Brightness.light,
+        data: (brightness) => new ThemeData(
+              primarySwatch: Colors.indigo,
+              brightness: brightness,
+            ),
+        themedWidgetBuilder: (context, theme) {
+          return new MaterialApp(
+              title: 'Climalytic',
+              theme: theme,
+              initialRoute: '/',
+              routes: {
+                '/': (context) => AuthLoading(),
+                '/Home': (context) => App(),
+                '/Settings': (context) => Settings(),
+                '/AppIntro': (context) => AppIntro(),
+              });
+        });
   }
 }
