@@ -35,7 +35,11 @@
 
 ## Screenshots
 
-| <img alt="Zeigtgeist" title="Zeitgeist" src="./github_assets/home.png" width=350> | <img alt="Discover" title="Zeitgeist" src="./github_assets/discover.png" width=350> |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <img alt="Zeigtgeist" title="Zeitgeist" src="./github_assets/congrats.png" width=350> | <img alt="Zeigtgeist" title="Zeitgeist" src="./github_assets/habit.png" width=350> |
+<p align="center">
+	    <img alt="" title="Climalytic" src="./github_assets/home.png" width="300">
+	    <img alt="" title="climalytic" src="./github_assets/discover.png" width="300"> 
+
+<p align="center">
+	    <img alt="" title="NextNotes" src="./github_assets/habit.png" width="300">
+	    <img alt="" title="NextNotes" src="./github_assets/congrats.png" width="300"> <br><br><br>
 
