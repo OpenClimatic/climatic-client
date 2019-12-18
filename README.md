@@ -3,7 +3,7 @@
 
 
 
-<h1 align="center"> Climalytic </h1> <br>
+<h1 align="center"> Climatic </h1> <br>
 <p align="center">
    A open-source App to track your CO2 expenses and fight climate change
 </p>
