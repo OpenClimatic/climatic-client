@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
+import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import '../../widgets/HabitCard.dart';
 import '../../widgets/ProgressBar.dart';
 
@@ -48,9 +49,9 @@ class _DashboardState extends State<Dashboard> {
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
                     Container(
-                        height: 56,
-                        width: 56,
-                        child: Image.asset('assets/images/picture.png'))
+                        height: 46,
+                        width: 46,
+                        child: Image.asset('assets/images/profile.png'))
                   ],
                 ),
               ),
@@ -79,7 +80,28 @@ class _DashboardState extends State<Dashboard> {
                         )),
                   )),
             ),
-            Container(alignment: Alignment.center, child: Text("Dates"))
+            Container(
+                alignment: Alignment.center,
+                child: CustomCheckBoxGroup(
+                  buttonColor: Theme.of(context).canvasColor,
+                  buttonLables: [
+                    "Day",
+                    "Week",
+                    "Month",
+                    "Year",
+                  ],
+                  buttonValuesList: [
+                    "Day",
+                    "Week",
+                    "Month",
+                    "Year",
+                  ],
+                  checkBoxButtonValues: (values) => print(values),
+                  defaultSelected: "Day",
+                  width: 80,
+                  selectedColor: Theme.of(context).accentColor,
+                  padding: 5,
+                ))
           ],
         ),
       ),

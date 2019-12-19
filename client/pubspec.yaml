@@ -26,6 +26,7 @@ dependencies:
   dynamic_theme: ^1.0.1
   flutter_circular_chart: ^0.1.0
   percent_indicator: ^2.1.1+1
+  custom_radio_grouped_button: ^1.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -57,7 +58,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/picture.png
+    - assets/images/profile.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

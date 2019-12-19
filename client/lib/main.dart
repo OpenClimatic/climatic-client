@@ -32,6 +32,7 @@ class MyApp extends StatelessWidget {
               primaryColor: colorCustom,
               accentColor: Colors.red,
               brightness: brightness,
+              backgroundColor: Colors.grey[100],
             ),
         themedWidgetBuilder: (context, theme) {
           return new MaterialApp(
