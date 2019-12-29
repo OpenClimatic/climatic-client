@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         data: (brightness) => new ThemeData(
               primarySwatch: colorCustom,
               primaryColor: colorCustom,
-              accentColor: Colors.red,
+              accentColor: Colors.green,
               brightness: brightness,
               backgroundColor: Colors.grey[100],
             ),

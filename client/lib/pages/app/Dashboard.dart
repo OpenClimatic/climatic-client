@@ -81,26 +81,28 @@ class _DashboardState extends State<Dashboard> {
                   )),
             ),
             Container(
+                width: MediaQuery.of(context).size.width * 0.9,
                 alignment: Alignment.center,
-                child: CustomCheckBoxGroup(
-                  buttonColor: Theme.of(context).canvasColor,
+                child: CustomRadioButton(
+                  buttonColor: Colors.transparent,
+                  elevation: 0,
                   buttonLables: [
                     "Day",
                     "Week",
                     "Month",
                     "Year",
                   ],
-                  buttonValuesList: [
+                  buttonValues: [
                     "Day",
                     "Week",
                     "Month",
                     "Year",
                   ],
-                  checkBoxButtonValues: (values) => print(values),
-                  defaultSelected: "Day",
-                  width: 80,
+                  enableShape: true,
+                  radioButtonValue: (value) {
+                    print(value);
+                  },
                   selectedColor: Theme.of(context).accentColor,
-                  padding: 5,
                 ))
           ],
         ),
