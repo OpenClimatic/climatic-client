@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'pages/settings/Settings.dart';
+import 'pages/app/Profile.dart';
 import 'pages/AuthLoading.dart';
 import 'pages/appIntro/AppIntro.dart';
 import 'pages/App.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
                 '/': (context) => AuthLoading(),
                 '/Home': (context) => App(),
                 '/Settings': (context) => Settings(),
+                '/Profile': (context) => Profile(),
                 '/AppIntro': (context) => AppIntro(),
               });
         });

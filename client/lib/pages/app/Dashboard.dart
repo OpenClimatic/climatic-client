@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
+// import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import '../../widgets/HabitCard.dart';
 import '../../widgets/ProgressBar.dart';
@@ -18,8 +19,8 @@ class _DashboardState extends State<Dashboard> {
   List<CircularStackEntry> data = <CircularStackEntry>[
     new CircularStackEntry(
       <CircularSegmentEntry>[
-        new CircularSegmentEntry(500.0, Colors.red[200], rankKey: 'saved'),
-        new CircularSegmentEntry(1000.0, Colors.green[200], rankKey: 'max'),
+        new CircularSegmentEntry(20.0, Colors.white, rankKey: 'saved'),
+        new CircularSegmentEntry(50.0, Colors.greenAccent[100], rankKey: 'max'),
       ],
       rankKey: 'kg of CO2 saved',
     ),
@@ -30,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.6,
         decoration: new BoxDecoration(
-          color: Colors.grey[300],
+          color: Colors.grey[100],
           borderRadius: new BorderRadius.only(
               bottomRight: const Radius.circular(30.0),
               bottomLeft: const Radius.circular(30.0)),
@@ -48,10 +49,13 @@ class _DashboardState extends State<Dashboard> {
                       style: new TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
-                    Container(
-                        height: 46,
-                        width: 46,
-                        child: Image.asset('assets/images/profile.png'))
+                    FlatButton(
+                      onPressed: () => Navigator.pushNamed(context, "/Profile"),
+                      child: Container(
+                          height: 46,
+                          width: 46,
+                          child: Image.asset('assets/images/profile.png')),
+                    )
                   ],
                 ),
               ),
@@ -74,7 +78,7 @@ class _DashboardState extends State<Dashboard> {
                         holeLabel: "1390 \n kg of CO2 saved",
                         holeRadius: 100,
                         labelStyle: new TextStyle(
-                          color: Colors.blueGrey[600],
+                          color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 22.0,
                         )),
@@ -102,7 +106,7 @@ class _DashboardState extends State<Dashboard> {
                   radioButtonValue: (value) {
                     print(value);
                   },
-                  selectedColor: Theme.of(context).accentColor,
+                  selectedColor: Theme.of(context).primaryColor,
                 ))
           ],
         ),
