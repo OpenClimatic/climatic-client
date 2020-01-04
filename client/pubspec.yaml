@@ -25,6 +25,9 @@ dependencies:
   feather_icons_flutter: 4.7.4
   dynamic_theme: ^1.0.1
   flutter_circular_chart: ^0.1.0
+  percent_indicator: ^2.1.1+1
+  custom_radio_grouped_button: ^1.0.0
+
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
@@ -39,7 +42,7 @@ flutter_launcher_name:
   name: "Climatic"
 
 flutter_icons:
-  android: "launcher_icon" 
+  android: "launcher_icon"  
   ios: true
   image_path: "assets/icon/icon.png"
 
@@ -55,7 +58,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/images/picture.png
+    - assets/images/profile.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -8,16 +8,46 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
+Widget _header() {
+  return Container(
+    width: 500,
+    height: 150,
+    child: Row(
+      children: <Widget>[Text("hello"), Text("name")],
+    ),
+  );
+}
+
+Widget _settings() {
+  return Container(
+    width: 500,
+    height: 150,
+    child: Row(
+      children: <Widget>[Text("hello"), Text("name")],
+    ),
+  );
+}
+
+Widget _version() {
+  return Container(
+    width: 500,
+    height: 150,
+    child: Row(
+      children: <Widget>[Text("hello"), Text("name")],
+    ),
+  );
+}
+
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(title: Text("Profile")),
         body: Center(
-      child: IconButton(
-          icon: Icon(FeatherIcons.settings),
-          onPressed: () {
-            Navigator.pushNamed(context, "/Settings");
-          }),
-    ));
+            child: Column(children: <Widget>[
+          _header(),
+          _settings(),
+          _version(),
+        ])));
   }
 }
