@@ -29,7 +29,7 @@ class ProgressBar extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: new BoxDecoration(
-                      color: Colors.green,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
                     child: Icon(FeatherIcons.box),
@@ -53,7 +53,7 @@ class ProgressBar extends StatelessWidget {
                       percent: 0.5,
                       linearStrokeCap: LinearStrokeCap.roundAll,
                       backgroundColor: Colors.grey,
-                      progressColor: Colors.green,
+                      progressColor: Theme.of(context).primaryColor,
                     ),
                   ],
                 ),
@@ -61,7 +61,7 @@ class ProgressBar extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: new BoxDecoration(
-                      color: Colors.green,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
                     child: Text("X"),
