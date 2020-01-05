@@ -78,6 +78,11 @@ class _DashboardState extends State<Dashboard> {
                   height: 250,
                   width: MediaQuery.of(context).size.width * 0.9,
                   decoration: new BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                            "assets/images/Background-Dashboard.png"),
+                        fit: BoxFit.cover,
+                      ),
                       color: Theme.of(context).primaryColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
