@@ -41,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
   Widget _header() {
     return Container(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.6,
+        height: MediaQuery.of(context).size.height * 0.52,
         decoration: new BoxDecoration(
           color: Colors.grey[100],
           borderRadius: new BorderRadius.only(
@@ -155,7 +155,7 @@ class _DashboardState extends State<Dashboard> {
           child: Container(
               width: MediaQuery.of(context).size.width,
               child: Text(
-                "Habits",
+                "Active plans",
                 style:
                     new TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
               )),
@@ -163,7 +163,7 @@ class _DashboardState extends State<Dashboard> {
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
           child: Container(
-            height: 200,
+            height: 175,
             child: ListView(
               // This next line does the trick.
               scrollDirection: Axis.horizontal,

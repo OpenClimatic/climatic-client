@@ -9,16 +9,21 @@ class HabitCard extends StatelessWidget {
         onTap: () {
           print("Container clicked");
         },
-        child: Container(
-            padding: EdgeInsets.all(16.0),
-            child: Container(
-              padding: EdgeInsets.all(16.0),
-              width: 150,
-              height: 50,
-              decoration: new BoxDecoration(
-                  color: Colors.grey[300],
-                  borderRadius: new BorderRadius.circular(10)),
-              child: Text("HabitCard"),
-            )));
+        child: Column(
+          children: [
+            Container(
+                padding: EdgeInsets.all(16.0),
+                child: Container(
+                  padding: EdgeInsets.all(16.0),
+                  width: 200,
+                  height: 100,
+                  decoration: new BoxDecoration(
+                      color: Colors.grey[300],
+                      borderRadius: new BorderRadius.circular(10)),
+                  child: Text("HabitCard"),
+                )),
+            Text("Habit", style: TextStyle(fontSize: 20))
+          ],
+        ));
   }
 }

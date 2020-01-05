@@ -66,6 +66,17 @@ class _SettingsState extends State<Settings> {
                     Switch(
                       value: isSwitched,
                       onChanged: (value) {
+                        if (value) {
+                          DynamicTheme.of(context)
+                              .setBrightness(Brightness.dark);
+                        } else {
+                          DynamicTheme.of(context)
+                              .setBrightness(Brightness.light);
+                        }
+                        // DynamicTheme.of(context).setBrightness(
+                        //     Theme.of(context).brightness == Brightness.dark
+                        //         ? Brightness.light
+                        //         : Brightness.dark);
                         setState(() {
                           isSwitched = value;
                         });
