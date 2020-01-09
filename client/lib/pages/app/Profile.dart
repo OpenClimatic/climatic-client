@@ -4,7 +4,6 @@ import '../settings/./Allgemein.dart';
 import '../settings/Support.dart';
 import '../settings/UeberUns.dart';
 import '../settings/Datenschutz.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key}) : super(key: key);

@@ -1,3 +1,4 @@
+import 'package:client/global/global.dart';
 import 'package:flutter/material.dart';
 
 class HabitCard extends StatelessWidget {
@@ -18,7 +19,7 @@ class HabitCard extends StatelessWidget {
                   width: 200,
                   height: 100,
                   decoration: new BoxDecoration(
-                      color: Colors.grey[300],
+                      color: snapshot.data.habitBackgroundColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Text("HabitCard"),
                 )),

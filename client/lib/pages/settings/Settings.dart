@@ -1,10 +1,11 @@
+import 'package:client/global/global.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import './Allgemein.dart';
 import 'Support.dart';
 import 'UeberUns.dart';
 import 'Datenschutz.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
+
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -14,9 +15,11 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool isSwitched = true;
 
   Widget _quickSettings(context) {
+    print(snapshot.data.brightness );
+    bool _switch = snapshot.data.brightness == Brightness.light ? false : true;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
       child: Container(
@@ -64,25 +67,11 @@ class _SettingsState extends State<Settings> {
                           style: TextStyle(fontSize: 16)),
                     ),
                     Switch(
-                      value: isSwitched,
-                      onChanged: (value) {
-                        if (value) {
-                          DynamicTheme.of(context)
-                              .setBrightness(Brightness.dark);
-                        } else {
-                          DynamicTheme.of(context)
-                              .setBrightness(Brightness.light);
-                        }
-                        // DynamicTheme.of(context).setBrightness(
-                        //     Theme.of(context).brightness == Brightness.dark
-                        //         ? Brightness.light
-                        //         : Brightness.dark);
-                        setState(() {
-                          isSwitched = value;
-                        });
+                      value: _switch,
+                      onChanged: (value) async {
+                        print(value);
+                        value ? await customTheme.setThemes(darkMode) : await customTheme.setThemes(lightMode);
                       },
-                      activeTrackColor: Theme.of(context).accentColor,
-                      activeColor: Colors.green,
                     ),
                   ],
                 ),
