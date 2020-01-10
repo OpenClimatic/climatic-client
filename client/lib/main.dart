@@ -11,6 +11,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return new StreamBuilder<DynamicTheme>(
         stream: customTheme.streamColors.stream,
         initialData: lightMode,
@@ -24,6 +25,12 @@ class MyApp extends StatelessWidget {
                   primaryColor: snapshot.data.primaryColor,
                   primarySwatch: snapshot.data.primarySwatch,
                   backgroundColor: snapshot.data.backgroundColor),
+              darkTheme: ThemeData(
+                  brightness: darkMode.brightness,
+                  accentColor: darkMode.accentColor,
+                  primaryColor: darkMode.primaryColor,
+                  primarySwatch: darkMode.primarySwatch,
+                  backgroundColor: darkMode.backgroundColor),
               initialRoute: '/',
               routes: {
                 '/': (context) => AuthLoading(),

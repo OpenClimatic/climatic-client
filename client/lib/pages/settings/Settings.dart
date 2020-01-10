@@ -17,7 +17,6 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
 
   Widget _quickSettings(context) {
-    print(snapshot.data.brightness );
     bool _switch = snapshot.data.brightness == Brightness.light ? false : true;
 
     return Padding(
@@ -69,7 +68,6 @@ class _SettingsState extends State<Settings> {
                     Switch(
                       value: _switch,
                       onChanged: (value) async {
-                        print(value);
                         value ? await customTheme.setThemes(darkMode) : await customTheme.setThemes(lightMode);
                       },
                     ),
@@ -172,7 +170,6 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[100],
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),

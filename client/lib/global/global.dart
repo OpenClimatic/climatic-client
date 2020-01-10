@@ -67,3 +67,11 @@ Map<int, Color> color = {
 };
 
 MaterialColor colorCustom = MaterialColor(0xFF20db9b, color);
+
+DynamicTheme getTheme(Brightness platformBrightness) {
+  if(platformBrightness == Brightness.dark) {
+    return darkMode;
+  } else {
+    return lightMode;
+  }
+}
