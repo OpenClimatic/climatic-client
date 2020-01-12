@@ -1,11 +1,11 @@
-import 'package:client/global/global.dart';
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 
 class HabitCard extends StatelessWidget {
   const HabitCard({Key key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    print(snapshot.data.backgroundColor);
     return GestureDetector(
         onTap: () {
           print("Container clicked");
@@ -19,11 +19,13 @@ class HabitCard extends StatelessWidget {
                   width: 200,
                   height: 100,
                   decoration: new BoxDecoration(
-                      color: snapshot.data.habitBackgroundColor,
+                      color: snapshot.data.backgroundColor,
                       borderRadius: new BorderRadius.circular(10)),
-                  child: Text("HabitCard"),
+                  child: Text("HabitCard",
+                      style: new TextStyle(color: snapshot.data.text)),
                 )),
-            Text("Habit", style: TextStyle(fontSize: 20))
+            Text("Habit",
+                style: TextStyle(fontSize: 20, color: snapshot.data.text))
           ],
         ));
   }

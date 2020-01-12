@@ -1,3 +1,4 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
@@ -83,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                             "assets/images/Background-Dashboard.png"),
                         fit: BoxFit.cover,
                       ),
-                      color: Theme.of(context).primaryColor,
+                      color: snapshot.data.primaryColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
                     child: Stack(
@@ -156,8 +157,10 @@ class _DashboardState extends State<Dashboard> {
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "Active plans",
-                style:
-                    new TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                style: new TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    color: snapshot.data.text),
               )),
         ),
         Padding(

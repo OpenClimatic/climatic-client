@@ -25,33 +25,34 @@ class DynamicTheme {
   final Color primaryColor;
   final Color accentColor;
   final Color backgroundColor;
-  final Color habitBackgroundColor;
-  DynamicTheme(
-      {this.brightness,
-      this.text,
-      this.fontSize,
-      this.primarySwatch,
-      this.primaryColor,
-      this.accentColor,
-      this.backgroundColor,
-      this.habitBackgroundColor});
+  DynamicTheme({
+    this.brightness,
+    this.text,
+    this.fontSize,
+    this.primarySwatch,
+    this.primaryColor,
+    this.accentColor,
+    this.backgroundColor,
+  });
 }
 
 DynamicTheme lightMode = DynamicTheme(
-    brightness: Brightness.light,
-    primarySwatch: colorCustom,
-    primaryColor: colorCustom,
-    accentColor: Colors.red,
-    backgroundColor: Colors.white12,
-    habitBackgroundColor: Colors.grey[100]);
+  brightness: Brightness.light,
+  text: Colors.black,
+  primarySwatch: colorCustom,
+  primaryColor: colorCustom,
+  accentColor: Colors.red,
+  backgroundColor: Colors.white,
+);
 
 DynamicTheme darkMode = DynamicTheme(
-    brightness: Brightness.dark,
-    primarySwatch: colorCustom,
-    primaryColor: colorCustom,
-    accentColor: Colors.blue,
-    backgroundColor: Colors.black12,
-    habitBackgroundColor: Colors.black38);
+  brightness: Brightness.dark,
+  text: Colors.white,
+  primarySwatch: colorCustom,
+  primaryColor: colorCustom,
+  accentColor: Colors.blue,
+  backgroundColor: Colors.black,
+);
 
 Map<int, Color> color = {
   50: Color.fromRGBO(32, 219, 155, .1),
@@ -68,10 +69,10 @@ Map<int, Color> color = {
 
 MaterialColor colorCustom = MaterialColor(0xFF20db9b, color);
 
-DynamicTheme getTheme(Brightness platformBrightness) {
-  if(platformBrightness == Brightness.dark) {
-    return darkMode;
+void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
+  if (platformBrightness == Brightness.dark) {
+    customTheme.setThemes(darkMode);
   } else {
-    return lightMode;
+    customTheme.setThemes(lightMode);
   }
 }

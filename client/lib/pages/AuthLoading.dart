@@ -1,3 +1,4 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
@@ -30,7 +31,8 @@ class _AuthLoadingState extends State<AuthLoading> {
 
   @override
   Widget build(BuildContext context) {
-    /// other way there is no user logged.
+    setThemeAcordingToPlatformBrightness(MediaQuery.of(context).platformBrightness);
+
     return Scaffold(
       body: Center(
         child: Text("loading"),

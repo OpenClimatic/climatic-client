@@ -1,3 +1,4 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import '../settings/./Allgemein.dart';
@@ -18,7 +19,7 @@ Widget _header(context) {
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
+        color: snapshot.data.backgroundColor,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -44,7 +45,7 @@ Widget _header(context) {
             width: 200,
             child: Text(
               "Ricardo Joseph",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: snapshot.data.text),
             ),
           )
         ],

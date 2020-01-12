@@ -1,11 +1,10 @@
-import 'package:client/global/global.dart';
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import './Allgemein.dart';
 import 'Support.dart';
 import 'UeberUns.dart';
 import 'Datenschutz.dart';
-
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -132,7 +131,7 @@ class _SettingsState extends State<Settings> {
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                color: snapshot.data.backgroundColor,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
@@ -184,10 +183,10 @@ class _SettingsState extends State<Settings> {
             padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
             child: Text(
               "Settings",
-              style: TextStyle(fontSize: 26),
+              style: TextStyle(fontSize: 26, color: snapshot.data.text),
             ),
           ),
-          backgroundColor: Colors.grey[100],
+          backgroundColor: snapshot.data.backgroundColor,
           elevation: 0,
         ),
         body: Container(
