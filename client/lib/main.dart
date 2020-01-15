@@ -22,7 +22,9 @@ class MyApp extends StatelessWidget {
                   brightness: snapshot.data.brightness,
                   primaryColor: snapshot.data.primaryColor,
                   primarySwatch: snapshot.data.primarySwatch,
-                  backgroundColor: snapshot.data.backgroundColor),
+                  bottomAppBarColor: snapshot.data.bottomAppBarColor,
+                  colorScheme: snapshot.data.colorScheme,
+                  textTheme: snapshot.data.textTheme),
               initialRoute: '/',
               routes: {
                 '/': (context) => AuthLoading(),

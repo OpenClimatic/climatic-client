@@ -5,7 +5,6 @@ class HabitCard extends StatelessWidget {
   const HabitCard({Key key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    print(snapshot.data.backgroundColor);
     return GestureDetector(
         onTap: () {
           print("Container clicked");
@@ -19,7 +18,7 @@ class HabitCard extends StatelessWidget {
                   width: 200,
                   height: 100,
                   decoration: new BoxDecoration(
-                      color: snapshot.data.backgroundColor,
+                      color: snapshot.data.colorScheme.surface,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Text(
                     "HabitCard",

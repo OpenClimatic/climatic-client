@@ -30,14 +30,14 @@ class DynamicTheme {
   final Brightness brightness;
   final MaterialColor primarySwatch;
   final Color primaryColor;
-  final Color backgroundColor;
+  final Color bottomAppBarColor;
   final ColorScheme colorScheme;
   final TextTheme textTheme;
   DynamicTheme({
     this.brightness,
     this.primarySwatch,
     this.primaryColor,
-    this.backgroundColor,
+    this.bottomAppBarColor,
     this.colorScheme,
     this.textTheme,
   });
@@ -61,15 +61,15 @@ MaterialColor colorCustom = MaterialColor(0xFF20db9b, color);
 // LIGHT THEME
 
 ColorScheme _lightScheme = new ColorScheme(
-  primary: Color(0xff6200ee),
-  primaryVariant: Color(0xff3700b3),
+  primary: Color(0xff5de5b5),
+  primaryVariant: Color(0xff22DB9B),
   secondary: Color(0xff03dac6),
   secondaryVariant: Color(0xff018786),
-  surface: Colors.white,
-  background: Colors.white,
+  surface: Color(0xffFFFFFF),
+  background: Color(0xffEEEEEE),
   error: Color(0xffb00020),
   onPrimary: Colors.white,
-  onSecondary: Colors.black,
+  onSecondary: Colors.white,
   onSurface: Colors.black,
   onBackground: Colors.black,
   onError: Colors.white,
@@ -90,7 +90,7 @@ DynamicTheme lightDynamicTheme = new DynamicTheme(
   brightness: Brightness.light,
   primarySwatch: colorCustom,
   primaryColor: colorCustom,
-  backgroundColor: Colors.grey[200],
+  bottomAppBarColor: Color(0xffDDDDDD),
   colorScheme: _lightScheme,
   textTheme: _lightTextTheme,
 );
@@ -98,11 +98,11 @@ DynamicTheme lightDynamicTheme = new DynamicTheme(
 // DARK THEME
 
 ColorScheme _darkScheme = new ColorScheme(
-  primary: Color(0xffbb86fc),
-  primaryVariant: Color(0xff3700B3),
+  primary: Color(0xff5de5b5),
+  primaryVariant: Color(0xff22DB9B),
   secondary: Color(0xff03dac6),
-  secondaryVariant: Color(0xff03dac6),
-  surface: Color(0xff121212),
+  secondaryVariant: Color(0xff018786),
+  surface: Color(0xff222222),
   background: Color(0xff121212),
   error: Color(0xffcf6679),
   onPrimary: Colors.black,
@@ -127,7 +127,7 @@ DynamicTheme darkDynamicTheme = new DynamicTheme(
   brightness: Brightness.dark,
   primarySwatch: colorCustom,
   primaryColor: colorCustom,
-  backgroundColor: Colors.grey[850],
+  bottomAppBarColor: Color(0xff333333),
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,
 );

@@ -19,7 +19,7 @@ Widget _header(context) {
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: snapshot.data.backgroundColor,
+        color: snapshot.data.colorScheme.surface,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -57,14 +57,17 @@ Widget _header(context) {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
-    print(snapshot.data.backgroundColor);
     return Scaffold(
-        backgroundColor: snapshot.data.backgroundColor,
+        backgroundColor: snapshot.data.colorScheme.background,
         appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
               child: IconButton(
-                icon: Icon(FeatherIcons.chevronLeft, size: 32),
+                icon: Icon(
+                  FeatherIcons.chevronLeft,
+                  size: 32,
+                  color: snapshot.data.colorScheme.onBackground,
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -74,17 +77,18 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
               child: Text(
                 "Profile",
-                style: TextStyle(fontSize: 26),
+                style: snapshot.data.textTheme.title,
               ),
             ),
-            backgroundColor: Colors.grey[100],
+            backgroundColor: snapshot.data.colorScheme.background,
             elevation: 0,
             actions: <Widget>[
               // action button
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
                 child: IconButton(
-                  icon: Icon(FeatherIcons.settings, size: 26),
+                  icon: Icon(FeatherIcons.settings,
+                      size: 26, color: snapshot.data.colorScheme.onBackground),
                   onPressed: () {
                     Navigator.pushNamed(context, "/Settings");
                   },

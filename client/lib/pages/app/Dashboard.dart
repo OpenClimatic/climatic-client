@@ -44,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.52,
         decoration: new BoxDecoration(
-          color: snapshot.data.backgroundColor,
+          color: snapshot.data.colorScheme.background,
           borderRadius: new BorderRadius.only(
               bottomRight: const Radius.circular(30.0),
               bottomLeft: const Radius.circular(30.0)),
@@ -186,8 +186,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 50,
                 child: Text(
                   "Your Impact",
-                  style: new TextStyle(
-                      fontSize: 20.0, fontWeight: FontWeight.bold),
+                  style: snapshot.data.textTheme.subtitle,
                 )),
             Container(
                 child: ListView(
@@ -207,6 +206,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: snapshot.data.colorScheme.background,
         body: SingleChildScrollView(
       child: Container(
         child: Column(

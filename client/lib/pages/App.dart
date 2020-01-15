@@ -1,3 +1,4 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'app/Dashboard.dart';
 import 'app/News.dart';
@@ -167,7 +168,7 @@ class _AppState extends State<App> {
       ))),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: snapshot.data.colorScheme.primary,
         onPressed: () {
           _settingModalBottomSheet(context);
         },
@@ -186,7 +187,9 @@ class _AppState extends State<App> {
               children: <Widget>[
                 IconButton(
                     icon: new Icon(FeatherIcons.home),
-                    color: _selectedTab == 0 ? Colors.blue : Colors.grey,
+                    color: _selectedTab == 0
+                        ? snapshot.data.colorScheme.primary
+                        : Colors.grey,
                     onPressed: () {
                       setState(() {
                         _selectedTab = 0;
@@ -194,7 +197,9 @@ class _AppState extends State<App> {
                     }),
                 IconButton(
                     icon: Icon(FeatherIcons.user),
-                    color: _selectedTab == 2 ? Colors.blueAccent : Colors.grey,
+                    color: _selectedTab == 2
+                        ? snapshot.data.colorScheme.primary
+                        : Colors.grey,
                     onPressed: () {
                       setState(() {
                         _selectedTab = 1;

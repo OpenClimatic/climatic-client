@@ -54,7 +54,7 @@ class _SettingsState extends State<Settings> {
                         ),
                       )
                     ],
-                    color: snapshot.data.backgroundColor,
+                    color: snapshot.data.colorScheme.surface,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,7 +133,7 @@ class _SettingsState extends State<Settings> {
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: snapshot.data.backgroundColor,
+                color: snapshot.data.colorScheme.surface,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
@@ -192,10 +192,11 @@ class _SettingsState extends State<Settings> {
               style: snapshot.data.textTheme.title,
             ),
           ),
-          backgroundColor: snapshot.data.backgroundColor,
+          backgroundColor: snapshot.data.colorScheme.background,
           elevation: 0,
         ),
         body: Container(
+          color: snapshot.data.colorScheme.background,
           child: Align(
             alignment: Alignment.topLeft,
             child: SafeArea(
