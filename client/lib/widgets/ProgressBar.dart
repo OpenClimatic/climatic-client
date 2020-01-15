@@ -1,3 +1,4 @@
+import 'package:client/global/theme.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -20,7 +21,7 @@ class ProgressBar extends StatelessWidget {
             width: 180,
             height: 70,
             decoration: new BoxDecoration(
-                color: Colors.grey[300],
+                color: snapshot.data.colorScheme.surface,
                 borderRadius: new BorderRadius.circular(10)),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -29,7 +30,7 @@ class ProgressBar extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: new BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: snapshot.data.colorScheme.primary,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
                     child: Icon(FeatherIcons.box),
@@ -53,7 +54,7 @@ class ProgressBar extends StatelessWidget {
                       percent: 0.5,
                       linearStrokeCap: LinearStrokeCap.roundAll,
                       backgroundColor: Colors.grey,
-                      progressColor: Theme.of(context).primaryColor,
+                      progressColor: snapshot.data.colorScheme.primary,
                     ),
                   ],
                 ),
@@ -61,7 +62,7 @@ class ProgressBar extends StatelessWidget {
                   height: 50,
                   width: 50,
                   decoration: new BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: snapshot.data.colorScheme.primary,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
                     child: Text("X"),

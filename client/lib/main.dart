@@ -4,41 +4,27 @@ import 'pages/app/Profile.dart';
 import 'pages/AuthLoading.dart';
 import 'pages/appIntro/AppIntro.dart';
 import 'pages/App.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
+import 'global/theme.dart';
 
 void main() => runApp(MyApp());
-
-Map<int, Color> color = {
-  50: Color.fromRGBO(32, 219, 155, .1),
-  100: Color.fromRGBO(35, 219, 155, .2),
-  200: Color.fromRGBO(35, 219, 155, .3),
-  300: Color.fromRGBO(35, 219, 155, .4),
-  400: Color.fromRGBO(35, 219, 155, .5),
-  500: Color.fromRGBO(35, 219, 155, .6),
-  600: Color.fromRGBO(35, 219, 155, .7),
-  700: Color.fromRGBO(35, 219, 155, .8),
-  800: Color.fromRGBO(35, 219, 155, .9),
-  900: Color.fromRGBO(35, 219, 155, 1),
-};
-
-MaterialColor colorCustom = MaterialColor(0xFF20db9b, color);
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new DynamicTheme(
-        defaultBrightness: Brightness.light,
-        data: (brightness) => new ThemeData(
-              primarySwatch: colorCustom,
-              primaryColor: colorCustom,
-              accentColor: Colors.green,
-              brightness: brightness,
-              backgroundColor: Colors.grey[100],
-            ),
-        themedWidgetBuilder: (context, theme) {
+    return new StreamBuilder<DynamicTheme>(
+        stream: customTheme.streamColors.stream,
+        initialData: lightDynamicTheme,
+        builder: (context, snap) {
+          snapshot = snap;
           return new MaterialApp(
               title: 'Climalytic',
-              theme: theme,
+              theme: ThemeData(
+                  brightness: snapshot.data.brightness,
+                  primaryColor: snapshot.data.primaryColor,
+                  primarySwatch: snapshot.data.primarySwatch,
+                  bottomAppBarColor: snapshot.data.bottomAppBarColor,
+                  colorScheme: snapshot.data.colorScheme,
+                  textTheme: snapshot.data.textTheme),
               initialRoute: '/',
               routes: {
                 '/': (context) => AuthLoading(),

@@ -1,10 +1,10 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import '../settings/./Allgemein.dart';
 import '../settings/Support.dart';
 import '../settings/UeberUns.dart';
 import '../settings/Datenschutz.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key}) : super(key: key);
@@ -19,7 +19,7 @@ Widget _header(context) {
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
+        color: snapshot.data.colorScheme.surface,
         boxShadow: [
           BoxShadow(
             color: Colors.black12,
@@ -45,7 +45,7 @@ Widget _header(context) {
             width: 200,
             child: Text(
               "Ricardo Joseph",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              style: snapshot.data.textTheme.subtitle,
             ),
           )
         ],
@@ -58,12 +58,16 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: snapshot.data.colorScheme.background,
         appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
               child: IconButton(
-                icon: Icon(FeatherIcons.chevronLeft, size: 32),
+                icon: Icon(
+                  FeatherIcons.chevronLeft,
+                  size: 32,
+                  color: snapshot.data.colorScheme.onBackground,
+                ),
                 onPressed: () {
                   Navigator.pop(context);
                 },
@@ -73,17 +77,18 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
               child: Text(
                 "Profile",
-                style: TextStyle(fontSize: 26),
+                style: snapshot.data.textTheme.title,
               ),
             ),
-            backgroundColor: Colors.grey[100],
+            backgroundColor: snapshot.data.colorScheme.background,
             elevation: 0,
             actions: <Widget>[
               // action button
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
                 child: IconButton(
-                  icon: Icon(FeatherIcons.settings, size: 26),
+                  icon: Icon(FeatherIcons.settings,
+                      size: 26, color: snapshot.data.colorScheme.onBackground),
                   onPressed: () {
                     Navigator.pushNamed(context, "/Settings");
                   },

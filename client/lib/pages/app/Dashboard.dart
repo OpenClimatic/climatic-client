@@ -1,3 +1,4 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
@@ -43,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.52,
         decoration: new BoxDecoration(
-          color: Colors.grey[100],
+          color: snapshot.data.colorScheme.background,
           borderRadius: new BorderRadius.only(
               bottomRight: const Radius.circular(30.0),
               bottomLeft: const Radius.circular(30.0)),
@@ -83,7 +84,7 @@ class _DashboardState extends State<Dashboard> {
                             "assets/images/Background-Dashboard.png"),
                         fit: BoxFit.cover,
                       ),
-                      color: Theme.of(context).primaryColor,
+                      color: snapshot.data.primaryColor,
                       borderRadius: new BorderRadius.circular(10)),
                   child: Center(
                     child: Stack(
@@ -156,8 +157,7 @@ class _DashboardState extends State<Dashboard> {
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "Active plans",
-                style:
-                    new TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                style: snapshot.data.textTheme.subtitle
               )),
         ),
         Padding(
@@ -186,8 +186,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 50,
                 child: Text(
                   "Your Impact",
-                  style: new TextStyle(
-                      fontSize: 20.0, fontWeight: FontWeight.bold),
+                  style: snapshot.data.textTheme.subtitle,
                 )),
             Container(
                 child: ListView(
@@ -207,6 +206,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: snapshot.data.colorScheme.background,
         body: SingleChildScrollView(
       child: Container(
         child: Column(

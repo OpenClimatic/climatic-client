@@ -1,10 +1,10 @@
+import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import './Allgemein.dart';
 import 'Support.dart';
 import 'UeberUns.dart';
 import 'Datenschutz.dart';
-import 'package:dynamic_theme/dynamic_theme.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -14,9 +14,10 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  bool isSwitched = true;
-
   Widget _quickSettings(context) {
+    bool _darkModeSwitch =
+        snapshot.data.brightness == Brightness.light ? false : true;
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
       child: Container(
@@ -53,7 +54,7 @@ class _SettingsState extends State<Settings> {
                         ),
                       )
                     ],
-                    color: Colors.white,
+                    color: snapshot.data.colorScheme.surface,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -64,25 +65,12 @@ class _SettingsState extends State<Settings> {
                           style: TextStyle(fontSize: 16)),
                     ),
                     Switch(
-                      value: isSwitched,
-                      onChanged: (value) {
-                        if (value) {
-                          DynamicTheme.of(context)
-                              .setBrightness(Brightness.dark);
-                        } else {
-                          DynamicTheme.of(context)
-                              .setBrightness(Brightness.light);
-                        }
-                        // DynamicTheme.of(context).setBrightness(
-                        //     Theme.of(context).brightness == Brightness.dark
-                        //         ? Brightness.light
-                        //         : Brightness.dark);
-                        setState(() {
-                          isSwitched = value;
-                        });
+                      value: _darkModeSwitch,
+                      onChanged: (value) async {
+                        value
+                            ? await customTheme.setThemes(darkDynamicTheme)
+                            : await customTheme.setThemes(lightDynamicTheme);
                       },
-                      activeTrackColor: Theme.of(context).accentColor,
-                      activeColor: Colors.green,
                     ),
                   ],
                 ),
@@ -145,7 +133,7 @@ class _SettingsState extends State<Settings> {
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
+                color: snapshot.data.colorScheme.surface,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
@@ -183,12 +171,15 @@ class _SettingsState extends State<Settings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[100],
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
             child: IconButton(
-              icon: Icon(FeatherIcons.chevronLeft, size: 32),
+              icon: Icon(
+                FeatherIcons.chevronLeft,
+                size: 32,
+                color: snapshot.data.colorScheme.onSurface,
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -198,13 +189,14 @@ class _SettingsState extends State<Settings> {
             padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
             child: Text(
               "Settings",
-              style: TextStyle(fontSize: 26),
+              style: snapshot.data.textTheme.title,
             ),
           ),
-          backgroundColor: Colors.grey[100],
+          backgroundColor: snapshot.data.colorScheme.background,
           elevation: 0,
         ),
         body: Container(
+          color: snapshot.data.colorScheme.background,
           child: Align(
             alignment: Alignment.topLeft,
             child: SafeArea(
