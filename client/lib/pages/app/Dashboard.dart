@@ -44,7 +44,7 @@ class _DashboardState extends State<Dashboard> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.52,
         decoration: new BoxDecoration(
-          color: Colors.grey[100],
+          color: snapshot.data.backgroundColor,
           borderRadius: new BorderRadius.only(
               bottomRight: const Radius.circular(30.0),
               bottomLeft: const Radius.circular(30.0)),

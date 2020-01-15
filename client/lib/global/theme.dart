@@ -51,7 +51,7 @@ DynamicTheme darkMode = DynamicTheme(
   primarySwatch: colorCustom,
   primaryColor: colorCustom,
   accentColor: Colors.blue,
-  backgroundColor: Colors.black,
+  backgroundColor: Colors.black12,
 );
 
 Map<int, Color> color = {
