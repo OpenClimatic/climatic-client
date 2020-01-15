@@ -1,6 +1,6 @@
 import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import '../global/storage.dart';
 
 class AuthLoading extends StatefulWidget {
   AuthLoading({Key key}) : super(key: key);
@@ -23,10 +23,12 @@ class _AuthLoadingState extends State<AuthLoading> {
   }
 
   checkIfFirstStart() async {
-    await Future.delayed(Duration(
-        seconds:
-            1)); // could be a long running task, like a fetch from keychain
-    return true;
+    String finishedIntro = await storage.read(key: FINISHED_INTRO);
+    if(finishedIntro == null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   @override
