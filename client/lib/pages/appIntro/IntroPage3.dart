@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../global/storage.dart';
 
 class IntroPage3 extends StatefulWidget {
   IntroPage3({Key key}) : super(key: key);
@@ -20,6 +21,7 @@ class _IntroPage3State extends State<IntroPage3> {
               icon: Icon(Icons.arrow_forward),
               tooltip: 'Navigate to the main screen',
               onPressed: () {
+                storage.write(key: FINISHED_INTRO, value: "true");
                 Navigator.pushNamedAndRemoveUntil(
                     context, "/Home", (r) => false);
               },

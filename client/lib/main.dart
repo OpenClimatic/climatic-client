@@ -5,6 +5,7 @@ import 'pages/AuthLoading.dart';
 import 'pages/appIntro/AppIntro.dart';
 import 'pages/App.dart';
 import 'global/theme.dart';
+import 'global/storage.dart';
 
 void main() => runApp(MyApp());
 

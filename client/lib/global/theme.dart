@@ -9,7 +9,7 @@ CustomTheme<DynamicTheme> customTheme = CustomTheme();
 
 /// This [snapshot] will receive your all
 /// custom theme, to access your themes
-/// user [snapshot.data.value].
+/// use [snapshot.data.value].
 AsyncSnapshot<DynamicTheme> snapshot;
 
 /// Uses the customTheme class to select either the dark or light dynamictheme
@@ -20,6 +20,7 @@ void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
     customTheme.setThemes(lightDynamicTheme);
   }
 }
+
 
 /// This will be your class for creating dynamic Themes.
 /// You can also add your custom Color,Brightness,Size, etc.
