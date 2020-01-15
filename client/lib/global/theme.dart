@@ -12,6 +12,15 @@ CustomTheme<DynamicTheme> customTheme = CustomTheme();
 /// user [snapshot.data.value].
 AsyncSnapshot<DynamicTheme> snapshot;
 
+/// Uses the customTheme class to select either the dark or light dynamictheme
+void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
+  if (platformBrightness == Brightness.dark) {
+    customTheme.setThemes(darkDynamicTheme);
+  } else {
+    customTheme.setThemes(lightDynamicTheme);
+  }
+}
+
 /// This will be your class for creating dynamic Themes.
 /// You can also add your custom Color,Brightness,Size, etc.
 /// by adding in parameters.
@@ -19,40 +28,20 @@ AsyncSnapshot<DynamicTheme> snapshot;
 /// so you will not get an error.
 class DynamicTheme {
   final Brightness brightness;
-  final Color text;
-  final double fontSize;
   final MaterialColor primarySwatch;
   final Color primaryColor;
-  final Color accentColor;
   final Color backgroundColor;
+  final ColorScheme colorScheme;
+  final TextTheme textTheme;
   DynamicTheme({
     this.brightness,
-    this.text,
-    this.fontSize,
     this.primarySwatch,
     this.primaryColor,
-    this.accentColor,
     this.backgroundColor,
+    this.colorScheme,
+    this.textTheme,
   });
 }
-
-DynamicTheme lightMode = DynamicTheme(
-  brightness: Brightness.light,
-  text: Colors.black,
-  primarySwatch: colorCustom,
-  primaryColor: colorCustom,
-  accentColor: Colors.red,
-  backgroundColor: Colors.white,
-);
-
-DynamicTheme darkMode = DynamicTheme(
-  brightness: Brightness.dark,
-  text: Colors.white,
-  primarySwatch: colorCustom,
-  primaryColor: colorCustom,
-  accentColor: Colors.blue,
-  backgroundColor: Colors.black12,
-);
 
 Map<int, Color> color = {
   50: Color.fromRGBO(32, 219, 155, .1),
@@ -69,10 +58,77 @@ Map<int, Color> color = {
 
 MaterialColor colorCustom = MaterialColor(0xFF20db9b, color);
 
-void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
-  if (platformBrightness == Brightness.dark) {
-    customTheme.setThemes(darkMode);
-  } else {
-    customTheme.setThemes(lightMode);
-  }
-}
+// LIGHT THEME
+
+ColorScheme _lightScheme = new ColorScheme(
+  primary: Color(0xff6200ee),
+  primaryVariant: Color(0xff3700b3),
+  secondary: Color(0xff03dac6),
+  secondaryVariant: Color(0xff018786),
+  surface: Colors.white,
+  background: Colors.white,
+  error: Color(0xffb00020),
+  onPrimary: Colors.white,
+  onSecondary: Colors.black,
+  onSurface: Colors.black,
+  onBackground: Colors.black,
+  onError: Colors.white,
+  brightness: Brightness.light,
+);
+
+TextTheme _lightTextTheme = new TextTheme(
+  headline: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: _lightScheme.onBackground),
+  title: TextStyle(fontSize: 24, color: _lightScheme.onBackground),
+  subtitle: TextStyle(fontSize: 20, color: _lightScheme.onBackground),
+  body1: TextStyle(fontSize: 16, color: _lightScheme.onBackground),
+  body2: TextStyle(fontSize: 14, color: _lightScheme.onBackground),
+  caption: TextStyle(fontSize: 14, color: _lightScheme.onBackground),
+  button: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+);
+
+DynamicTheme lightDynamicTheme = new DynamicTheme(
+  brightness: Brightness.light,
+  primarySwatch: colorCustom,
+  primaryColor: colorCustom,
+  backgroundColor: Colors.grey[200],
+  colorScheme: _lightScheme,
+  textTheme: _lightTextTheme,
+);
+
+// DARK THEME
+
+ColorScheme _darkScheme = new ColorScheme(
+  primary: Color(0xffbb86fc),
+  primaryVariant: Color(0xff3700B3),
+  secondary: Color(0xff03dac6),
+  secondaryVariant: Color(0xff03dac6),
+  surface: Color(0xff121212),
+  background: Color(0xff121212),
+  error: Color(0xffcf6679),
+  onPrimary: Colors.black,
+  onSecondary: Colors.black,
+  onSurface: Colors.white,
+  onBackground: Colors.white,
+  onError: Colors.black,
+  brightness: Brightness.dark,
+);
+
+TextTheme _darkTextTheme = new TextTheme(
+  headline: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: _darkScheme.onBackground),
+  title: TextStyle(fontSize: 24, color: _darkScheme.onBackground),
+  subtitle: TextStyle(fontSize: 20, color: _darkScheme.onBackground),
+  body1: TextStyle(fontSize: 16, color: _darkScheme.onBackground),
+  body2: TextStyle(fontSize: 14, color: _darkScheme.onBackground),
+  caption: TextStyle(fontSize: 14, color: _darkScheme.onBackground),
+  button: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+);
+
+DynamicTheme darkDynamicTheme = new DynamicTheme(
+  brightness: Brightness.dark,
+  primarySwatch: colorCustom,
+  primaryColor: colorCustom,
+  backgroundColor: Colors.grey[850],
+  colorScheme: _darkScheme,
+  textTheme: _darkTextTheme,
+);
+

@@ -45,7 +45,7 @@ Widget _header(context) {
             width: 200,
             child: Text(
               "Ricardo Joseph",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: snapshot.data.text),
+              style: snapshot.data.textTheme.subtitle,
             ),
           )
         ],
@@ -57,8 +57,9 @@ Widget _header(context) {
 class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
+    print(snapshot.data.backgroundColor);
     return Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: snapshot.data.backgroundColor,
         appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),

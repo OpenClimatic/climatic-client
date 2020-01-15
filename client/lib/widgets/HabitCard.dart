@@ -21,11 +21,11 @@ class HabitCard extends StatelessWidget {
                   decoration: new BoxDecoration(
                       color: snapshot.data.backgroundColor,
                       borderRadius: new BorderRadius.circular(10)),
-                  child: Text("HabitCard",
-                      style: new TextStyle(color: snapshot.data.text)),
+                  child: Text(
+                    "HabitCard",
+                  ),
                 )),
-            Text("Habit",
-                style: TextStyle(fontSize: 20, color: snapshot.data.text))
+            Text("Habit", style: snapshot.data.textTheme.subtitle)
           ],
         ));
   }

@@ -13,14 +13,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new StreamBuilder<DynamicTheme>(
         stream: customTheme.streamColors.stream,
-        initialData: lightMode,
+        initialData: lightDynamicTheme,
         builder: (context, snap) {
           snapshot = snap;
           return new MaterialApp(
               title: 'Climalytic',
               theme: ThemeData(
                   brightness: snapshot.data.brightness,
-                  accentColor: snapshot.data.accentColor,
                   primaryColor: snapshot.data.primaryColor,
                   primarySwatch: snapshot.data.primarySwatch,
                   backgroundColor: snapshot.data.backgroundColor),

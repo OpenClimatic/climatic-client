@@ -157,10 +157,7 @@ class _DashboardState extends State<Dashboard> {
               width: MediaQuery.of(context).size.width,
               child: Text(
                 "Active plans",
-                style: new TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
-                    color: snapshot.data.text),
+                style: snapshot.data.textTheme.subtitle
               )),
         ),
         Padding(

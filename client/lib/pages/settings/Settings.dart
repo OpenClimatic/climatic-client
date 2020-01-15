@@ -14,9 +14,9 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-
   Widget _quickSettings(context) {
-    bool _darkModeSwitch = snapshot.data.brightness == Brightness.light ? false : true;
+    bool _darkModeSwitch =
+        snapshot.data.brightness == Brightness.light ? false : true;
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
@@ -67,7 +67,9 @@ class _SettingsState extends State<Settings> {
                     Switch(
                       value: _darkModeSwitch,
                       onChanged: (value) async {
-                        value ? await customTheme.setThemes(darkMode) : await customTheme.setThemes(lightMode);
+                        value
+                            ? await customTheme.setThemes(darkDynamicTheme)
+                            : await customTheme.setThemes(lightDynamicTheme);
                       },
                     ),
                   ],
@@ -173,7 +175,11 @@ class _SettingsState extends State<Settings> {
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
             child: IconButton(
-              icon: Icon(FeatherIcons.chevronLeft, size: 32, color: snapshot.data.text,),
+              icon: Icon(
+                FeatherIcons.chevronLeft,
+                size: 32,
+                color: snapshot.data.colorScheme.onSurface,
+              ),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -183,7 +189,7 @@ class _SettingsState extends State<Settings> {
             padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
             child: Text(
               "Settings",
-              style: TextStyle(fontSize: 26, color: snapshot.data.text),
+              style: snapshot.data.textTheme.title,
             ),
           ),
           backgroundColor: snapshot.data.backgroundColor,
