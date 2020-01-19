@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'app/Dashboard.dart';
-import 'app/News.dart';
+import 'app/Discover.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 
 class App extends StatefulWidget {
@@ -11,7 +11,7 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  final _pageOptions = [Dashboard(), News()];
+  final _pageOptions = [Dashboard(), Discover()];
   int _selectedTab = 0;
 
   _pullTab() {
