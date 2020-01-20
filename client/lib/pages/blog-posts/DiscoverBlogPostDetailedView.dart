@@ -42,20 +42,12 @@ class DiscoverBlogPostDetailedView extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(
-                  "walking",
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-              LinearPercentIndicator(
-                width: 220.0,
-                lineHeight: 14.0,
-                percent: 0.5,
-                linearStrokeCap: LinearStrokeCap.roundAll,
-                backgroundColor: Colors.grey,
-                progressColor: Theme.of(context).primaryColor,
-              ),
+                  padding: const EdgeInsets.all(16.0),
+                  child: Text(blogPost.title, style: TextStyle(fontSize: 30))),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(blogPost.content, style: TextStyle(fontSize: 18)),
+              )
             ],
           ),
         )
