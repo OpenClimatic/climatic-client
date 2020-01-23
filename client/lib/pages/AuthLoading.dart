@@ -13,7 +13,8 @@ class _AuthLoadingState extends State<AuthLoading> {
   @override
   void initState() {
     super.initState();
-    checkIfFirstStart().then((success) {
+    _setTheme();
+    _checkIfFirstStart().then((success) {
       if (success) {
         Navigator.pushReplacementNamed(context, '/AppIntro');
       } else {
@@ -22,19 +23,30 @@ class _AuthLoadingState extends State<AuthLoading> {
     });
   }
 
-  checkIfFirstStart() async {
+  _checkIfFirstStart() async {
     String finishedIntro = await storage.read(key: FINISHED_INTRO);
-    if(finishedIntro == null) {
+    if (finishedIntro == null) {
       return true;
     } else {
       return false;
     }
   }
 
+  _setTheme() async {
+    var hasSetTheme = await storage.read(key: HAS_THEME);
+    var userTheme = await storage.read(key: THEME);
+    if (hasSetTheme == null) {
+      setThemeAcordingToPlatformBrightness(
+          MediaQuery.of(context).platformBrightness);
+    } else if (userTheme == "light") {
+      customTheme.setThemes(lightDynamicTheme);
+    } else if (userTheme == "dark") {
+      customTheme.setThemes(darkDynamicTheme);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    setThemeAcordingToPlatformBrightness(MediaQuery.of(context).platformBrightness);
-
     return Scaffold(
       body: Center(
         child: Text("loading"),

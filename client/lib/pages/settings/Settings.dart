@@ -1,3 +1,4 @@
+import 'package:client/global/storage.dart';
 import 'package:client/global/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
@@ -67,9 +68,14 @@ class _SettingsState extends State<Settings> {
                     Switch(
                       value: _darkModeSwitch,
                       onChanged: (value) async {
-                        value
-                            ? await customTheme.setThemes(darkDynamicTheme)
-                            : await customTheme.setThemes(lightDynamicTheme);
+                        await storage.write(key: HAS_THEME, value: "true");
+                        if(value) {
+                          await customTheme.setThemes(darkDynamicTheme);
+                          await storage.write(key: THEME, value: "dark");
+                        } else {
+                          await customTheme.setThemes(lightDynamicTheme);
+                          await storage.write(key: THEME, value: "light");
+                        }
                       },
                     ),
                   ],
