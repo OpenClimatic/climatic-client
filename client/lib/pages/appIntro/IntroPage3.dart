@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../global/storage.dart';
+import 'package:client/services/storage.dart';
 
 class IntroPage3 extends StatefulWidget {
   IntroPage3({Key key}) : super(key: key);

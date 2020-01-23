@@ -1,5 +1,5 @@
-import 'package:client/global/storage.dart';
-import 'package:client/global/theme.dart';
+import 'package:client/services/storage.dart';
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import './Allgemein.dart';

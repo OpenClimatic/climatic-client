@@ -1,4 +1,4 @@
-import 'package:client/global/theme.dart';
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';

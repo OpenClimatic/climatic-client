@@ -1,6 +1,6 @@
-import 'package:client/global/theme.dart';
+import 'package:client/themes/theme.dart';
+import 'package:client/services/storage.dart';
 import 'package:flutter/material.dart';
-import '../global/storage.dart';
 
 class AuthLoading extends StatefulWidget {
   AuthLoading({Key key}) : super(key: key);

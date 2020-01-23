@@ -1,4 +1,4 @@
-import 'package:client/global/theme.dart';
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'app/Dashboard.dart';
 import 'app/News.dart';
