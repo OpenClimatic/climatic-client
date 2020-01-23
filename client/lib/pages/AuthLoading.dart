@@ -25,6 +25,7 @@ class _AuthLoadingState extends State<AuthLoading> {
 
   _checkIfFirstStart() async {
     String finishedIntro = await storage.read(key: FINISHED_INTRO);
+    await Future.delayed(const Duration(seconds: 2), (){});
     if (finishedIntro == null) {
       return true;
     } else {
@@ -49,7 +50,7 @@ class _AuthLoadingState extends State<AuthLoading> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("loading"),
+        child: CircularProgressIndicator(value: null, strokeWidth: 4),
       ),
     );
   }
