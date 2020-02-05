@@ -8,15 +8,6 @@ class DiscoverBlogPostDetailedView extends StatelessWidget {
   const DiscoverBlogPostDetailedView({Key key, @required this.blogPost})
       : super(key: key);
 
-  Widget _stats() {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: <Widget>[],
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

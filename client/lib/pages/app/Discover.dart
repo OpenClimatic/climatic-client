@@ -128,7 +128,7 @@ class _DiscoverState extends State<Discover> {
     }
 
     return Container(
-      height: 300,
+      height: 350,
       child: (ListView(
         scrollDirection: Axis.horizontal,
         shrinkWrap: false,
