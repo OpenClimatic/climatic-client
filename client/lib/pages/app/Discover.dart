@@ -145,7 +145,7 @@ class _DiscoverState extends State<Discover> {
         children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width * 0.9,
-            child: Text("Take action",
+            child: Text("News and Information",
                 textAlign: TextAlign.left, style: TextStyle(fontSize: 25)),
           ),
           _buildBlogPosts()
