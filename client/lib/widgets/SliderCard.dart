@@ -21,6 +21,7 @@ class _SliderCardState extends State<SliderCard> {
   Widget build(BuildContext context) {
 
     return Card(
+      color: snapshot.data.colorScheme.surface,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
