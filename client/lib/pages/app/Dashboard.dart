@@ -5,6 +5,7 @@ import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import '../../widgets/HabitCard.dart';
 import '../../widgets/ProgressBar.dart';
+import '../../widgets/SliderCard.dart';
 
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
     new GlobalKey<AnimatedCircularChartState>();
@@ -214,6 +215,7 @@ class _DashboardState extends State<Dashboard> {
             _header(),
             _habits(),
             _impact(),
+            SliderCard(question: "Wie oft isst du Fleisch in der Woche", selection: ["Veganer", "Vegetarier", "Pescetarier", "Flexitarier"]),
           ],
         ),
       ),
