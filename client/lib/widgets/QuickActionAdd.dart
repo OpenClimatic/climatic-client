@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'SliderCard.dart';
+import 'CustomButton.dart';
 
 class QuickActionAdd extends StatefulWidget {
   String imgPath;
@@ -15,6 +17,10 @@ class QuickActionAdd extends StatefulWidget {
 }
 
 class _QuickActionAddState extends State<QuickActionAdd> {
+  addAction() {
+    print("adding action");
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,14 +28,18 @@ class _QuickActionAddState extends State<QuickActionAdd> {
         children: <Widget>[
           Center(
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
               child: Image.asset(
                 widget.imgPath,
               ),
             ),
           ),
           Text(widget.title),
+          SliderCard(question: widget.question, selection: widget.selections),
+          CustomButton(
+            label: "Add this Action",
+            onPressed: addAction,
+          )
         ],
       ),
     );

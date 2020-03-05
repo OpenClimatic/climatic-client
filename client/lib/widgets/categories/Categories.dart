@@ -12,6 +12,10 @@ class Categories extends StatefulWidget {
 
 class _CategoriesState extends State<Categories> {
   int _selectedTab = 1;
+  String title;
+  String imgPath;
+  String question = "junge was machst du?";
+  List<String> selections = ["1", "2", "3", "4", "5"];
 
   switchTo(page) {
     setState(() {
@@ -22,6 +26,13 @@ class _CategoriesState extends State<Categories> {
   Widget clickableActionCard(label, img, page) {
     return (GestureDetector(
       onTap: () {
+        if (page == 0) {
+          setState(() {
+            title = label;
+            imgPath = img;
+          });
+        }
+        print(title);
         setState(() {
           _selectedTab = page;
         });
@@ -38,13 +49,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableActionCard(
-            "Ernährung", "assets/images/categories/food.png", 2),
+            "Ernährung", "assets/images/categories/food.png", 3),
         clickableActionCard(
-            "Haushalt", "assets/images/categories/haushalt.png", 3),
-        clickableActionCard("Konsum", "assets/images/categories/konsum.png", 4),
-        clickableActionCard("Reisen", "assets/images/categories/reisen.png", 5),
+            "Haushalt", "assets/images/categories/haushalt.png", 4),
+        clickableActionCard("Konsum", "assets/images/categories/konsum.png", 5),
+        clickableActionCard("Reisen", "assets/images/categories/reisen.png", 6),
         clickableActionCard(
-            "Transport", "assets/images/categories/transport.png", 1),
+            "Transport", "assets/images/categories/transport.png", 2),
       ],
     );
   }
@@ -126,7 +137,12 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      QuickActionAdd(),
+      QuickActionAdd(
+        imgPath: imgPath,
+        title: title,
+        question: question,
+        selections: selections,
+      ),
       mainCategory(),
       transportCategory(),
       foodCategory(),
