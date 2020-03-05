@@ -2,6 +2,7 @@ import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'app/Dashboard.dart';
 import 'app/Discover.dart';
+import '../widgets/categories/Categories.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 
 class App extends StatefulWidget {
@@ -34,127 +35,26 @@ class _AppState extends State<App> {
           borderRadius: BorderRadius.circular(10.0),
         ),
         context: context,
+        isScrollControlled: true,
         builder: (BuildContext bc) {
-          return Container(
-              height: MediaQuery.of(context).size.height * 0.65,
-              padding: new EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.1,
-                  right: MediaQuery.of(context).size.width * 0.1),
-              child: Column(
-                children: <Widget>[
-                  _pullTab(),
-                  Container(
-                    child: new Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      spacing: 8.0, // gap between adjacent chips
-                      runSpacing: 4.0, // gap between lines
-                      alignment: WrapAlignment.center,
-                      children: <Widget>[
-                        FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(90.0),
-                          ),
-                          onPressed: () => {},
-                          padding: EdgeInsets.all(20.0),
-                          child: Column(
-                            // Replace with a Row for horizontal icon + text
-                            children: <Widget>[
-                              Icon(
-                                FeatherIcons.truck,
-                                size: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text("Transport"),
-                              )
-                            ],
-                          ),
+          return FractionallySizedBox(
+              heightFactor: 0.8,
+              child: Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: Column(
+                    children: <Widget>[
+                      _pullTab(),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 25, bottom: 5),
+                        child: Center(
+                          child: Text("Einsparung aufzeichnen",
+                              style: TextStyle(
+                                  fontSize: 22, fontWeight: FontWeight.bold)),
                         ),
-                        FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(90.0),
-                          ),
-                          onPressed: () => {},
-                          padding: EdgeInsets.all(20.0),
-                          child: Column(
-                            // Replace with a Row for horizontal icon + text
-                            children: <Widget>[
-                              Icon(
-                                FeatherIcons.zap,
-                                size: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text("Power"),
-                              )
-                            ],
-                          ),
-                        ),
-                        FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(90.0),
-                          ),
-                          onPressed: () => {},
-                          padding: EdgeInsets.all(20.0),
-                          child: Column(
-                            // Replace with a Row for horizontal icon + text
-                            children: <Widget>[
-                              Icon(
-                                FeatherIcons.printer,
-                                size: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text("Essen"),
-                              )
-                            ],
-                          ),
-                        ),
-                        FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(90.0),
-                          ),
-                          onPressed: () => {},
-                          padding: EdgeInsets.all(20.0),
-                          child: Column(
-                            // Replace with a Row for horizontal icon + text
-                            children: <Widget>[
-                              Icon(
-                                FeatherIcons.truck,
-                                size: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text("Transport"),
-                              )
-                            ],
-                          ),
-                        ),
-                        FlatButton(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: new BorderRadius.circular(90.0),
-                          ),
-                          onPressed: () => {},
-                          padding: EdgeInsets.all(20.0),
-                          child: Column(
-                            // Replace with a Row for horizontal icon + text
-                            children: <Widget>[
-                              Icon(
-                                FeatherIcons.truck,
-                                size: 40,
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(15.0),
-                                child: Text("Transport"),
-                              )
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ));
+                      ),
+                      Container(child: Categories()),
+                    ],
+                  )));
         });
   }
 
