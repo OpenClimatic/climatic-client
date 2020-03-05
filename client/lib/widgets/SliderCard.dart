@@ -30,8 +30,9 @@ class _SliderCardState extends State<SliderCard> {
           Slider(
             value: rating,
             label: widget.selection[rating.toInt()],
+            min: 0.0,
             max: widget.selection.length.toDouble() - 1,
-            divisions: widget.selection.length,
+            divisions: widget.selection.length - 1,
             onChanged: (newRating) {
               setState(() {
                 rating = newRating;
