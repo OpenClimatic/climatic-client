@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class ProgressBar extends StatelessWidget {
-  final CustomIcon = null;
+  final customIcon = null;
   final label = null;
   final low = "low";
   final high = "high";

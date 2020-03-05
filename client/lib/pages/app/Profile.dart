@@ -1,10 +1,6 @@
 import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
-import '../settings/./Allgemein.dart';
-import '../settings/Support.dart';
-import '../settings/UeberUns.dart';
-import '../settings/Datenschutz.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key}) : super(key: key);

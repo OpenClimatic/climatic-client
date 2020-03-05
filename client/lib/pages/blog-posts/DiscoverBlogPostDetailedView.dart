@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../models/BlogPost.dart';
-import 'package:percent_indicator/percent_indicator.dart';
 
 class DiscoverBlogPostDetailedView extends StatelessWidget {
   final BlogPost blogPost;

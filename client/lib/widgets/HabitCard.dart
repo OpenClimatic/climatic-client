@@ -24,7 +24,6 @@ class HabitCard extends StatelessWidget {
                     "HabitCard",
                   ),
                 )),
-            Text("Habit", style: snapshot.data.textTheme.subtitle)
           ],
         ));
   }
