@@ -1,6 +1,6 @@
 class Action {
   final String title;
-  final String Question;
+  final String question;
   final int id;
   final String description;
   final String shortDescription;
@@ -20,5 +20,5 @@ class Action {
       this.impact,
       this.expenses,
       this.selection,
-      this.Question);
+      this.question);
 }

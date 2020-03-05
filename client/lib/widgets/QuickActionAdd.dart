@@ -1,17 +1,37 @@
 import 'package:flutter/material.dart';
 
 class QuickActionAdd extends StatefulWidget {
-  QuickActionAdd({Key key}) : super(key: key);
+  String imgPath;
+  String question;
+  List<String> selections;
+  String title;
+
+  QuickActionAdd(
+      {Key key, this.imgPath, this.question, this.selections, this.title})
+      : super(key: key);
 
   @override
-  _nameState createState() => _nameState();
+  _QuickActionAddState createState() => _QuickActionAddState();
 }
 
-class _nameState extends State<QuickActionAdd> {
+class _QuickActionAddState extends State<QuickActionAdd> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: child,
+      child: Column(
+        children: <Widget>[
+          Center(
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              child: Image.asset(
+                widget.imgPath,
+              ),
+            ),
+          ),
+          Text(widget.title),
+        ],
+      ),
     );
   }
 }

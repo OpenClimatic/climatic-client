@@ -1,5 +1,7 @@
+import 'package:client/widgets/QuickActionAdd.dart';
 import 'package:flutter/material.dart';
 import '../ActionCard.dart';
+import '../QuickActionAdd.dart';
 
 class Categories extends StatefulWidget {
   Categories({Key key}) : super(key: key);
@@ -124,6 +126,7 @@ class _CategoriesState extends State<Categories> {
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
+      QuickActionAdd(),
       mainCategory(),
       transportCategory(),
       foodCategory(),
