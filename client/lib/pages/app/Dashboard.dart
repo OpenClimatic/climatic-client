@@ -156,10 +156,8 @@ class _DashboardState extends State<Dashboard> {
           padding: const EdgeInsets.all(20.0),
           child: Container(
               width: MediaQuery.of(context).size.width,
-              child: Text(
-                "Active plans",
-                style: snapshot.data.textTheme.subtitle
-              )),
+              child: Text("Active plans",
+                  style: snapshot.data.textTheme.subtitle)),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -207,18 +205,16 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: snapshot.data.colorScheme.background,
+        backgroundColor: snapshot.data.colorScheme.background,
         body: SingleChildScrollView(
-      child: Container(
-        child: Column(
-          children: <Widget>[
-            _header(),
-            _habits(),
-            _impact(),
-            SliderCard(question: "Wie oft isst du Fleisch in der Woche", selection: ["Veganer", "Vegetarier", "Pescetarier", "Flexitarier"]),
-          ],
-        ),
-      ),
-    ));
+          child: Container(
+            child: Column(
+              children: <Widget>[
+                _header(),
+                _habits(),
+              ],
+            ),
+          ),
+        ));
   }
 }
