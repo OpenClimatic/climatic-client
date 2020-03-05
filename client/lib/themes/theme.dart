@@ -21,7 +21,6 @@ void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
   }
 }
 
-
 /// This will be your class for creating dynamic Themes.
 /// You can also add your custom Color,Brightness,Size, etc.
 /// by adding in parameters.
@@ -78,7 +77,10 @@ ColorScheme _lightScheme = new ColorScheme(
 );
 
 TextTheme _lightTextTheme = new TextTheme(
-  headline: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: _lightScheme.onBackground),
+  headline: TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: _lightScheme.onBackground),
   title: TextStyle(fontSize: 24, color: _lightScheme.onBackground),
   subtitle: TextStyle(fontSize: 20, color: _lightScheme.onBackground),
   body1: TextStyle(fontSize: 16, color: _lightScheme.onBackground),
@@ -115,7 +117,10 @@ ColorScheme _darkScheme = new ColorScheme(
 );
 
 TextTheme _darkTextTheme = new TextTheme(
-  headline: TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: _darkScheme.onBackground),
+  headline: TextStyle(
+      fontSize: 32,
+      fontWeight: FontWeight.bold,
+      color: _darkScheme.onBackground),
   title: TextStyle(fontSize: 24, color: _darkScheme.onBackground),
   subtitle: TextStyle(fontSize: 20, color: _darkScheme.onBackground),
   body1: TextStyle(fontSize: 16, color: _darkScheme.onBackground),
@@ -132,4 +137,3 @@ DynamicTheme darkDynamicTheme = new DynamicTheme(
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,
 );
-

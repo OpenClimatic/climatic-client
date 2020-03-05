@@ -1,4 +1,5 @@
 import 'package:client/pages/app/SavingSplash.dart';
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'SliderCard.dart';
 import '../pages/SavingSplash.dart';
@@ -21,10 +22,13 @@ class QuickActionAdd extends StatefulWidget {
 class _QuickActionAddState extends State<QuickActionAdd> {
   addAction() {
     print("adding action");
+    Navigator.pop(context);
     Navigator.push(
         context,
         MaterialPageRoute(
-            builder: (BuildContext context) => (SavingsSplash())));
+            builder: (BuildContext context) => (SavingsSplash(
+                  saved: 3.4,
+                ))));
   }
 
   @override
