@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:client/themes/theme.dart';
 import '../../widgets/CustomButton.dart';
 
 class SavingsSplash extends StatelessWidget {
@@ -6,28 +7,49 @@ class SavingsSplash extends StatelessWidget {
 
   const SavingsSplash({Key key, this.saved}) : super(key: key);
 
-  share() {
+  share(context) {
     print("SHARE NOW");
+    Navigator.popAndPushNamed(context, "/Dashboard");
   }
 
   @override
   Widget build(BuildContext context) {
+    Color col = snapshot.data.colorScheme.background;
     return Scaffold(
-      backgroundColor: Colors.green,
-      body: Column(
-        children: <Widget>[
-          Text("Du hast deinen CO2 verringert"),
-          Text("GUT GEMACHT"),
-          Text("Du hast deinen Fußabdruck verringert um"),
-          Text(
-            saved.toString() + " kg",
-            style: TextStyle(fontSize: 24),
+      backgroundColor: snapshot.data.primaryColor,
+      body: Center(
+        child: Container(
+          width: MediaQuery.of(context).size.width * 0.8,
+          height: MediaQuery.of(context).size.height * 0.7,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Text("Du hast dein CO2 verringert",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: col, fontSize: 24)),
+              Text("GUT GEMACHT",
+                  style: TextStyle(
+                      color: col, fontSize: 42, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 20,
+              ),
+              Text("deine Einsparung",
+                  style: TextStyle(color: col, fontSize: 24)),
+              Text(saved.toString() + " kg",
+                  style: TextStyle(
+                      color: col, fontSize: 70, fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 150,
+              ),
+              CustomButton(
+                label: "Teile deine ersparnis",
+                onPressed: () {
+                  share(context);
+                },
+              )
+            ],
           ),
-          CustomButton(
-            label: "Teile deine ersparnis",
-            onPressed: share,
-          )
-        ],
+        ),
       ),
     );
   }
