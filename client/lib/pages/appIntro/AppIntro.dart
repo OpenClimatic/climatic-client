@@ -37,6 +37,12 @@ class _AppIntroState extends State<AppIntro> {
                   ],
                 ),
                 GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => (IntroPage1())));
+                  },
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.6,
                     height: 50,
