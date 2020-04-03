@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../services/storage.dart';
 
 class Allgemein extends StatefulWidget {
   Allgemein({Key key}) : super(key: key);
@@ -13,7 +14,14 @@ class _AllgemeinState extends State<Allgemein> {
     return Scaffold(
         appBar: AppBar(title: Text("Allgemein")),
         body: Center(
-          child: Text("Allgemein"),
+          child: FlatButton(
+            color: Colors.green,
+            onPressed: () async {
+              await storage.delete(key: FINISHED_INTRO);
+              Navigator.pushNamed(context, "/");
+            },
+            child: Text("LOGOUT"),
+          ),
         ));
   }
 }
