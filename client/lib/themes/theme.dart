@@ -56,12 +56,12 @@ Map<int, Color> color = {
   900: Color.fromRGBO(35, 219, 155, 1),
 };
 
-MaterialColor colorCustom = MaterialColor(0xFF20db9b, color);
+MaterialColor colorCustom = MaterialColor(0xFF21D294, color);
 
 // LIGHT THEME
 
 ColorScheme _lightScheme = new ColorScheme(
-  primary: Color(0xff5de5b5),
+  primary: Color(0xff21D294),
   primaryVariant: Color(0xff22DB9B),
   secondary: Color(0xff03dac6),
   secondaryVariant: Color(0xff018786),
@@ -101,7 +101,7 @@ DynamicTheme lightDynamicTheme = new DynamicTheme(
 // DARK THEME
 
 ColorScheme _darkScheme = new ColorScheme(
-  primary: Color(0xff5de5b5),
+  primary: Color(0xff21D294),
   primaryVariant: Color(0xff22DB9B),
   secondary: Color(0xff03dac6),
   secondaryVariant: Color(0xff018786),
