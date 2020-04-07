@@ -16,24 +16,37 @@ class IntroPage1 extends StatefulWidget {
 class _IntroPage1State extends State<IntroPage1> {
   header() {
     return Container(
-      height: 150,
-      width: 150,
-      color: Colors.red,
-      child: Image.asset(
-        "assets/images/intro/1.png",
+      color: const Color(0xff21D294),
+      height: MediaQuery.of(context).size.height * 0.5,
+      child: Container(
+        height: 50,
+        width: 50,
+        child: new Image.asset(
+          "assets/images/intro/1.png",
+          scale: 2,
+          fit: BoxFit.none,
+        ),
       ),
     );
   }
 
   introText() {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.4,
-      child: Column(children: <Widget>[
-        Text("Gemein mehr bewirken!", style: TextStyle(fontSize: 25)),
-        Text(
-            "Privatpersonen können genauso, wie Politik oder Industrie etwas gegen den Klimawandel tun. \n Jeder kann einen Beitrag leisten, um gemein etwas zu bewirken")
-      ]),
-    );
+    return Padding(
+        padding: EdgeInsets.all(30),
+        child: Container(
+          height: MediaQuery.of(context).size.height * 0.4,
+          child: Column(children: <Widget>[
+            Container(
+                width: MediaQuery.of(context).size.width,
+                child: Text("Gemein mehr bewirken!",
+                    style: TextStyle(fontSize: 25))),
+            Container(
+                child: Text(
+              "Privatpersonen können genauso, wie Politik oder Industrie etwas gegen den Klimawandel tun. \n \nJeder kann einen Beitrag leisten, um gemein etwas zu bewirken",
+              style: TextStyle(fontSize: 18),
+            ))
+          ]),
+        ));
   }
 
   buttonRow() {
@@ -45,17 +58,10 @@ class _IntroPage1State extends State<IntroPage1> {
     return Scaffold(
       body: Center(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Container(
-                height: MediaQuery.of(context).size.height * 0.5,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: const Color(0xff21D294),
-                  borderRadius: new BorderRadius.only(
-                      bottomRight: const Radius.circular(30.0),
-                      bottomLeft: const Radius.circular(30.0)),
-                ),
-                child: header()),
+            header(),
+            SizedBox(height: 20),
             introText(),
             buttonRow()
           ],
