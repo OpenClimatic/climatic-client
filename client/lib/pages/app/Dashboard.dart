@@ -6,6 +6,7 @@ import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import '../../widgets/HabitCard.dart';
 import '../../widgets/ProgressBar.dart';
 import '../../widgets/SliderCard.dart';
+import '../../widgets/DiagramCard/DiagramCard.dart';
 
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
     new GlobalKey<AnimatedCircularChartState>();
@@ -21,25 +22,6 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  List<CircularStackEntry> data1 = <CircularStackEntry>[
-    new CircularStackEntry(
-      <CircularSegmentEntry>[
-        new CircularSegmentEntry(20.0, Colors.white, rankKey: 'saved'),
-        new CircularSegmentEntry(50.0, Colors.transparent, rankKey: 'max'),
-      ],
-      rankKey: 'kg of CO2 saved',
-    ),
-  ];
-  List<CircularStackEntry> data2 = <CircularStackEntry>[
-    new CircularStackEntry(
-      <CircularSegmentEntry>[
-        new CircularSegmentEntry(20.0, Colors.transparent, rankKey: 'saved'),
-        new CircularSegmentEntry(20.0, Colors.greenAccent, rankKey: 'max'),
-      ],
-      rankKey: 'kg of CO2 saved',
-    ),
-  ];
-
   Widget _header() {
     return Container(
       child: Container(
@@ -59,7 +41,7 @@ class _DashboardState extends State<Dashboard> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Text(
-                      "Home",
+                      "Dashboard",
                       style: new TextStyle(
                           fontSize: 20.0, fontWeight: FontWeight.bold),
                     ),
@@ -74,75 +56,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(0.0),
-              child: Container(
-                  height: 250,
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  decoration: new BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            "assets/images/Background-Dashboard.png"),
-                        fit: BoxFit.cover,
-                      ),
-                      color: snapshot.data.primaryColor,
-                      borderRadius: new BorderRadius.circular(10)),
-                  child: Center(
-                    child: Stack(
-                      children: <Widget>[
-                        AnimatedCircularChart(
-                            key: _chartKey2,
-                            size: const Size(250.0, 250.0),
-                            initialChartData: data2,
-                            chartType: CircularChartType.Radial,
-                            edgeStyle: SegmentEdgeStyle.round,
-                            holeLabel: "1390 ",
-                            holeRadius: 100,
-                            labelStyle: new TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 40.0,
-                            )),
-                        AnimatedCircularChart(
-                            key: _chartKey1,
-                            size: const Size(250.0, 250.0),
-                            initialChartData: data1,
-                            chartType: CircularChartType.Radial,
-                            edgeStyle: SegmentEdgeStyle.round,
-                            holeLabel: "\n \n \n kg of CO2 saved",
-                            holeRadius: 90,
-                            labelStyle: new TextStyle(
-                              color: Colors.white,
-                              fontSize: 18.0,
-                            )),
-                      ],
-                    ),
-                  )),
-            ),
-            Container(
-                width: MediaQuery.of(context).size.width * 0.9,
-                alignment: Alignment.center,
-                child: CustomRadioButton(
-                  buttonColor: Colors.transparent,
-                  elevation: 0,
-                  buttonLables: [
-                    "Day",
-                    "Week",
-                    "Month",
-                    "Year",
-                  ],
-                  buttonValues: [
-                    "Day",
-                    "Week",
-                    "Month",
-                    "Year",
-                  ],
-                  enableShape: true,
-                  radioButtonValue: (value) {
-                    print(value);
-                  },
-                  selectedColor: Theme.of(context).primaryColor,
-                ))
+            DiagramCard(),
           ],
         ),
       ),
