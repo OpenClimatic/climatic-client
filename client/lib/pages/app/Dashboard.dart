@@ -111,7 +111,7 @@ class _DashboardState extends State<Dashboard> {
                             holeLabel: "\n \n \n kg of CO2 saved",
                             holeRadius: 90,
                             labelStyle: new TextStyle(
-                              color: Colors.white,
+                              color: snapshot.data.colorScheme.onSurface,
                               fontSize: 18.0,
                             )),
                       ],
