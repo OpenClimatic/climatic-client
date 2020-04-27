@@ -3,9 +3,9 @@ import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import './Allgemein.dart';
-import 'Support.dart';
-import 'UeberUns.dart';
-import 'Datenschutz.dart';
+import './Support.dart';
+import './UeberUns.dart';
+import './Datenschutz.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -25,19 +25,6 @@ class _SettingsState extends State<Settings> {
           width: 500,
           child: Column(
             children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20.0, 0, 15.0),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.9,
-                  child: Text(
-                    "Quick",
-                    style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
-              ),
               Container(
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: 75,
@@ -62,14 +49,13 @@ class _SettingsState extends State<Settings> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
-                      child: Text("Toggle Nightmode",
-                          style: TextStyle(fontSize: 16)),
+                      child: Text("Nachtmodus", style: TextStyle(fontSize: 16)),
                     ),
                     Switch(
                       value: _darkModeSwitch,
                       onChanged: (value) async {
                         await storage.write(key: HAS_THEME, value: "true");
-                        if(value) {
+                        if (value) {
                           await customTheme.setThemes(darkDynamicTheme);
                           await storage.write(key: THEME, value: "dark");
                         } else {
@@ -87,6 +73,8 @@ class _SettingsState extends State<Settings> {
   }
 
   Widget _settings(context) {
+    const url = "https://climatic.app";
+
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
       child: Container(
@@ -98,7 +86,7 @@ class _SettingsState extends State<Settings> {
                 child: Container(
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: Text(
-                    "GENERAL",
+                    "Allgemein",
                     style: TextStyle(
                         color: Colors.grey[500],
                         fontSize: 20,
@@ -107,16 +95,16 @@ class _SettingsState extends State<Settings> {
                 ),
               ),
               _settingsButton(
-                "Profile",
+                "Profil Einstellungen",
                 FeatherIcons.settings,
                 Allgemein(),
                 context,
               ),
               _settingsButton(
-                  "Privacy", FeatherIcons.shield, Datenschutz(), context),
+                  "Privatsphäre", FeatherIcons.shield, Datenschutz(), context),
               _settingsButton(
-                  "Support", FeatherIcons.lifeBuoy, Support(), context),
-              _settingsButton("About", FeatherIcons.info, About(), context),
+                  "Hilfe", FeatherIcons.lifeBuoy, Support(), context),
+              _settingsButton("Über", FeatherIcons.info, About(), context),
             ],
           )),
     );
@@ -132,7 +120,7 @@ class _SettingsState extends State<Settings> {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                    builder: (BuildContext context) => (Allgemein())));
+                    builder: (BuildContext context) => (pressed)));
           },
           child: Container(
               height: 75,
@@ -194,7 +182,7 @@ class _SettingsState extends State<Settings> {
           title: Padding(
             padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
             child: Text(
-              "Settings",
+              "Einstellungen",
               style: snapshot.data.textTheme.title,
             ),
           ),
