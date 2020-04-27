@@ -60,8 +60,7 @@ class _DashboardState extends State<Dashboard> {
                   children: <Widget>[
                     Text(
                       "Home",
-                      style: new TextStyle(
-                          fontSize: 20.0, fontWeight: FontWeight.bold),
+                      style: snapshot.data.textTheme.headline,
                     ),
                     FlatButton(
                       onPressed: () => Navigator.pushNamed(context, "/Profile"),

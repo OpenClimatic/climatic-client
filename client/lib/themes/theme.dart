@@ -61,39 +61,40 @@ MaterialColor colorCustom = MaterialColor(0xFF21D294, color);
 // LIGHT THEME
 
 ColorScheme _lightScheme = new ColorScheme(
-  primary: Color(0xff21D294),
-  primaryVariant: Color(0xff22DB9B),
-  secondary: Color(0xff03dac6),
-  secondaryVariant: Color(0xff018786),
-  surface: Color(0xffFFFFFF),
-  background: Color(0xffEEEEEE),
-  error: Color(0xffb00020),
+  primary: Color(0xff12C787),
+  primaryVariant: Color(0xffCDFFCC),
+  secondary: Color(0xff1D6C9D),
+  secondaryVariant: Color(0xffCCF2FF),
+  surface: Colors.white,
+  background: Color(0xffEDF1F5),
+  error: Color(0xffEB5757),
   onPrimary: Colors.white,
   onSecondary: Colors.white,
-  onSurface: Colors.black,
-  onBackground: Colors.black,
-  onError: Colors.white,
+  onSurface: Color(0xff00213F),
+  onBackground: Color(0xff00213F),
+  onError: Color(0xff00213F),
   brightness: Brightness.light,
 );
 
 TextTheme _lightTextTheme = new TextTheme(
   headline: TextStyle(
-      fontSize: 32,
-      fontWeight: FontWeight.bold,
-      color: _lightScheme.onBackground),
-  title: TextStyle(fontSize: 24, color: _lightScheme.onBackground),
-  subtitle: TextStyle(fontSize: 20, color: _lightScheme.onBackground),
-  body1: TextStyle(fontSize: 16, color: _lightScheme.onBackground),
+      fontSize: 28,
+      fontFamily: 'Nunito',
+      fontWeight: FontWeight.w700,
+      color: Color(0xff00162A)),
+  title: TextStyle(fontSize: 24, fontFamily: 'Nunito', color: Color(0xff00162A)),
+  subtitle: TextStyle(fontSize: 20, fontFamily: 'Poppins', color: _lightScheme.onBackground),
+  body1: TextStyle(fontSize: 16, fontFamily: 'Poppins',color: _lightScheme.onBackground),
   body2: TextStyle(fontSize: 14, color: _lightScheme.onBackground),
-  caption: TextStyle(fontSize: 14, color: _lightScheme.onBackground),
-  button: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  caption: TextStyle(fontSize: 14, fontFamily: 'Poppins', color: _lightScheme.onBackground),
+  button: TextStyle(fontSize: 18, fontFamily: 'Poppins')
 );
 
 DynamicTheme lightDynamicTheme = new DynamicTheme(
   brightness: Brightness.light,
   primarySwatch: colorCustom,
-  primaryColor: colorCustom,
-  bottomAppBarColor: Color(0xffDDDDDD),
+  primaryColor: _lightScheme.primary,
+  bottomAppBarColor: _lightScheme.surface,
   colorScheme: _lightScheme,
   textTheme: _lightTextTheme,
 );
@@ -101,15 +102,15 @@ DynamicTheme lightDynamicTheme = new DynamicTheme(
 // DARK THEME
 
 ColorScheme _darkScheme = new ColorScheme(
-  primary: Color(0xff21D294),
-  primaryVariant: Color(0xff22DB9B),
-  secondary: Color(0xff03dac6),
-  secondaryVariant: Color(0xff018786),
-  surface: Color(0xff222222),
-  background: Color(0xff121212),
-  error: Color(0xffcf6679),
-  onPrimary: Colors.black,
-  onSecondary: Colors.black,
+  primary: Color(0xff12C787),
+  primaryVariant: Color(0xffCDFFCC),
+  secondary: Color(0xff1D6C9D),
+  secondaryVariant: Color(0xffCCF2FF),
+  surface: Colors.black87,
+  background: Colors.black,
+  error: Color(0xffEB5757),
+  onPrimary: Colors.white,
+  onSecondary: Colors.white,
   onSurface: Colors.white,
   onBackground: Colors.white,
   onError: Colors.black,
