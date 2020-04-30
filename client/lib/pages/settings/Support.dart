@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Support extends StatefulWidget {
   Support({Key key}) : super(key: key);
@@ -13,7 +14,17 @@ class _SupportState extends State<Support> {
     return Scaffold(
         appBar: AppBar(title: Text("Support")),
         body: Center(
-          child: Text("Support"),
-        ));
+            child: Column(children: <Widget>[
+          Text(
+              "Du kannst mehr auf unserer Webseite erfahren und den Kundensupport kontaktieren"),
+          FlatButton(
+            onPressed: () async {
+              await launch("https://climatic.app");
+            },
+            child: Text(
+              "Öffne Webseite",
+            ),
+          )
+        ])));
   }
 }

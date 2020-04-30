@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../widgets/CustomButton.dart';
-import 'package:client/services/storage.dart';
-import 'package:client/pages/App.dart';
+import 'package:client/pages/appIntro/IntroPage4.dart';
 
 class IntroPage3 extends StatefulWidget {
   IntroPage3({Key key}) : super(key: key);
@@ -72,8 +71,10 @@ class _IntroPage3State extends State<IntroPage3> {
           CustomButton(
             label: "Weiter",
             onPressed: () {
-              storage.write(key: FINISHED_INTRO, value: "true");
-              Navigator.pushNamedAndRemoveUntil(context, "/Home", (r) => false);
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (BuildContext context) => (IntroPage4())));
             },
           )
         ],
