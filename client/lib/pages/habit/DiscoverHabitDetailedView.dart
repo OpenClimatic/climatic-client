@@ -37,7 +37,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
           Container(
               padding: EdgeInsets.all(16.0),
               child: Text(habit.shortDescription,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600))),
+                  style: snapshot.data.textTheme.bodyText1)),
           Container(
             child: Column(
               children: <Widget>[

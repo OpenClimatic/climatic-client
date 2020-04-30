@@ -6,9 +6,6 @@ import 'package:client/themes/theme.dart';
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
     new GlobalKey<AnimatedCircularChartState>();
 
-// just a shortcut for easier use
-var theme = snapshot.data;
-
 final GlobalKey<AnimatedCircularChartState> _chartKey2 =
     new GlobalKey<AnimatedCircularChartState>();
 
@@ -34,7 +31,7 @@ class _DiagramCardState extends State<DiagramCard> {
     new CircularStackEntry(
       <CircularSegmentEntry>[
         new CircularSegmentEntry(20.0, Colors.transparent, rankKey: 'saved'),
-        new CircularSegmentEntry(20.0, Colors.grey.shade200, rankKey: 'max'),
+        new CircularSegmentEntry(20.0, cc.gray, rankKey: 'max'),
       ],
       rankKey: 'kg of CO2 saved',
     ),

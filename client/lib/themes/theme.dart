@@ -59,11 +59,16 @@ class CustomColors {
   final Color yellow = Color(0xffD99E2A);
   final Color yellowBG = Color(0xffFFF5A2);
   final Color gray = Color(0xffCCCCCC);
+  /// this is a dark color!
   final Color darkText = Color(0xff00213F);
+  /// this this a dark color!
   final Color darkHeading = Color(0xff00162A);
+  /// this is a light color!
   final Color lightText = Color(0xffF0F0F0);
+  /// this is a light color!
   final Color lightHeading = Color(0xffF4F4F4);
 }
+
 
 // TEXT STYLE TEMPLATE
 TextStyle lightHeadingTextStyle = TextStyle(
