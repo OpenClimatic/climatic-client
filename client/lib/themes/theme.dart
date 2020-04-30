@@ -119,7 +119,7 @@ TextTheme _lightTextTheme = new TextTheme(
   headline4: lightHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
   subtitle1: lightBodyTextStyle.copyWith(fontSize: 18),
   bodyText1: lightBodyTextStyle.copyWith(fontSize: 16),
-  bodyText2: lightBodyTextStyle.copyWith(fontSize: 14),
+  bodyText2: lightBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w500),
   caption: lightBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
   overline: lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
   button: lightBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),

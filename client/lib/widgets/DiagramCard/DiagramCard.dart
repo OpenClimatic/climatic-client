@@ -82,7 +82,7 @@ class _DiagramCardState extends State<DiagramCard> {
               Text("1390kg", style: snapshot.data.textTheme.headline2),
               Text(
                 "co2 gespart",
-                style: snapshot.data.textTheme.overline,
+                style: snapshot.data.textTheme.bodyText2,
                )
             ]),
       )),
@@ -107,11 +107,11 @@ class _DiagramCardState extends State<DiagramCard> {
             padding: EdgeInsets.only(right: 10),
             child: Text(
               stat.toString(),
-              style: snapshot.data.textTheme.bodyText1,
+              style: snapshot.data.textTheme.bodyText2,
             )),
         Text(
           label,
-          style: snapshot.data.textTheme.bodyText1,
+          style: snapshot.data.textTheme.bodyText2,
         )
       ],
     );
@@ -141,7 +141,7 @@ class _DiagramCardState extends State<DiagramCard> {
       child: Container(
         height: 275,
         decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
+            color: snapshot.data.colorScheme.surface,
             boxShadow: [
              boxshadow
             ],
