@@ -1,3 +1,4 @@
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import '../../models/Habit.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -50,8 +51,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "Impact",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          style: snapshot.data.textTheme.bodyText2.copyWith(fontWeight: FontWeight.w500),
                         ),
                       ),
                       LinearPercentIndicator(
