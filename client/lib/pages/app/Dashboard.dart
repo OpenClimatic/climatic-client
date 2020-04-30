@@ -25,7 +25,7 @@ class _DashboardState extends State<Dashboard> {
   Widget _header() {
     return Container(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.52,
+        height: MediaQuery.of(context).size.height * 0.55,
         decoration: new BoxDecoration(
           color: snapshot.data.colorScheme.background,
           borderRadius: new BorderRadius.only(
@@ -42,7 +42,7 @@ class _DashboardState extends State<Dashboard> {
                   children: <Widget>[
                     Text(
                       "Home",
-                      style: snapshot.data.textTheme.headline,
+                      style: snapshot.data.textTheme.headline2,
                     ),
                     FlatButton(
                       onPressed: () => Navigator.pushNamed(context, "/Profile"),
@@ -70,7 +70,7 @@ class _DashboardState extends State<Dashboard> {
           child: Container(
               width: MediaQuery.of(context).size.width,
               child: Text("Active plans",
-                  style: snapshot.data.textTheme.subtitle)),
+                  style: snapshot.data.textTheme.headline3)),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -98,7 +98,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 50,
                 child: Text(
                   "Your Impact",
-                  style: snapshot.data.textTheme.subtitle,
+                  style: snapshot.data.textTheme.headline3,
                 )),
             Container(
                 child: ListView(

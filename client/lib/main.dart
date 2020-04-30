@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
               theme: ThemeData(
                   brightness: snapshot.data.brightness,
                   primaryColor: snapshot.data.primaryColor,
-                  primarySwatch: snapshot.data.primarySwatch,
                   bottomAppBarColor: snapshot.data.bottomAppBarColor,
                   colorScheme: snapshot.data.colorScheme,
                   textTheme: snapshot.data.textTheme),

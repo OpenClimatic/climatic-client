@@ -12,6 +12,26 @@ CustomTheme<DynamicTheme> customTheme = CustomTheme();
 /// use [snapshot.data.value].
 AsyncSnapshot<DynamicTheme> snapshot;
 
+/// This will be your class for creating dynamic Themes.
+/// You can also add your custom Color,Brightness,Size, etc.
+/// by adding in parameters.
+/// [If you will add some parameters here, make sure you also add in INITIAL, LIGHT and DARK Mode]
+/// so you will not get an error.
+class DynamicTheme {
+  final Brightness brightness;
+  final Color primaryColor;
+  final Color bottomAppBarColor;
+  final ColorScheme colorScheme;
+  final TextTheme textTheme;
+  DynamicTheme({
+    this.brightness,
+    this.primaryColor,
+    this.bottomAppBarColor,
+    this.colorScheme,
+    this.textTheme,
+  });
+}
+
 /// Uses the customTheme class to select either the dark or light dynamictheme
 void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
   if (platformBrightness == Brightness.dark) {
@@ -21,27 +41,9 @@ void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
   }
 }
 
-/// This will be your class for creating dynamic Themes.
-/// You can also add your custom Color,Brightness,Size, etc.
-/// by adding in parameters.
-/// [If you will add some parameters here, make sure you also add in INITIAL, LIGHT and DARK Mode]
-/// so you will not get an error.
-class DynamicTheme {
-  final Brightness brightness;
-  final MaterialColor primarySwatch;
-  final Color primaryColor;
-  final Color bottomAppBarColor;
-  final ColorScheme colorScheme;
-  final TextTheme textTheme;
-  DynamicTheme({
-    this.brightness,
-    this.primarySwatch,
-    this.primaryColor,
-    this.bottomAppBarColor,
-    this.colorScheme,
-    this.textTheme,
-  });
-}
+/// cc contains all the colors used trought the app
+/// there is a bg version for raw colors like green and blue
+CustomColors cc = CustomColors();
 
 class CustomColors {
   final Color primary = Color(0xff12C787);
@@ -63,6 +65,7 @@ class CustomColors {
   final Color lightHeading = Color(0xffF4F4F4);
 }
 
+// TEXT STYLE TEMPLATE
 TextStyle lightHeadingTextStyle = TextStyle(
     fontFamily: "Nunito", fontWeight: FontWeight.w700, color: cc.darkHeading);
 
@@ -75,9 +78,23 @@ TextStyle darkHeadingTextStyle = TextStyle(
 TextStyle darkBodyTextStyle = TextStyle(
     fontFamily: "Poppins", fontWeight: FontWeight.w400, color: cc.lightText);
 
-CustomColors cc = CustomColors();
+
+// Shadows
+BoxShadow boxshadow = new BoxShadow(
+  color: Color(0x22000000),
+  offset: Offset(2.0, 2.0),
+  spreadRadius: 0,
+  blurRadius: 5,
+);
 
 // LIGHT THEME
+DynamicTheme lightDynamicTheme = new DynamicTheme(
+  brightness: Brightness.light,
+  primaryColor: _lightScheme.primary,
+  bottomAppBarColor: _lightScheme.surface,
+  colorScheme: _lightScheme,
+  textTheme: _lightTextTheme,
+);
 
 ColorScheme _lightScheme = new ColorScheme(
   primary: cc.primary,
@@ -108,23 +125,23 @@ TextTheme _lightTextTheme = new TextTheme(
   button: lightBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
 );
 
-DynamicTheme lightDynamicTheme = new DynamicTheme(
-  brightness: Brightness.light,
-  primaryColor: _lightScheme.primary,
-  bottomAppBarColor: _lightScheme.surface,
-  colorScheme: _lightScheme,
-  textTheme: _lightTextTheme,
-);
 
 // DARK THEME
+DynamicTheme darkDynamicTheme = new DynamicTheme(
+  brightness: Brightness.dark,
+  primaryColor: _darkScheme.primary,
+  bottomAppBarColor: _darkScheme.surface,
+  colorScheme: _darkScheme,
+  textTheme: _darkTextTheme,
+);
 
 ColorScheme _darkScheme = new ColorScheme(
   primary: Color(0xff12C787),
   primaryVariant: Color(0xffCDFFCC),
   secondary: Color(0xff1D6C9D),
   secondaryVariant: Color(0xffCCF2FF),
-  surface: Colors.black87,
-  background: Colors.black,
+  surface: Color(0xff404040),
+  background: Color(0xff2e2e2e),
   error: Color(0xffEB5757),
   onPrimary: Colors.white,
   onSecondary: Colors.white,
@@ -147,10 +164,4 @@ TextTheme _darkTextTheme = new TextTheme(
   button: darkBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
 );
 
-DynamicTheme darkDynamicTheme = new DynamicTheme(
-  brightness: Brightness.dark,
-  primaryColor: _darkScheme.primary,
-  bottomAppBarColor: _darkScheme.surface,
-  colorScheme: _darkScheme,
-  textTheme: _darkTextTheme,
-);
+
