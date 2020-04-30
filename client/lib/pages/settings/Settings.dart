@@ -29,19 +29,7 @@ class _SettingsState extends State<Settings> {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: 75,
                 decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black12,
-                        blurRadius:
-                            20.0, // has the effect of softening the shadow
-                        spreadRadius:
-                            1.0, // has the effect of extending the shadow
-                        offset: Offset(
-                          5.0, // horizontal, move right 10
-                          5.0, // vertical, move down 10
-                        ),
-                      )
-                    ],
+                    boxShadow: [boxshadow],
                     color: snapshot.data.colorScheme.surface,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
@@ -87,10 +75,7 @@ class _SettingsState extends State<Settings> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: Text(
                     "Allgemein",
-                    style: TextStyle(
-                        color: Colors.grey[500],
-                        fontSize: 20,
-                        fontWeight: FontWeight.w600),
+                    style: snapshot.data.textTheme.headline3,
                   ),
                 ),
               ),
@@ -128,17 +113,7 @@ class _SettingsState extends State<Settings> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: snapshot.data.colorScheme.surface,
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black12,
-                    blurRadius: 20.0, // has the effect of softening the shadow
-                    spreadRadius: 1.0, // has the effect of extending the shadow
-                    offset: Offset(
-                      5.0, // horizontal, move right 10
-                      5.0, // vertical, move down 10
-                    ),
-                  )
-                ],
+                boxShadow: [boxshadow],
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -148,14 +123,15 @@ class _SettingsState extends State<Settings> {
                       width: 50,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.lightBlue[100]),
-                      child: Icon(icon)),
+                          color: cc.blueBG),
+                      child: Icon(icon, color: cc.blue)),
                   Container(
                     width: 200,
-                    child: Text(route, style: TextStyle(fontSize: 16)),
+                    child:
+                        Text(route, style: snapshot.data.textTheme.subtitle1),
                   ),
                   Container(
-                    child: Icon(FeatherIcons.chevronRight),
+                    child: Icon(FeatherIcons.chevronRight, color: snapshot.data.colorScheme.onSurface,),
                   )
                 ],
               ))),
@@ -167,10 +143,10 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
         appBar: AppBar(
           leading: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+            padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
             child: IconButton(
               icon: Icon(
-                FeatherIcons.chevronLeft,
+                FeatherIcons.arrowLeftCircle,
                 size: 32,
                 color: snapshot.data.colorScheme.onSurface,
               ),
@@ -180,10 +156,10 @@ class _SettingsState extends State<Settings> {
             ),
           ),
           title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
             child: Text(
               "Einstellungen",
-              style: snapshot.data.textTheme.title,
+              style: snapshot.data.textTheme.headline2,
             ),
           ),
           backgroundColor: snapshot.data.colorScheme.background,

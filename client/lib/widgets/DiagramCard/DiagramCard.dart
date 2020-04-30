@@ -23,7 +23,7 @@ class _DiagramCardState extends State<DiagramCard> {
   List<CircularStackEntry> data1 = <CircularStackEntry>[
     new CircularStackEntry(
       <CircularSegmentEntry>[
-        new CircularSegmentEntry(20.0, theme.colorScheme.primary,
+        new CircularSegmentEntry(20.0, snapshot.data.colorScheme.primary,
             rankKey: 'saved'),
         new CircularSegmentEntry(50.0, Colors.transparent, rankKey: 'max'),
       ],
@@ -55,7 +55,7 @@ class _DiagramCardState extends State<DiagramCard> {
                 edgeStyle: SegmentEdgeStyle.round,
                 holeLabel: "Level 3",
                 holeRadius: 69,
-                labelStyle: theme.textTheme.headline2),
+                labelStyle: snapshot.data.textTheme.headline2),
             AnimatedCircularChart(
                 key: _chartKey1,
                 size: const Size(230.0, 230.0),
@@ -64,11 +64,7 @@ class _DiagramCardState extends State<DiagramCard> {
                 edgeStyle: SegmentEdgeStyle.round,
                 holeLabel: "\n \n \n 88% abgeschlossen",
                 holeRadius: 70,
-                labelStyle: new TextStyle(
-                  // HIER MUSS EIN GLOBAL THEME STYLE REIN NAMENS SMALL!
-                  color: Colors.black,
-                  fontSize: 12.0,
-                )),
+                labelStyle: snapshot.data.textTheme.overline),
           ],
         ),
       )),
@@ -83,15 +79,11 @@ class _DiagramCardState extends State<DiagramCard> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("1390kg", style: theme.textTheme.headline2),
+              Text("1390kg", style: snapshot.data.textTheme.headline2),
               Text(
                 "co2 gespart",
-                style: TextStyle(
-                  // HIER MUSS EIN GLOBAL THEME STYLE REIN NAMENS SMALL!
-                  color: Colors.black,
-                  fontSize: 12.0,
-                ),
-              )
+                style: snapshot.data.textTheme.bodyText2,
+               )
             ]),
       )),
     );
@@ -115,11 +107,11 @@ class _DiagramCardState extends State<DiagramCard> {
             padding: EdgeInsets.only(right: 10),
             child: Text(
               stat.toString(),
-              style: theme.textTheme.bodyText1,
+              style: snapshot.data.textTheme.bodyText2,
             )),
         Text(
           label,
-          style: theme.textTheme.bodyText1,
+          style: snapshot.data.textTheme.bodyText2,
         )
       ],
     );
@@ -149,19 +141,11 @@ class _DiagramCardState extends State<DiagramCard> {
       child: Container(
         height: 275,
         decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
+            color: snapshot.data.colorScheme.surface,
             boxShadow: [
-              BoxShadow(
-                color: Colors.grey,
-                blurRadius: 20.0, // has the effect of softening the shadow
-                spreadRadius: 5.0, // has the effect of extending the shadow
-                offset: Offset(
-                  10.0, // horizontal, move right 10
-                  10.0, // vertical, move down 10
-                ),
-              )
+             boxshadow
             ],
-            borderRadius: BorderRadius.circular(20)),
+            borderRadius: BorderRadius.circular(16)),
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
           children: <Widget>[UpperDiagram(), Stats()],

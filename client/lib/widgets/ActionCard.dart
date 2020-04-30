@@ -1,3 +1,4 @@
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 class ActionCard extends StatelessWidget {
@@ -51,11 +52,7 @@ class ActionCard extends StatelessWidget {
                   topLeft: const Radius.circular(10.0),
                   topRight: const Radius.circular(10.0)),
               boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(.5),
-                  blurRadius: 5.0, // has the effect of softening the shadow
-                  offset: const Offset(0.0, 5.0),
-                )
+               boxshadow 
               ],
             ),
             child: Column(

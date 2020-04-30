@@ -1,3 +1,4 @@
+import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import '../../models/Habit.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -49,9 +50,8 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
-                          "Impact",
-                          style: TextStyle(
-                              fontSize: 16, fontWeight: FontWeight.bold),
+                          "Auswirkung",
+                          style: snapshot.data.textTheme.bodyText2,
                         ),
                       ),
                       LinearPercentIndicator(
@@ -59,12 +59,12 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         lineHeight: 12.0,
                         percent: 0.5,
                         linearStrokeCap: LinearStrokeCap.roundAll,
-                        backgroundColor: Colors.grey[200],
-                        progressColor: Theme.of(context).primaryColor,
+                        backgroundColor: cc.gray,
+                        progressColor: snapshot.data.colorScheme.primary,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[Text("low"), Text("high")],
+                        children: <Widget>[Text("niedrig", style: snapshot.data.textTheme.overline), Text("hoch", style: snapshot.data.textTheme.overline)],
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.9,
@@ -75,9 +75,8 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "Expenses",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                                "Kosten",
+                                style: snapshot.data.textTheme.bodyText2,
                               ),
                             ),
                             LinearPercentIndicator(
@@ -85,12 +84,12 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               lineHeight: 12.0,
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
-                              backgroundColor: Colors.grey[200],
-                              progressColor: Theme.of(context).primaryColor,
+                              backgroundColor: cc.gray,
+                              progressColor: snapshot.data.colorScheme.primary,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[Text("low"), Text("high")],
+                              children: <Widget>[Text("niedrig", style: snapshot.data.textTheme.overline), Text("hoch", style: snapshot.data.textTheme.overline)],
                             )
                           ],
                         ),
@@ -104,9 +103,8 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
-                                "Difficulty",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                                "Schwierigkeit",
+                                style: snapshot.data.textTheme.bodyText2,
                               ),
                             ),
                             LinearPercentIndicator(
@@ -114,12 +112,12 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               lineHeight: 12.0,
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
-                              backgroundColor: Colors.grey[200],
-                              progressColor: Theme.of(context).primaryColor,
+                              backgroundColor: cc.gray,
+                              progressColor: snapshot.data.colorScheme.primary,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[Text("low"), Text("high")],
+                              children: <Widget>[Text("niedrig", style: snapshot.data.textTheme.overline), Text("hoch", style: snapshot.data.textTheme.overline)],
                             )
                           ],
                         ),
@@ -127,19 +125,18 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 40),
                         child: Text(
-                          "Why do this?",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 22),
+                          "Wieso?",
+                          style: snapshot.data.textTheme.headline3,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Text(habit.description,
-                            style: TextStyle(fontSize: 18, height: 1.2)),
+                            style: snapshot.data.textTheme.bodyText1),
                       ),
                       Center(
                         child: CustomButton(
-                          label: "I will do it!",
+                          label: "Lass es uns angehen!",
                           onPressed: onButtonPressed,
                         ),
                       )

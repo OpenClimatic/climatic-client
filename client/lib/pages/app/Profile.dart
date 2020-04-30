@@ -17,15 +17,7 @@ Widget _header(context) {
         borderRadius: BorderRadius.circular(10),
         color: snapshot.data.colorScheme.surface,
         boxShadow: [
-          BoxShadow(
-            color: Colors.black12,
-            blurRadius: 20.0, // has the effect of softening the shadow
-            spreadRadius: 1.0, // has the effect of extending the shadow
-            offset: Offset(
-              5.0, // horizontal, move right 10
-              5.0, // vertical, move down 10
-            ),
-          )
+         boxshadow 
         ],
       ),
       width: MediaQuery.of(context).size.width * 0.9,
@@ -41,7 +33,7 @@ Widget _header(context) {
             width: 200,
             child: Text(
               "Ricardo Joseph",
-              style: snapshot.data.textTheme.subtitle,
+              style: snapshot.data.textTheme.headline3,
             ),
           )
         ],
@@ -57,10 +49,10 @@ class _ProfileState extends State<Profile> {
         backgroundColor: snapshot.data.colorScheme.background,
         appBar: AppBar(
             leading: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+              padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
               child: IconButton(
                 icon: Icon(
-                  FeatherIcons.chevronLeft,
+                  FeatherIcons.arrowLeftCircle,
                   size: 32,
                   color: snapshot.data.colorScheme.onBackground,
                 ),
@@ -70,10 +62,10 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
+              padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
               child: Text(
                 "Profile",
-                style: snapshot.data.textTheme.title,
+                style: snapshot.data.textTheme.headline2,
               ),
             ),
             backgroundColor: snapshot.data.colorScheme.background,
@@ -81,7 +73,7 @@ class _ProfileState extends State<Profile> {
             actions: <Widget>[
               // action button
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 20, 20, 0),
+                padding: const EdgeInsets.fromLTRB(0, 15, 20, 0),
                 child: IconButton(
                   icon: Icon(FeatherIcons.settings,
                       size: 26, color: snapshot.data.colorScheme.onBackground),
