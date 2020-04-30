@@ -62,22 +62,20 @@ class CustomColors {
   final Color lightText = Color(0xffF0F0F0);
   final Color lightHeading = Color(0xffF4F4F4);
 }
+
+TextStyle lightHeadingTextStyle = TextStyle(
+    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: cc.darkHeading);
+
+TextStyle lightBodyTextStyle = TextStyle(
+    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: cc.darkText);
+
+TextStyle darkHeadingTextStyle = TextStyle(
+    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: cc.lightHeading);
+
+TextStyle darkBodyTextStyle = TextStyle(
+    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: cc.lightText);
+
 CustomColors cc = CustomColors();
-
-Map<int, Color> color = {
-  50: Color.fromRGBO(32, 219, 155, .1),
-  100: Color.fromRGBO(35, 219, 155, .2),
-  200: Color.fromRGBO(35, 219, 155, .3),
-  300: Color.fromRGBO(35, 219, 155, .4),
-  400: Color.fromRGBO(35, 219, 155, .5),
-  500: Color.fromRGBO(35, 219, 155, .6),
-  600: Color.fromRGBO(35, 219, 155, .7),
-  700: Color.fromRGBO(35, 219, 155, .8),
-  800: Color.fromRGBO(35, 219, 155, .9),
-  900: Color.fromRGBO(35, 219, 155, 1),
-};
-
-MaterialColor colorCustom = MaterialColor(0xFF21D294, color);
 
 // LIGHT THEME
 
@@ -98,25 +96,20 @@ ColorScheme _lightScheme = new ColorScheme(
 );
 
 TextTheme _lightTextTheme = new TextTheme(
-    headline: TextStyle(
-      fontSize: 28,
-      fontFamily: 'Nunito',
-      fontWeight: FontWeight.w700,
-    ),
-    title:
-        TextStyle(fontSize: 24, fontFamily: 'Nunito', color: Color(0xff00162A)),
-    subtitle: TextStyle(
-        fontSize: 20, fontFamily: 'Poppins', color: _lightScheme.onBackground),
-    body1: TextStyle(
-        fontSize: 16, fontFamily: 'Poppins', color: _lightScheme.onBackground),
-    body2: TextStyle(fontSize: 14, color: _lightScheme.onBackground),
-    caption: TextStyle(
-        fontSize: 14, fontFamily: 'Poppins', color: _lightScheme.onBackground),
-    button: TextStyle(fontSize: 18, fontFamily: 'Poppins'));
+  headline1: lightHeadingTextStyle.copyWith(fontSize: 48),
+  headline2: lightHeadingTextStyle.copyWith(fontSize: 28),
+  headline3: lightHeadingTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
+  headline4: lightHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+  subtitle1: lightBodyTextStyle.copyWith(fontSize: 18),
+  bodyText1: lightBodyTextStyle.copyWith(fontSize: 16),
+  bodyText2: lightBodyTextStyle.copyWith(fontSize: 14),
+  caption: lightBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
+  overline: lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
+  button: lightBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
+);
 
 DynamicTheme lightDynamicTheme = new DynamicTheme(
   brightness: Brightness.light,
-  primarySwatch: colorCustom,
   primaryColor: _lightScheme.primary,
   bottomAppBarColor: _lightScheme.surface,
   colorScheme: _lightScheme,
@@ -142,23 +135,22 @@ ColorScheme _darkScheme = new ColorScheme(
 );
 
 TextTheme _darkTextTheme = new TextTheme(
-  headline: TextStyle(
-      fontSize: 32,
-      fontWeight: FontWeight.bold,
-      color: _darkScheme.onBackground),
-  title: TextStyle(fontSize: 24, color: _darkScheme.onBackground),
-  subtitle: TextStyle(fontSize: 20, color: _darkScheme.onBackground),
-  body1: TextStyle(fontSize: 16, color: _darkScheme.onBackground),
-  body2: TextStyle(fontSize: 14, color: _darkScheme.onBackground),
-  caption: TextStyle(fontSize: 14, color: _darkScheme.onBackground),
-  button: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+  headline1: darkHeadingTextStyle.copyWith(fontSize: 48),
+  headline2: darkHeadingTextStyle.copyWith(fontSize: 28),
+  headline3: darkHeadingTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
+  headline4: darkHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+  subtitle1: darkBodyTextStyle.copyWith(fontSize: 18),
+  bodyText1: darkBodyTextStyle.copyWith(fontSize: 16),
+  bodyText2: darkBodyTextStyle.copyWith(fontSize: 14),
+  caption: darkBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
+  overline: darkBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
+  button: darkBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
 );
 
 DynamicTheme darkDynamicTheme = new DynamicTheme(
   brightness: Brightness.dark,
-  primarySwatch: colorCustom,
-  primaryColor: colorCustom,
-  bottomAppBarColor: Color(0xff333333),
+  primaryColor: _darkScheme.primary,
+  bottomAppBarColor: _darkScheme.surface,
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,
 );
