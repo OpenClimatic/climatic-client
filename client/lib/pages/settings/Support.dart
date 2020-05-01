@@ -56,6 +56,7 @@ class _SupportState extends State<Support> {
                 },
                 child: Text(
                   "Öffne Webseite",
+                  style: snapshot.data.textTheme.headline4,
                 ),
               )
             ])));

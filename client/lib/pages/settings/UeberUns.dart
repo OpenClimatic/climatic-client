@@ -105,7 +105,8 @@ class _AboutState extends State<About> {
                       child: Icon(icon, color: cc.blue)),
                   Container(
                     width: 200,
-                    child: Text(route, style: TextStyle(fontSize: 16)),
+                    child:
+                        Text(route, style: snapshot.data.textTheme.bodyText1),
                   ),
                   Container(
                     child: Icon(FeatherIcons.chevronRight),
