@@ -18,7 +18,7 @@ class _AboutState extends State<About> {
         width: MediaQuery.of(context).size.width * 0.9,
         height: 350,
         decoration: BoxDecoration(
-            color: theme.colorScheme.surface,
+            color: snapshot.data.colorScheme.surface,
             borderRadius: BorderRadius.circular(20)),
         child: Column(
           children: <Widget>[
@@ -101,8 +101,8 @@ class _AboutState extends State<About> {
                       width: 50,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: Colors.lightBlue[100]),
-                      child: Icon(icon)),
+                          color: cc.blueBG),
+                      child: Icon(icon, color: cc.blue)),
                   Container(
                     width: 200,
                     child: Text(route, style: TextStyle(fontSize: 16)),
