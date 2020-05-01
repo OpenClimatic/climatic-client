@@ -3,8 +3,6 @@ import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:client/themes/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-var theme = snapshot.data;
-
 class About extends StatefulWidget {
   About({Key key}) : super(key: key);
 
@@ -16,13 +14,44 @@ class _AboutState extends State<About> {
   Widget aboutCard() {
     return Container(
       height: 400,
-      color: Colors.red,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.9,
         height: 350,
         decoration: BoxDecoration(
             color: theme.colorScheme.surface,
             borderRadius: BorderRadius.circular(20)),
+        child: Column(
+          children: <Widget>[
+            Container(
+              child: Image.asset('assets/icon/icon.png'),
+              height: 160,
+              width: 160,
+            ),
+            Column(
+              children: <Widget>[
+                Text("Climatic", style: snapshot.data.textTheme.headline3),
+                Text(
+                  "Beta 0.2.5",
+                  style: snapshot.data.textTheme.headline4,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text("Climatic ist open source und mit <3 gemacht",
+                      style: snapshot.data.textTheme.bodyText1,
+                      textAlign: TextAlign.center),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    "Wir befinden uns derzeit in der Beta, änderungen sind möglich",
+                    style: snapshot.data.textTheme.bodyText1,
+                    textAlign: TextAlign.center,
+                  ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -89,15 +118,15 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: theme.colorScheme.background,
+        backgroundColor: snapshot.data.colorScheme.background,
         appBar: AppBar(
           leading: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 20, 0, 0),
+            padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
             child: IconButton(
               icon: Icon(
-                FeatherIcons.chevronLeft,
+                FeatherIcons.arrowLeftCircle,
                 size: 32,
-                color: theme.colorScheme.onSurface,
+                color: snapshot.data.colorScheme.onSurface,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -105,13 +134,13 @@ class _AboutState extends State<About> {
             ),
           ),
           title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 30, 0.0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
             child: Text(
               "Über",
-              style: theme.textTheme.title,
+              style: snapshot.data.textTheme.headline2,
             ),
           ),
-          backgroundColor: theme.colorScheme.background,
+          backgroundColor: snapshot.data.colorScheme.background,
           elevation: 0,
         ),
         body: Center(
