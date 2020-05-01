@@ -14,6 +14,7 @@ class _SupportState extends State<Support> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: snapshot.data.colorScheme.background,
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -31,7 +32,7 @@ class _SupportState extends State<Support> {
           title: Padding(
             padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
             child: Text(
-              "Einstellungen",
+              "Hilfe",
               style: snapshot.data.textTheme.headline2,
             ),
           ),
