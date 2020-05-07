@@ -9,9 +9,9 @@
 </p>
 
 <p align="center">
-    <img alt="" title="Climalytic" src="https://img.shields.io/badge/Climalytic-Alpha.0.1-green">
-    <img alt="" title="Climalytic" src="https://img.shields.io/badge/AGPL%3.0-blue">
-    <img alt="" title="Climalytic" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
+    <img alt="" title="Climatic" src="https://img.shields.io/badge/Climalytic-Alpha.0.1-green">
+    <img alt="" title="Climatic" src="https://img.shields.io/badge/AGPL%3.0-blue">
+    <img alt="" title="Climatic" src="https://badges.frapsoft.com/os/v1/open-source.svg?v=103">
     <img alt="" title="NextNotes" src="https://img.shields.io/badge/Build%20with-Flutter-blue">
 
 
