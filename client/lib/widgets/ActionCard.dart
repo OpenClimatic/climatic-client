@@ -27,6 +27,7 @@ class ActionCard extends StatelessWidget {
               borderRadius: new BorderRadius.circular(10),
               boxShadow: [boxshadow],
             ),
+
             child: Container(
                 decoration: new BoxDecoration(
                     borderRadius: new BorderRadius.circular(10)),
@@ -54,7 +55,7 @@ class ActionCard extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Padding(
-                                   padding: const EdgeInsets.only(left: 10, top: 5, bottom: 5),
+                                   padding: const EdgeInsets.only(left: 10, top: 5, bottom: 0),
                                   child: Text("Kategorie", style: snapshot.data.textTheme.bodyText1,),
                                 ),
                                 Padding(
