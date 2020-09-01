@@ -1,3 +1,4 @@
+import 'package:client/services/ThemeNotifier.dart';
 import 'package:client/services/storage.dart';
 import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +7,8 @@ import './Allgemein.dart';
 import './Support.dart';
 import './UeberUns.dart';
 import './Datenschutz.dart';
+import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -15,9 +18,11 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
+  var _darkTheme = true;
+
   Widget _quickSettings(context) {
-    bool _darkModeSwitch =
-        snapshot.data.brightness == Brightness.light ? false : true;
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    _darkTheme = (themeNotifier.getTheme() == darkTheme);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
@@ -30,7 +35,7 @@ class _SettingsState extends State<Settings> {
                 height: 75,
                 decoration: BoxDecoration(
                     boxShadow: [boxshadow],
-                    color: snapshot.data.colorScheme.surface,
+                    color: Theme.of(context).colorScheme.surface,
                     borderRadius: BorderRadius.circular(10)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -40,15 +45,12 @@ class _SettingsState extends State<Settings> {
                       child: Text("Nachtmodus", style: TextStyle(fontSize: 16)),
                     ),
                     Switch(
-                      value: _darkModeSwitch,
-                      onChanged: (value) async {
-                        await storage.write(key: HAS_THEME, value: "true");
+                      value: _darkTheme,
+                      onChanged: (value) {
                         if (value) {
-                          await customTheme.setThemes(darkDynamicTheme);
-                          await storage.write(key: THEME, value: "dark");
+                          onThemeChanged(value, themeNotifier);
                         } else {
-                          await customTheme.setThemes(lightDynamicTheme);
-                          await storage.write(key: THEME, value: "light");
+                          onThemeChanged(value, themeNotifier);
                         }
                       },
                     ),
@@ -75,7 +77,7 @@ class _SettingsState extends State<Settings> {
                   width: MediaQuery.of(context).size.width * 0.9,
                   child: Text(
                     "Allgemein",
-                    style: snapshot.data.textTheme.headline3,
+                    style: Theme.of(context).textTheme.headline3,
                   ),
                 ),
               ),
@@ -112,7 +114,7 @@ class _SettingsState extends State<Settings> {
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: snapshot.data.colorScheme.surface,
+                color: Theme.of(context).colorScheme.surface,
                 boxShadow: [boxshadow],
               ),
               child: Row(
@@ -127,11 +129,14 @@ class _SettingsState extends State<Settings> {
                       child: Icon(icon, color: cc.blue)),
                   Container(
                     width: 200,
-                    child:
-                        Text(route, style: snapshot.data.textTheme.subtitle1),
+                    child: Text(route,
+                        style: Theme.of(context).textTheme.subtitle1),
                   ),
                   Container(
-                    child: Icon(FeatherIcons.chevronRight, color: snapshot.data.colorScheme.onSurface,),
+                    child: Icon(
+                      FeatherIcons.chevronRight,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
                   )
                 ],
               ))),
@@ -148,7 +153,7 @@ class _SettingsState extends State<Settings> {
               icon: Icon(
                 FeatherIcons.arrowLeftCircle,
                 size: 32,
-                color: snapshot.data.colorScheme.onSurface,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -159,14 +164,14 @@ class _SettingsState extends State<Settings> {
             padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
             child: Text(
               "Einstellungen",
-              style: snapshot.data.textTheme.headline2,
+              style: Theme.of(context).textTheme.headline2,
             ),
           ),
-          backgroundColor: snapshot.data.colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
         ),
         body: Container(
-          color: snapshot.data.colorScheme.background,
+          color: Theme.of(context).colorScheme.background,
           child: Align(
             alignment: Alignment.topLeft,
             child: SafeArea(
@@ -179,4 +184,12 @@ class _SettingsState extends State<Settings> {
           ),
         ));
   }
+}
+
+void onThemeChanged(bool value, ThemeNotifier themeNotifier) async {
+  (value)
+      ? themeNotifier.setTheme(darkTheme)
+      : themeNotifier.setTheme(lightTheme);
+  var prefs = await SharedPreferences.getInstance();
+  prefs.setBool('darkMode', value);
 }

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../services/storage.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
-import 'package:client/themes/theme.dart';
 import 'package:client/widgets/TextField/TextField.dart';
 
 class Allgemein extends StatefulWidget {
@@ -19,7 +17,7 @@ class _AllgemeinState extends State<Allgemein> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: snapshot.data.colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -27,7 +25,7 @@ class _AllgemeinState extends State<Allgemein> {
               icon: Icon(
                 FeatherIcons.arrowLeftCircle,
                 size: 32,
-                color: snapshot.data.colorScheme.onSurface,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -38,10 +36,10 @@ class _AllgemeinState extends State<Allgemein> {
             padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
             child: Text(
               "Profil Einstellungen",
-              style: snapshot.data.textTheme.headline2,
+              style: Theme.of(context).textTheme.headline2,
             ),
           ),
-          backgroundColor: snapshot.data.colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
         ),
         body: Center(

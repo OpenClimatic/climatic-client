@@ -1,11 +1,8 @@
-import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
-import 'package:custom_radio_grouped_button/custom_radio_grouped_button.dart';
 import '../../widgets/HabitCard.dart';
 import '../../widgets/ProgressBar.dart';
-import '../../widgets/SliderCard.dart';
 import '../../widgets/DiagramCard/DiagramCard.dart';
 
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
@@ -27,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
       child: Container(
         height: MediaQuery.of(context).size.height * 0.55,
         decoration: new BoxDecoration(
-          color: snapshot.data.colorScheme.background,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: new BorderRadius.only(
               bottomRight: const Radius.circular(30.0),
               bottomLeft: const Radius.circular(30.0)),
@@ -42,7 +39,7 @@ class _DashboardState extends State<Dashboard> {
                   children: <Widget>[
                     Text(
                       "Home",
-                      style: snapshot.data.textTheme.headline2,
+                      style: Theme.of(context).textTheme.headline2,
                     ),
                     FlatButton(
                       onPressed: () => Navigator.pushNamed(context, "/Profile"),
@@ -70,7 +67,7 @@ class _DashboardState extends State<Dashboard> {
           child: Container(
               width: MediaQuery.of(context).size.width,
               child: Text("Active plans",
-                  style: snapshot.data.textTheme.headline3)),
+                  style: Theme.of(context).textTheme.headline3)),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
@@ -98,7 +95,7 @@ class _DashboardState extends State<Dashboard> {
                 height: 50,
                 child: Text(
                   "Your Impact",
-                  style: snapshot.data.textTheme.headline3,
+                  style: Theme.of(context).textTheme.headline3,
                 )),
             Container(
                 child: ListView(
@@ -118,7 +115,7 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: snapshot.data.colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Container(
             child: Column(

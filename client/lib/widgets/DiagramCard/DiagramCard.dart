@@ -1,7 +1,6 @@
 import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
-import 'package:client/themes/theme.dart';
 
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
     new GlobalKey<AnimatedCircularChartState>();
@@ -17,27 +16,27 @@ class DiagramCard extends StatefulWidget {
 }
 
 class _DiagramCardState extends State<DiagramCard> {
-  List<CircularStackEntry> data1 = <CircularStackEntry>[
-    new CircularStackEntry(
-      <CircularSegmentEntry>[
-        new CircularSegmentEntry(20.0, snapshot.data.colorScheme.primary,
-            rankKey: 'saved'),
-        new CircularSegmentEntry(50.0, Colors.transparent, rankKey: 'max'),
-      ],
-      rankKey: 'kg of CO2 saved',
-    ),
-  ];
-  List<CircularStackEntry> data2 = <CircularStackEntry>[
-    new CircularStackEntry(
-      <CircularSegmentEntry>[
-        new CircularSegmentEntry(20.0, Colors.transparent, rankKey: 'saved'),
-        new CircularSegmentEntry(20.0, cc.gray, rankKey: 'max'),
-      ],
-      rankKey: 'kg of CO2 saved',
-    ),
-  ];
-
   Widget Diagram() {
+    List<CircularStackEntry> data1 = <CircularStackEntry>[
+      new CircularStackEntry(
+        <CircularSegmentEntry>[
+          new CircularSegmentEntry(20.0, Theme.of(context).colorScheme.primary,
+              rankKey: 'saved'),
+          new CircularSegmentEntry(50.0, Colors.transparent, rankKey: 'max'),
+        ],
+        rankKey: 'kg of CO2 saved',
+      ),
+    ];
+    List<CircularStackEntry> data2 = <CircularStackEntry>[
+      new CircularStackEntry(
+        <CircularSegmentEntry>[
+          new CircularSegmentEntry(20.0, Colors.transparent, rankKey: 'saved'),
+          new CircularSegmentEntry(20.0, cc.gray, rankKey: 'max'),
+        ],
+        rankKey: 'kg of CO2 saved',
+      ),
+    ];
+
     return Flexible(
       flex: 5,
       child: Container(
@@ -52,7 +51,7 @@ class _DiagramCardState extends State<DiagramCard> {
                 edgeStyle: SegmentEdgeStyle.round,
                 holeLabel: "Level 3",
                 holeRadius: 69,
-                labelStyle: snapshot.data.textTheme.headline2),
+                labelStyle: Theme.of(context).textTheme.headline2),
             AnimatedCircularChart(
                 key: _chartKey1,
                 size: const Size(230.0, 230.0),
@@ -61,7 +60,7 @@ class _DiagramCardState extends State<DiagramCard> {
                 edgeStyle: SegmentEdgeStyle.round,
                 holeLabel: "\n \n \n 88% abgeschlossen",
                 holeRadius: 70,
-                labelStyle: snapshot.data.textTheme.overline),
+                labelStyle: Theme.of(context).textTheme.overline),
           ],
         ),
       )),
@@ -76,11 +75,11 @@ class _DiagramCardState extends State<DiagramCard> {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text("1390kg", style: snapshot.data.textTheme.headline2),
+              Text("1390kg", style: Theme.of(context).textTheme.headline2),
               Text(
                 "co2 gespart",
-                style: snapshot.data.textTheme.bodyText2,
-               )
+                style: Theme.of(context).textTheme.bodyText2,
+              )
             ]),
       )),
     );
@@ -104,11 +103,11 @@ class _DiagramCardState extends State<DiagramCard> {
             padding: EdgeInsets.only(right: 10),
             child: Text(
               stat.toString(),
-              style: snapshot.data.textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyText2,
             )),
         Text(
           label,
-          style: snapshot.data.textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyText2,
         )
       ],
     );
@@ -138,10 +137,8 @@ class _DiagramCardState extends State<DiagramCard> {
       child: Container(
         height: 275,
         decoration: BoxDecoration(
-            color: snapshot.data.colorScheme.surface,
-            boxShadow: [
-             boxshadow
-            ],
+            color: Theme.of(context).colorScheme.surface,
+            boxShadow: [boxshadow],
             borderRadius: BorderRadius.circular(16)),
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(

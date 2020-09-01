@@ -1,4 +1,3 @@
-import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'app/Dashboard.dart';
 import 'app/Discover.dart';
@@ -68,7 +67,7 @@ class _AppState extends State<App> {
       ))),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: snapshot.data.colorScheme.primary,
+        backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () {
           _settingModalBottomSheet(context);
         },
@@ -88,7 +87,7 @@ class _AppState extends State<App> {
                 IconButton(
                     icon: new Icon(FeatherIcons.home),
                     color: _selectedTab == 0
-                        ? snapshot.data.colorScheme.primary
+                        ? Theme.of(context).colorScheme.primary
                         : Colors.grey,
                     onPressed: () {
                       setState(() {
@@ -98,7 +97,7 @@ class _AppState extends State<App> {
                 IconButton(
                     icon: Icon(FeatherIcons.user),
                     color: _selectedTab == 2
-                        ? snapshot.data.colorScheme.primary
+                        ? Theme.of(context).colorScheme.primary
                         : Colors.grey,
                     onPressed: () {
                       setState(() {

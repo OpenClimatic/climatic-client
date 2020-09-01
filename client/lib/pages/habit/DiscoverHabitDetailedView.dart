@@ -37,7 +37,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
           Container(
               padding: EdgeInsets.all(16.0),
               child: Text(habit.shortDescription,
-                  style: snapshot.data.textTheme.bodyText1)),
+                  style: Theme.of(context).textTheme.bodyText1)),
           Container(
             child: Column(
               children: <Widget>[
@@ -51,7 +51,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
                           "Auswirkung",
-                          style: snapshot.data.textTheme.bodyText2,
+                          style: Theme.of(context).textTheme.bodyText2,
                         ),
                       ),
                       LinearPercentIndicator(
@@ -60,11 +60,16 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         percent: 0.5,
                         linearStrokeCap: LinearStrokeCap.roundAll,
                         backgroundColor: cc.gray,
-                        progressColor: snapshot.data.colorScheme.primary,
+                        progressColor: Theme.of(context).colorScheme.primary,
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[Text("niedrig", style: snapshot.data.textTheme.overline), Text("hoch", style: snapshot.data.textTheme.overline)],
+                        children: <Widget>[
+                          Text("niedrig",
+                              style: Theme.of(context).textTheme.overline),
+                          Text("hoch",
+                              style: Theme.of(context).textTheme.overline)
+                        ],
                       ),
                       Container(
                         width: MediaQuery.of(context).size.width * 0.9,
@@ -76,7 +81,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "Kosten",
-                                style: snapshot.data.textTheme.bodyText2,
+                                style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
                             LinearPercentIndicator(
@@ -85,11 +90,18 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
                               backgroundColor: cc.gray,
-                              progressColor: snapshot.data.colorScheme.primary,
+                              progressColor:
+                                  Theme.of(context).colorScheme.primary,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[Text("niedrig", style: snapshot.data.textTheme.overline), Text("hoch", style: snapshot.data.textTheme.overline)],
+                              children: <Widget>[
+                                Text("niedrig",
+                                    style:
+                                        Theme.of(context).textTheme.overline),
+                                Text("hoch",
+                                    style: Theme.of(context).textTheme.overline)
+                              ],
                             )
                           ],
                         ),
@@ -104,7 +116,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "Schwierigkeit",
-                                style: snapshot.data.textTheme.bodyText2,
+                                style: Theme.of(context).textTheme.bodyText2,
                               ),
                             ),
                             LinearPercentIndicator(
@@ -113,11 +125,18 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
                               backgroundColor: cc.gray,
-                              progressColor: snapshot.data.colorScheme.primary,
+                              progressColor:
+                                  Theme.of(context).colorScheme.primary,
                             ),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[Text("niedrig", style: snapshot.data.textTheme.overline), Text("hoch", style: snapshot.data.textTheme.overline)],
+                              children: <Widget>[
+                                Text("niedrig",
+                                    style:
+                                        Theme.of(context).textTheme.overline),
+                                Text("hoch",
+                                    style: Theme.of(context).textTheme.overline)
+                              ],
                             )
                           ],
                         ),
@@ -126,13 +145,13 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 40),
                         child: Text(
                           "Wieso?",
-                          style: snapshot.data.textTheme.headline3,
+                          style: Theme.of(context).textTheme.headline3,
                         ),
                       ),
                       Padding(
                         padding: const EdgeInsets.only(top: 20),
                         child: Text(habit.description,
-                            style: snapshot.data.textTheme.bodyText1),
+                            style: Theme.of(context).textTheme.bodyText1),
                       ),
                       Center(
                         child: CustomButton(

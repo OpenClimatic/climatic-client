@@ -8,14 +8,14 @@ class TextFieldIcon extends StatelessWidget {
 
   TextFieldIcon({Key key, this.label, this.value, @required this.onChanged})
       : super(key: key);
-  TextEditingController _textFieldController = TextEditingController();
+  final TextEditingController _textFieldController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
-          color: snapshot.data.colorScheme.surface,
+          color: Theme.of(context).colorScheme.surface,
           boxShadow: [boxshadow],
           borderRadius: BorderRadius.circular(10)),
       child: TextField(
@@ -30,7 +30,7 @@ class TextFieldIcon extends StatelessWidget {
             hintText: label,
             //add icon outside input field
             prefixIcon: Icon(Icons.person),
-            fillColor: snapshot.data.colorScheme.surface),
+            fillColor: Theme.of(context).colorScheme.surface),
       ),
     );
   }

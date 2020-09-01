@@ -18,12 +18,12 @@ class CategoryCard extends StatelessWidget {
       this.onClick})
       : super(key: key);
 
-  Widget postCard() {
+  Widget postCard(BuildContext context) {
     return Container(
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: snapshot.data.colorScheme.surface,
+          color: Theme.of(context).colorScheme.surface,
         ),
         width: width,
         child: Column(
@@ -67,7 +67,7 @@ class CategoryCard extends StatelessWidget {
                     decoration: new BoxDecoration(
                         borderRadius: new BorderRadius.circular(10)),
                     child: Container(
-                      child: postCard(),
+                      child: postCard(context),
                     )),
               ],
             ),

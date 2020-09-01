@@ -18,12 +18,12 @@ class HabitCard extends StatelessWidget {
                   width: 200,
                   height: 100,
                   decoration: new BoxDecoration(
-                      color: snapshot.data.colorScheme.surface,
-                      boxShadow: [ boxshadow ],
+                      color: Theme.of(context).colorScheme.surface,
+                      boxShadow: [boxshadow],
                       borderRadius: new BorderRadius.circular(10)),
                   child: Text(
                     "Category",
-                    style: snapshot.data.textTheme.overline,
+                    style: Theme.of(context).textTheme.overline,
                   ),
                 )),
           ],

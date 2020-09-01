@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:client/themes/theme.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class About extends StatefulWidget {
   About({Key key}) : super(key: key);
@@ -18,7 +17,7 @@ class _AboutState extends State<About> {
         width: MediaQuery.of(context).size.width * 0.9,
         height: 350,
         decoration: BoxDecoration(
-            color: snapshot.data.colorScheme.surface,
+            color: Theme.of(context).colorScheme.surface,
             borderRadius: BorderRadius.circular(20)),
         child: Column(
           children: <Widget>[
@@ -29,22 +28,22 @@ class _AboutState extends State<About> {
             ),
             Column(
               children: <Widget>[
-                Text("Climatic", style: snapshot.data.textTheme.headline3),
+                Text("Climatic", style: Theme.of(context).textTheme.headline3),
                 Text(
                   "Beta 0.2.5",
-                  style: snapshot.data.textTheme.headline4,
+                  style: Theme.of(context).textTheme.headline4,
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text("Climatic ist open source und mit <3 gemacht",
-                      style: snapshot.data.textTheme.bodyText1,
+                      style: Theme.of(context).textTheme.bodyText1,
                       textAlign: TextAlign.center),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                     "Wir befinden uns derzeit in der Beta, änderungen sind möglich",
-                    style: snapshot.data.textTheme.bodyText1,
+                    style: Theme.of(context).textTheme.bodyText1,
                     textAlign: TextAlign.center,
                   ),
                 )
@@ -73,14 +72,14 @@ class _AboutState extends State<About> {
       padding: const EdgeInsets.all(8.0),
       child: FlatButton(
           onPressed: () async {
-            await launch(url);
+            /* await launch(url); */
           },
           child: Container(
               height: 75,
               width: MediaQuery.of(context).size.width * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: snapshot.data.colorScheme.surface,
+                color: Theme.of(context).colorScheme.surface,
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black12,
@@ -105,8 +104,8 @@ class _AboutState extends State<About> {
                       child: Icon(icon, color: cc.blue)),
                   Container(
                     width: 200,
-                    child:
-                        Text(route, style: snapshot.data.textTheme.bodyText1),
+                    child: Text(route,
+                        style: Theme.of(context).textTheme.bodyText1),
                   ),
                   Container(
                     child: Icon(FeatherIcons.chevronRight),
@@ -119,7 +118,7 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: snapshot.data.colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
           leading: Padding(
             padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -127,7 +126,7 @@ class _AboutState extends State<About> {
               icon: Icon(
                 FeatherIcons.arrowLeftCircle,
                 size: 32,
-                color: snapshot.data.colorScheme.onSurface,
+                color: Theme.of(context).colorScheme.onSurface,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -138,10 +137,10 @@ class _AboutState extends State<About> {
             padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
             child: Text(
               "Über",
-              style: snapshot.data.textTheme.headline2,
+              style: Theme.of(context).textTheme.headline2,
             ),
           ),
-          backgroundColor: snapshot.data.colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
         ),
         body: Center(

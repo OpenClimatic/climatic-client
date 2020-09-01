@@ -1,15 +1,13 @@
 import 'package:client/pages/app/SavingSplash.dart';
-import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'SliderCard.dart';
-import '../pages/SavingSplash.dart';
 import 'CustomButton.dart';
 
 class QuickActionAdd extends StatefulWidget {
-  String imgPath;
-  String question;
-  List<String> selections;
-  String title;
+  final String imgPath;
+  final String question;
+  final List<String> selections;
+  final String title;
 
   QuickActionAdd(
       {Key key, this.imgPath, this.question, this.selections, this.title})

@@ -1,4 +1,3 @@
-import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import '../../models/Habit.dart';
 import '../../models/BlogPost.dart';
@@ -68,7 +67,7 @@ class _DiscoverState extends State<Discover> {
                   children: <Widget>[
                     Text(
                       "Entdecken",
-                      style: snapshot.data.textTheme.headline2,
+                      style: Theme.of(context).textTheme.headline2,
                     ),
                     FlatButton(
                       onPressed: () => Navigator.pushNamed(context, "/Profile"),
@@ -112,7 +111,7 @@ class _DiscoverState extends State<Discover> {
           Container(
             width: MediaQuery.of(context).size.width * 0.9,
             child: Text("Neue Gewohnheiten finden",
-                style: snapshot.data.textTheme.headline3),
+                style: Theme.of(context).textTheme.headline3),
           ),
           _buildHabits()
         ],
@@ -145,8 +144,7 @@ class _DiscoverState extends State<Discover> {
         children: <Widget>[
           Container(
             width: MediaQuery.of(context).size.width * 0.9,
-            child: Text("Blog",
-                style: snapshot.data.textTheme.headline3),
+            child: Text("Blog", style: Theme.of(context).textTheme.headline3),
           ),
           _buildBlogPosts()
         ],
