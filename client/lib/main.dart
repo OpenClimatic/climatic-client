@@ -1,37 +1,43 @@
+import 'package:client/services/ThemeNotifier.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 import 'pages/settings/Settings.dart';
 import 'pages/app/Profile.dart';
 import 'pages/AuthLoading.dart';
 import 'pages/appIntro/AppIntro.dart';
 import 'pages/App.dart';
 import 'themes/theme.dart';
+import 'package:client/services/storage.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences.getInstance().then((prefs) {
+    var darkModeOn = prefs.getBool('darkMode') ?? true;
+    runApp(
+      ChangeNotifierProvider<ThemeNotifier>(
+        create: (_) => ThemeNotifier(darkModeOn ? darkTheme : lightTheme),
+        child: MyApp(),
+      ),
+    );
+  });
+}
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return new StreamBuilder<DynamicTheme>(
-        stream: customTheme.streamColors.stream,
-        initialData: lightDynamicTheme,
-        builder: (context, snap) {
-          snapshot = snap;
-          return new MaterialApp(
-              title: 'Climalytic',
-              theme: ThemeData(
-                  brightness: snapshot.data.brightness,
-                  primaryColor: snapshot.data.primaryColor,
-                  bottomAppBarColor: snapshot.data.bottomAppBarColor,
-                  colorScheme: snapshot.data.colorScheme,
-                  textTheme: snapshot.data.textTheme),
-              initialRoute: '/',
-              routes: {
-                '/': (context) => AuthLoading(),
-                '/Home': (context) => App(),
-                '/Settings': (context) => Settings(),
-                '/Profile': (context) => Profile(),
-                '/AppIntro': (context) => AppIntro(),
-              });
+    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    return new MaterialApp(
+        title: 'Climalytic',
+        theme: themeNotifier.getTheme(),
+        initialRoute: '/',
+        routes: {
+          '/': (context) => AuthLoading(),
+          '/Home': (context) => App(),
+          '/Settings': (context) => Settings(),
+          '/Profile': (context) => Profile(),
+          '/AppIntro': (context) => AppIntro(),
         });
   }
 }

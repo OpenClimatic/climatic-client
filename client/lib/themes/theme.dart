@@ -1,45 +1,4 @@
-import 'package:dynamic_custom_theme/dynamic_custom_theme.dart';
 import 'package:flutter/material.dart';
-
-/// This will your new custom dynamic theme
-/// *** [TO IMPLEMENT THIS YOU CAN CALL custom.streamColors, to listen to your Colors]
-/// *** [You can also set your Dynamic Theme]
-/// You can also check in main.dart for how to use this.
-CustomTheme<DynamicTheme> customTheme = CustomTheme();
-
-/// This [snapshot] will receive your all
-/// custom theme, to access your themes
-/// use [snapshot.data.value].
-AsyncSnapshot<DynamicTheme> snapshot;
-
-/// This will be your class for creating dynamic Themes.
-/// You can also add your custom Color,Brightness,Size, etc.
-/// by adding in parameters.
-/// [If you will add some parameters here, make sure you also add in INITIAL, LIGHT and DARK Mode]
-/// so you will not get an error.
-class DynamicTheme {
-  final Brightness brightness;
-  final Color primaryColor;
-  final Color bottomAppBarColor;
-  final ColorScheme colorScheme;
-  final TextTheme textTheme;
-  DynamicTheme({
-    this.brightness,
-    this.primaryColor,
-    this.bottomAppBarColor,
-    this.colorScheme,
-    this.textTheme,
-  });
-}
-
-/// Uses the customTheme class to select either the dark or light dynamictheme
-void setThemeAcordingToPlatformBrightness(Brightness platformBrightness) {
-  if (platformBrightness == Brightness.dark) {
-    customTheme.setThemes(darkDynamicTheme);
-  } else {
-    customTheme.setThemes(lightDynamicTheme);
-  }
-}
 
 /// cc contains all the colors used trought the app
 /// there is a bg version for raw colors like green and blue
@@ -59,16 +18,19 @@ class CustomColors {
   final Color yellow = Color(0xffD99E2A);
   final Color yellowBG = Color(0xffFFF5A2);
   final Color gray = Color(0xffCCCCCC);
+
   /// this is a dark color!
   final Color darkText = Color(0xff00213F);
+
   /// this this a dark color!
   final Color darkHeading = Color(0xff00162A);
+
   /// this is a light color!
   final Color lightText = Color(0xffF0F0F0);
+
   /// this is a light color!
   final Color lightHeading = Color(0xffF4F4F4);
 }
-
 
 // TEXT STYLE TEMPLATE
 TextStyle lightHeadingTextStyle = TextStyle(
@@ -83,7 +45,6 @@ TextStyle darkHeadingTextStyle = TextStyle(
 TextStyle darkBodyTextStyle = TextStyle(
     fontFamily: "Poppins", fontWeight: FontWeight.w400, color: cc.lightText);
 
-
 // Shadows
 BoxShadow boxshadow = new BoxShadow(
   color: Color(0x22000000),
@@ -93,7 +54,7 @@ BoxShadow boxshadow = new BoxShadow(
 );
 
 // LIGHT THEME
-DynamicTheme lightDynamicTheme = new DynamicTheme(
+final lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: _lightScheme.primary,
   bottomAppBarColor: _lightScheme.surface,
@@ -114,25 +75,30 @@ ColorScheme _lightScheme = new ColorScheme(
   onSurface: cc.darkText,
   onBackground: cc.darkText,
   onError: Colors.black,
-  brightness: Brightness.dark,
+  brightness: Brightness.light,
 );
 
 TextTheme _lightTextTheme = new TextTheme(
   headline1: lightHeadingTextStyle.copyWith(fontSize: 48),
   headline2: lightHeadingTextStyle.copyWith(fontSize: 28),
-  headline3: lightHeadingTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
-  headline4: lightHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+  headline3:
+      lightHeadingTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
+  headline4:
+      lightHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
   subtitle1: lightBodyTextStyle.copyWith(fontSize: 18),
   bodyText1: lightBodyTextStyle.copyWith(fontSize: 16),
-  bodyText2: lightBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w500),
-  caption: lightBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
-  overline: lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
-  button: lightBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
+  bodyText2:
+      lightBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w500),
+  caption:
+      lightBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
+  overline:
+      lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
+  button: lightBodyTextStyle.copyWith(
+      fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
 );
 
-
 // DARK THEME
-DynamicTheme darkDynamicTheme = new DynamicTheme(
+final darkTheme = ThemeData(
   brightness: Brightness.dark,
   primaryColor: _darkScheme.primary,
   bottomAppBarColor: _darkScheme.surface,
@@ -159,14 +125,17 @@ ColorScheme _darkScheme = new ColorScheme(
 TextTheme _darkTextTheme = new TextTheme(
   headline1: darkHeadingTextStyle.copyWith(fontSize: 48),
   headline2: darkHeadingTextStyle.copyWith(fontSize: 28),
-  headline3: darkHeadingTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
-  headline4: darkHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
+  headline3:
+      darkHeadingTextStyle.copyWith(fontSize: 24, fontWeight: FontWeight.w600),
+  headline4:
+      darkHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
   subtitle1: darkBodyTextStyle.copyWith(fontSize: 18),
   bodyText1: darkBodyTextStyle.copyWith(fontSize: 16),
   bodyText2: darkBodyTextStyle.copyWith(fontSize: 14),
-  caption: darkBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
-  overline: darkBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
-  button: darkBodyTextStyle.copyWith(fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
+  caption:
+      darkBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
+  overline:
+      darkBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
+  button: darkBodyTextStyle.copyWith(
+      fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
 );
-
-

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:client/themes/theme.dart';
 
 class SliderCard extends StatefulWidget {
   final String question;
@@ -19,9 +18,8 @@ class _SliderCardState extends State<SliderCard> {
   double rating = 0;
 
   Widget build(BuildContext context) {
-
     return Card(
-      color: snapshot.data.colorScheme.surface,
+      color: Theme.of(context).colorScheme.surface,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[

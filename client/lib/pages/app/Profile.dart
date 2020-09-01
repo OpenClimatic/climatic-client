@@ -15,10 +15,8 @@ Widget _header(context) {
     child: Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: snapshot.data.colorScheme.surface,
-        boxShadow: [
-         boxshadow 
-        ],
+        color: Theme.of(context).colorScheme.surface,
+        boxShadow: [boxshadow],
       ),
       width: MediaQuery.of(context).size.width * 0.9,
       height: 150,
@@ -33,7 +31,7 @@ Widget _header(context) {
             width: 200,
             child: Text(
               "Ricardo Joseph",
-              style: snapshot.data.textTheme.headline3,
+              style: Theme.of(context).textTheme.headline3,
             ),
           )
         ],
@@ -46,7 +44,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: snapshot.data.colorScheme.background,
+        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
             leading: Padding(
               padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
@@ -54,7 +52,7 @@ class _ProfileState extends State<Profile> {
                 icon: Icon(
                   FeatherIcons.arrowLeftCircle,
                   size: 32,
-                  color: snapshot.data.colorScheme.onBackground,
+                  color: Theme.of(context).colorScheme.onBackground,
                 ),
                 onPressed: () {
                   Navigator.pop(context);
@@ -65,10 +63,10 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
               child: Text(
                 "Profile",
-                style: snapshot.data.textTheme.headline2,
+                style: Theme.of(context).textTheme.headline2,
               ),
             ),
-            backgroundColor: snapshot.data.colorScheme.background,
+            backgroundColor: Theme.of(context).colorScheme.background,
             elevation: 0,
             actions: <Widget>[
               // action button
@@ -76,7 +74,8 @@ class _ProfileState extends State<Profile> {
                 padding: const EdgeInsets.fromLTRB(0, 15, 20, 0),
                 child: IconButton(
                   icon: Icon(FeatherIcons.settings,
-                      size: 26, color: snapshot.data.colorScheme.onBackground),
+                      size: 26,
+                      color: Theme.of(context).colorScheme.onBackground),
                   onPressed: () {
                     Navigator.pushNamed(context, "/Settings");
                   },

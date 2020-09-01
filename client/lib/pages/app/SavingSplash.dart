@@ -14,9 +14,9 @@ class SavingsSplash extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color col = snapshot.data.colorScheme.background;
+    Color col = Theme.of(context).colorScheme.background;
     return Scaffold(
-      backgroundColor: snapshot.data.primaryColor,
+      backgroundColor: Theme.of(context).primaryColor,
       body: Center(
         child: Container(
           width: MediaQuery.of(context).size.width * 0.8,

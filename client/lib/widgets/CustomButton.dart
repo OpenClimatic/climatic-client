@@ -1,11 +1,9 @@
-import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final String label;
   final Function onPressed;
   final bool secondary;
-  var color = snapshot.data.colorScheme.primary;
 
   CustomButton(
       {Key key,
@@ -14,11 +12,12 @@ class CustomButton extends StatelessWidget {
       this.secondary = false})
       : super(key: key);
 
-  primary() {
+  primary(BuildContext context) {
     return Container(
       height: 55,
       decoration: new BoxDecoration(
-          color: color, borderRadius: new BorderRadius.circular(10)),
+          color: Theme.of(context).colorScheme.primary,
+          borderRadius: new BorderRadius.circular(10)),
       child: Center(
         child: Padding(
           padding: EdgeInsets.only(left: 50, right: 50, top: 5, bottom: 5),
@@ -32,18 +31,21 @@ class CustomButton extends StatelessWidget {
     );
   }
 
-  second() {
+  second(BuildContext context) {
     return Container(
       height: 55,
       decoration: new BoxDecoration(
           borderRadius: new BorderRadius.circular(10),
-          border: Border.all(width: 3, color: color)),
+          border: Border.all(
+              width: 3, color: Theme.of(context).colorScheme.primary)),
       child: Center(
           child: Padding(
         padding: EdgeInsets.only(left: 30, right: 30, top: 5, bottom: 5),
         child: Text(label,
             style: TextStyle(
-                color: color, fontSize: 20, fontWeight: FontWeight.bold)),
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 20,
+                fontWeight: FontWeight.bold)),
       )),
     );
   }
@@ -54,6 +56,6 @@ class CustomButton extends StatelessWidget {
         onTap: () {
           onPressed();
         },
-        child: secondary ? second() : primary());
+        child: secondary ? second(context) : primary(context));
   }
 }
