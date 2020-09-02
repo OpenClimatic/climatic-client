@@ -119,10 +119,7 @@ class _DashboardState extends State<Dashboard> {
         body: SingleChildScrollView(
           child: Container(
             child: Column(
-              children: <Widget>[
-                _header(),
-                _habits(),
-              ],
+              children: <Widget>[_header(), _habits(), _impact()],
             ),
           ),
         ));

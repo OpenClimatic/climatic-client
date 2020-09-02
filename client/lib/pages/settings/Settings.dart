@@ -1,6 +1,4 @@
 import 'package:client/services/ThemeNotifier.dart';
-import 'package:client/services/storage.dart';
-import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import './Allgemein.dart';
@@ -8,7 +6,7 @@ import './Support.dart';
 import './UeberUns.dart';
 import './Datenschutz.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:client/themes/theme.dart';
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -18,11 +16,9 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  var _darkTheme = true;
-
   Widget _quickSettings(context) {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
-    _darkTheme = (themeNotifier.getTheme() == darkTheme);
+    bool _darkTheme = (themeNotifier.getTheme() == darkTheme);
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
@@ -184,12 +180,4 @@ class _SettingsState extends State<Settings> {
           ),
         ));
   }
-}
-
-void onThemeChanged(bool value, ThemeNotifier themeNotifier) async {
-  (value)
-      ? themeNotifier.setTheme(darkTheme)
-      : themeNotifier.setTheme(lightTheme);
-  var prefs = await SharedPreferences.getInstance();
-  prefs.setBool('darkMode', value);
 }

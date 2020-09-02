@@ -5,4 +5,4 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 final storage = new FlutterSecureStorage();
 
 /// either [true] (finished intro) of [null] (first time)
-final String FINISHED_INTRO = "FINISHED_INTRO";
+const String FINISHED_INTRO = "FINISHED_INTRO";

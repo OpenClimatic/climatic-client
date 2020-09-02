@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:client/themes/theme.dart';
 import '../../widgets/CustomButton.dart';
 
 class SavingsSplash extends StatelessWidget {
