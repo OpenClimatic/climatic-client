@@ -12,7 +12,7 @@ class IntroPage2 extends StatefulWidget {
 class _IntroPage2State extends State<IntroPage2> {
   header() {
     return Container(
-      height: MediaQuery.of(context).size.height * 0.5,
+      height: MediaQuery.of(context).size.height * 0.4,
       decoration: BoxDecoration(
         color: const Color(0xff21D294),
         borderRadius: new BorderRadius.only(
@@ -20,8 +20,6 @@ class _IntroPage2State extends State<IntroPage2> {
             bottomLeft: const Radius.circular(30.0)),
       ),
       child: Container(
-        height: 50,
-        width: 50,
         child: new Image.asset(
           "assets/images/intro/2.png",
           scale: 2,
@@ -32,71 +30,67 @@ class _IntroPage2State extends State<IntroPage2> {
   }
 
   introText() {
-    return Padding(
-        padding: EdgeInsets.all(30),
-        child: Container(
-          child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.7,
-                    child: Text("Auf das wesentliche fokussieren",
-                        style: TextStyle(
-                            fontSize: 25, fontWeight: FontWeight.bold))),
-                SizedBox(
-                  height: 10,
-                ),
-                Container(
-                    child: Text(
-                  "Jeder kann seinen Einfluss auf die Umwelt verringern. Doch wo fängt man an und was bringe am meisten \n \nWeniger Autofahren, weniger Fleisch, weniger fliegen?",
-                  style: TextStyle(fontSize: 18, height: 1.15),
-                ))
-              ]),
-        ));
+    return Container(
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text("Auf das wesentliche fokussieren",
+                style: Theme.of(context).textTheme.headline2),
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+                child: Text(
+              "Jeder kann seinen Einfluss auf die Umwelt verringern. Doch wo fängt man an und was bringe am meisten\n\nWeniger Autofahren, weniger Fleisch, weniger fliegen?",
+              style: Theme.of(context).textTheme.bodyText1,
+            ))
+          ]),
+    );
   }
 
   buttonRow() {
-    return Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          CustomButton(
-            secondary: true,
-            label: "zurück",
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          CustomButton(
-            label: "Weiter",
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => (IntroPage3())));
-            },
-          )
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        CustomButton(
+          width: 130,
+          secondary: true,
+          label: "Zurück",
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        CustomButton(
+          width: 140,
+          label: "Weiter",
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (BuildContext context) => (IntroPage3())));
+          },
+        )
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            header(),
-            SizedBox(height: 10),
-            Expanded(
-              child: introText(),
-            ),
-            buttonRow()
-          ],
-        ),
+      body: ListView(
+        padding: EdgeInsets.all(0),
+        children: <Widget>[
+          header(),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.45,
+              padding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+              child: introText()),
+          Container(
+              height: MediaQuery.of(context).size.height * 0.15,
+              padding: EdgeInsets.fromLTRB(25, 0, 25, 25),
+              child:
+                  Align(alignment: Alignment.bottomCenter, child: buttonRow())),
+        ],
       ),
     );
   }

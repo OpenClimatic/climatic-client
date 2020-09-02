@@ -16,7 +16,7 @@ class DiagramCard extends StatefulWidget {
 }
 
 class _DiagramCardState extends State<DiagramCard> {
-  Widget Diagram() {
+  Widget diagram() {
     List<CircularStackEntry> data1 = <CircularStackEntry>[
       new CircularStackEntry(
         <CircularSegmentEntry>[
@@ -67,7 +67,7 @@ class _DiagramCardState extends State<DiagramCard> {
     );
   }
 
-  Widget Saved() {
+  Widget saved() {
     return Flexible(
       flex: 3,
       child: Center(
@@ -85,13 +85,13 @@ class _DiagramCardState extends State<DiagramCard> {
     );
   }
 
-  Widget UpperDiagram() {
+  Widget upperDiagram() {
     return Flexible(
         flex: 3,
         child: Container(
             child: Center(
           child: Row(
-            children: <Widget>[Diagram(), Saved()],
+            children: <Widget>[diagram(), saved()],
           ),
         )));
   }
@@ -113,7 +113,7 @@ class _DiagramCardState extends State<DiagramCard> {
     );
   }
 
-  Widget Stats() {
+  Widget stats() {
     return Flexible(
         fit: FlexFit.tight,
         flex: 1,
@@ -142,7 +142,7 @@ class _DiagramCardState extends State<DiagramCard> {
             borderRadius: BorderRadius.circular(16)),
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(
-          children: <Widget>[UpperDiagram(), Stats()],
+          children: <Widget>[upperDiagram(), stats()],
         ),
       ),
     );

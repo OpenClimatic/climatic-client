@@ -1,14 +1,12 @@
 import 'package:client/services/ThemeNotifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter/services.dart';
 import 'pages/settings/Settings.dart';
 import 'pages/app/Profile.dart';
 import 'pages/AuthLoading.dart';
 import 'pages/appIntro/AppIntro.dart';
 import 'pages/App.dart';
 import 'themes/theme.dart';
-import 'package:client/services/storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
