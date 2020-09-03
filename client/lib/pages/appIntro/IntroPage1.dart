@@ -13,6 +13,7 @@ class _IntroPage1State extends State<IntroPage1> {
   header() {
     return Container(
       height: MediaQuery.of(context).size.height * 0.4,
+      width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
         color: const Color(0xff21D294),
         borderRadius: new BorderRadius.only(

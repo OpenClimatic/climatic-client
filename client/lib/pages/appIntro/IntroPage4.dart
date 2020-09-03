@@ -1,6 +1,8 @@
+import 'package:client/widgets/TextField/TextField.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/CustomButton.dart';
 import 'package:client/services/storage.dart';
+import '../../themes/theme.dart';
 
 class IntroPage4 extends StatefulWidget {
   IntroPage4({Key key}) : super(key: key);
@@ -10,19 +12,22 @@ class IntroPage4 extends StatefulWidget {
 }
 
 class _IntroPage4State extends State<IntroPage4> {
+  var username = "Klimaschützer/in";
+
   header() {
     return Container(
       child: Stack(children: <Widget>[
         Container(
-          height: MediaQuery.of(context).size.height * 0.3,
+          height: 170,
+          width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             color: const Color(0xff21D294),
+            boxShadow: [boxshadow],
             borderRadius: new BorderRadius.only(
                 bottomRight: const Radius.circular(30.0),
                 bottomLeft: const Radius.circular(30.0)),
           ),
           child: Container(
-            width: MediaQuery.of(context).size.width,
             child: new Image.asset(
               "assets/images/intro/bg.png",
               scale: 2,
@@ -31,68 +36,70 @@ class _IntroPage4State extends State<IntroPage4> {
           ),
         ),
         Container(
-          padding: EdgeInsets.only(top: 50, bottom: 50, left: 20, right: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(
-                "Unsere Vorschläge",
-                style: TextStyle(color: Colors.white, fontSize: 32),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Text(
-                  "Anhand deines CO2 Verbrauchs haben wir einige Vorschläge für dich erarbeitet.",
-                  style: TextStyle(color: Colors.white, fontSize: 18))
-            ],
-          ),
-        )
+            padding: EdgeInsets.only(top: 50, bottom: 50, left: 20, right: 10),
+            child: Text(
+              "Wie dürfen wir dich nennen?",
+              style: Theme.of(context)
+                  .textTheme
+                  .headline2
+                  .copyWith(color: Colors.white),
+            ))
       ]),
     );
   }
 
-  chooseAction() {
-    return Padding(
-        padding: EdgeInsets.all(30),
-        child: Container(
-          child: Text("choose action"),
-        ));
+  nameInput() {
+    return TextFieldIcon(
+      label: username,
+      onChanged: (e) {
+        username = e;
+      },
+    );
   }
 
   buttonRow() {
-    return Padding(
-      padding: const EdgeInsets.all(30.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          CustomButton(
-            label: "Weiter",
-            onPressed: () {
-              storage.write(key: FINISHED_INTRO, value: "true");
-              Navigator.pushNamedAndRemoveUntil(context, "/Home", (r) => false);
-            },
-          )
-        ],
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        CustomButton(
+          width: 130,
+          secondary: true,
+          label: "Zurück",
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        CustomButton(
+          label: "Weiter",
+          width: 140,
+          onPressed: () {
+            storage.write(key: FINISHED_INTRO, value: "true");
+            storage.write(key: NAME, value: username);
+            Navigator.pushNamedAndRemoveUntil(context, "/Home", (r) => false);
+          },
+        )
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            header(),
-            SizedBox(height: 10),
-            Expanded(
-              child: chooseAction(),
+      body: ListView(
+        padding: EdgeInsets.all(0),
+        children: <Widget>[
+          header(),
+          Container(
+            padding: EdgeInsets.fromLTRB(25, 30, 25, 10),
+            child: Column(
+              children: <Widget>[
+                nameInput(),
+                SizedBox(height: 35),
+                buttonRow()
+              ],
             ),
-            buttonRow()
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

@@ -26,11 +26,7 @@ class CustomButton extends StatelessWidget {
       child: Center(
         child: Padding(
           padding: EdgeInsets.only(left: 25, right: 25, top: 5, bottom: 5),
-          child: Text(label,
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
+          child: Text(label, style: Theme.of(context).textTheme.button),
         ),
       ),
     );
@@ -46,13 +42,10 @@ class CustomButton extends StatelessWidget {
               width: 3, color: Theme.of(context).colorScheme.primary)),
       child: Center(
           child: Padding(
-        padding: EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 0),
-        child: Text(label,
-            style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
-                fontSize: 20,
-                fontWeight: FontWeight.bold)),
-      )),
+              padding: EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 0),
+              child: Text(label,
+                  style: Theme.of(context).textTheme.button.copyWith(
+                      color: Theme.of(context).colorScheme.primary)))),
     );
   }
 

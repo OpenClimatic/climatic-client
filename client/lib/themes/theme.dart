@@ -48,15 +48,24 @@ TextStyle darkBodyTextStyle = TextStyle(
 // Shadows
 BoxShadow boxshadow = new BoxShadow(
   color: Color(0x22000000),
-  offset: Offset(2.0, 2.0),
+  offset: Offset(0.0, 2.25),
+  spreadRadius: 1,
+  blurRadius: 3,
+);
+
+BoxShadow boxshadowSmall = new BoxShadow(
+  color: Color(0x22000000),
+  offset: Offset(0.0, 1.0),
   spreadRadius: 0,
-  blurRadius: 5,
+  blurRadius: 1,
 );
 
 // LIGHT THEME
 final lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: _lightScheme.primary,
+  canvasColor: _lightScheme.background,
+  scaffoldBackgroundColor: _lightScheme.background,
   bottomAppBarColor: _lightScheme.surface,
   colorScheme: _lightScheme,
   textTheme: _lightTextTheme,
@@ -101,6 +110,8 @@ TextTheme _lightTextTheme = new TextTheme(
 final darkTheme = ThemeData(
   brightness: Brightness.dark,
   primaryColor: _darkScheme.primary,
+  canvasColor: _darkScheme.background,
+  scaffoldBackgroundColor: _darkScheme.background,
   bottomAppBarColor: _darkScheme.surface,
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,

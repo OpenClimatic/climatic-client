@@ -1,3 +1,5 @@
+import 'package:client/services/storage.dart';
+import 'package:client/widgets/CustomButton.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:client/widgets/TextField/TextField.dart';
@@ -10,8 +12,16 @@ class Allgemein extends StatefulWidget {
 }
 
 class _AllgemeinState extends State<Allgemein> {
-  onChanged(e) {
-    print(e);
+  String _username = "Klimaschützer/in";
+
+  @override
+  void initState() {
+    super.initState();
+    storage.read(key: NAME).then((value) {
+      setState(() {
+        _username = value;
+      });
+    });
   }
 
   @override
@@ -59,11 +69,25 @@ class _AllgemeinState extends State<Allgemein> {
                         height: 50,
                       ),
                       TextFieldIcon(
-                        label: "Username",
+                        label: _username,
                         onChanged: (e) {
-                          onChanged(e);
+                          _username = e;
                         },
-                      )
+                      ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Align(
+                          alignment: Alignment.centerRight,
+                          child: CustomButton(
+                            width: 210,
+                            label: "Namen ändern",
+                            onPressed: () {
+                              print(_username);
+                              storage.write(key: NAME, value: _username);
+                              Navigator.pop(context);
+                            },
+                          ))
                     ],
                   ),
                 ),
