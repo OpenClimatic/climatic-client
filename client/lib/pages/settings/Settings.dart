@@ -101,7 +101,7 @@ class _SettingsState extends State<Settings> {
                         color: cc.blueBG),
                     child: Icon(icon, color: cc.blue)),
                 Container(
-                  padding: EdgeInsets.fromLTRB(8, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                   width: 200,
                   child:
                       Text(route, style: Theme.of(context).textTheme.subtitle1),
