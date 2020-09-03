@@ -40,7 +40,6 @@ class _AuthLoadingState extends State<AuthLoading> {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
     bool darkModeOn =
         SchedulerBinding.instance.window.platformBrightness == Brightness.dark;
-    print(darkModeOn);
     darkModeOn
         ? onThemeChanged(true, themeNotifier)
         : onThemeChanged(false, themeNotifier);

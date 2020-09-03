@@ -6,3 +6,4 @@ final storage = new FlutterSecureStorage();
 
 /// either [true] (finished intro) of [null] (first time)
 const String FINISHED_INTRO = "FINISHED_INTRO";
+const String NAME = "NAME";

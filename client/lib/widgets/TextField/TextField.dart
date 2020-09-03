@@ -13,11 +13,11 @@ class TextFieldIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(6),
       decoration: BoxDecoration(
           color: Theme.of(context).colorScheme.surface,
-          boxShadow: [boxshadow],
-          borderRadius: BorderRadius.circular(10)),
+          boxShadow: [boxshadowSmall],
+          borderRadius: BorderRadius.circular(8)),
       child: TextField(
         controller: _textFieldController,
         onChanged: (e) {
