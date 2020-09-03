@@ -17,7 +17,7 @@ class ProgressBar extends StatelessWidget {
         padding: EdgeInsets.all(16.0),
         child: Container(
             padding: EdgeInsets.all(5.0),
-            width: 180,
+            width: 170,
             height: 70,
             decoration: new BoxDecoration(
                 color: Theme.of(context).colorScheme.surface,

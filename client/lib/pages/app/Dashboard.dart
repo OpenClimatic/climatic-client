@@ -1,8 +1,8 @@
+import 'package:client/services/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
 import '../../widgets/HabitCard.dart';
-import '../../widgets/ProgressBar.dart';
 import '../../widgets/DiagramCard/DiagramCard.dart';
 
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
@@ -19,10 +19,22 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  String _username = "Klimaschützer/in";
+
+  @override
+  void initState() {
+    super.initState();
+    storage.read(key: NAME).then((value) {
+      setState(() {
+        _username = value.split(" ")[0];
+      });
+    });
+  }
+
   Widget _header() {
     return Container(
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.55,
+        height: 370,
         decoration: new BoxDecoration(
           color: Theme.of(context).colorScheme.background,
           borderRadius: new BorderRadius.only(
@@ -37,10 +49,12 @@ class _DashboardState extends State<Dashboard> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      "Home",
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
+                    Container(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        child: Text(
+                          "Hallo, " + _username,
+                          style: Theme.of(context).textTheme.headline2,
+                        )),
                     FlatButton(
                       onPressed: () => Navigator.pushNamed(context, "/Profile"),
                       child: Container(
@@ -85,33 +99,6 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 
-  Widget _impact() {
-    return Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: <Widget>[
-            Container(
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                child: Text(
-                  "Your Impact",
-                  style: Theme.of(context).textTheme.headline3,
-                )),
-            Container(
-                child: ListView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              children: <Widget>[
-                ProgressBar(),
-                ProgressBar(),
-                ProgressBar(),
-                ProgressBar()
-              ],
-            ))
-          ],
-        ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,7 +106,7 @@ class _DashboardState extends State<Dashboard> {
         body: SingleChildScrollView(
           child: Container(
             child: Column(
-              children: <Widget>[_header(), _habits(), _impact()],
+              children: <Widget>[_header(), _habits()],
             ),
           ),
         ));
