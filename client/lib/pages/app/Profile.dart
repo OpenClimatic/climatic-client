@@ -59,7 +59,7 @@ class _ProfileState extends State<Profile> {
     return Scaffold(
         appBar: AppBar(
             leading: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+              padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
               child: IconButton(
                 icon: Icon(
                   FeatherIcons.arrowLeftCircle,
@@ -71,7 +71,7 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
               child: Text(
                 "Profile",
                 style: Theme.of(context).textTheme.headline2,
@@ -80,11 +80,11 @@ class _ProfileState extends State<Profile> {
             actions: <Widget>[
               // action button
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 10, 15, 0),
+                padding: EdgeInsets.fromLTRB(0, 12, 15, 0),
                 child: IconButton(
                   icon: Icon(
                     FeatherIcons.settings,
-                    size: 32,
+                    size: 30,
                   ),
                   onPressed: () {
                     Navigator.pushNamed(context, "/Settings");
