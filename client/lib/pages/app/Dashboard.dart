@@ -31,44 +31,37 @@ class _DashboardState extends State<Dashboard> {
     });
   }
 
-  Widget _header() {
+  Widget _welcomeMessage() {
     return Container(
-      child: Container(
-        height: 370,
-        decoration: new BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
-          borderRadius: new BorderRadius.only(
-              bottomRight: const Radius.circular(30.0),
-              bottomLeft: const Radius.circular(30.0)),
-        ),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Container(
-                        width: MediaQuery.of(context).size.width * 0.6,
-                        child: Text(
-                          "Hallo, " + _username,
-                          style: Theme.of(context).textTheme.headline2,
-                        )),
-                    FlatButton(
-                      onPressed: () => Navigator.pushNamed(context, "/Profile"),
-                      child: Container(
-                          height: 46,
-                          width: 46,
-                          child: Image.asset('assets/images/profile.png')),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            DiagramCard(),
-          ],
-        ),
+      padding: EdgeInsets.fromLTRB(20, 18, 0, 20),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Text(
+                    "Hallo, " + _username,
+                    style: _username.length < 16
+                        ? Theme.of(context).textTheme.headline2
+                        : Theme.of(context).textTheme.headline4,
+                  )),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: Align(
+                      alignment: Alignment.centerRight,
+                      child: FlatButton(
+                        onPressed: () =>
+                            Navigator.pushNamed(context, "/Profile"),
+                        child: Container(
+                            height: 46,
+                            width: 46,
+                            child: Image.asset('assets/images/profile.png')),
+                      )))
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -105,8 +98,9 @@ class _DashboardState extends State<Dashboard> {
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Container(
+            padding: EdgeInsets.all(0),
             child: Column(
-              children: <Widget>[_header(), _habits()],
+              children: <Widget>[_welcomeMessage(), DiagramCard(), _habits()],
             ),
           ),
         ));

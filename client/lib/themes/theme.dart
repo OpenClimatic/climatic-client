@@ -67,11 +67,21 @@ final lightTheme = ThemeData(
   canvasColor: _lightScheme.background,
   scaffoldBackgroundColor: _lightScheme.background,
   bottomAppBarColor: _lightScheme.surface,
+  appBarTheme: _lightAppBarTheme,
   colorScheme: _lightScheme,
   textTheme: _lightTextTheme,
 );
 
-ColorScheme _lightScheme = new ColorScheme(
+AppBarTheme _lightAppBarTheme = AppBarTheme(
+  actionsIconTheme: IconThemeData(color: _lightScheme.onBackground),
+  brightness: Brightness.light,
+  color: _lightScheme.background,
+  elevation: 9999,
+  iconTheme: IconThemeData(color: _lightScheme.onBackground),
+  textTheme: _lightTextTheme,
+);
+
+ColorScheme _lightScheme = ColorScheme(
   primary: cc.primary,
   primaryVariant: Color(0xffCDFFCC),
   secondary: cc.secondary,
@@ -87,7 +97,7 @@ ColorScheme _lightScheme = new ColorScheme(
   brightness: Brightness.light,
 );
 
-TextTheme _lightTextTheme = new TextTheme(
+TextTheme _lightTextTheme = TextTheme(
   headline1: lightHeadingTextStyle.copyWith(fontSize: 48),
   headline2: lightHeadingTextStyle.copyWith(fontSize: 28),
   headline3:
@@ -112,12 +122,22 @@ final darkTheme = ThemeData(
   primaryColor: _darkScheme.primary,
   canvasColor: _darkScheme.background,
   scaffoldBackgroundColor: _darkScheme.background,
+  appBarTheme: _darkAppBarTheme,
   bottomAppBarColor: _darkScheme.surface,
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,
 );
 
-ColorScheme _darkScheme = new ColorScheme(
+AppBarTheme _darkAppBarTheme = AppBarTheme(
+  actionsIconTheme: IconThemeData(color: _darkScheme.onBackground),
+  brightness: Brightness.dark,
+  color: _darkScheme.background,
+  elevation: 9999,
+  iconTheme: IconThemeData(color: _darkScheme.onBackground),
+  textTheme: _darkTextTheme,
+);
+
+ColorScheme _darkScheme = ColorScheme(
   primary: Color(0xff12C787),
   primaryVariant: Color(0xffCDFFCC),
   secondary: Color(0xff1D6C9D),
@@ -133,7 +153,7 @@ ColorScheme _darkScheme = new ColorScheme(
   brightness: Brightness.dark,
 );
 
-TextTheme _darkTextTheme = new TextTheme(
+TextTheme _darkTextTheme = TextTheme(
   headline1: darkHeadingTextStyle.copyWith(fontSize: 48),
   headline2: darkHeadingTextStyle.copyWith(fontSize: 28),
   headline3:

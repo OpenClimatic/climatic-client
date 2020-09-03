@@ -144,30 +144,23 @@ class _SettingsState extends State<Settings> {
     return Scaffold(
         appBar: AppBar(
           leading: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-            child: IconButton(
-              icon: Icon(
-                FeatherIcons.arrowLeftCircle,
-                size: 32,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
+              padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
+              child: IconButton(
+                icon: Icon(
+                  FeatherIcons.arrowLeftCircle,
+                  size: 32,
+                ),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              )),
           title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
-            child: Text(
-              "Einstellungen",
-              style: Theme.of(context).textTheme.headline2,
-            ),
+            padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+            child: Text("Einstellungen",
+                style: Theme.of(context).textTheme.headline2),
           ),
-          backgroundColor: Theme.of(context).colorScheme.background,
-          elevation: 0,
         ),
         body: Container(
-          color: Theme.of(context).colorScheme.background,
           child: Align(
             alignment: Alignment.topLeft,
             child: SafeArea(
