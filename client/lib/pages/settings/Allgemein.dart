@@ -86,7 +86,7 @@ class _AllgemeinState extends State<Allgemein> {
                               print(_username);
                               storage.write(key: NAME, value: _username);
                               Navigator.pushNamedAndRemoveUntil(
-                                  context, "Dashboard", (r) => false);
+                                  context, "Home", (r) => false);
                             },
                           ))
                     ],
