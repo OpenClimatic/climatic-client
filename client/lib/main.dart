@@ -46,6 +46,7 @@ class MyApp extends StatelessWidget {
       title: "Climalytic",
       theme: themeNotifier.getTheme(),
       initialRoute: "/",
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case "/":

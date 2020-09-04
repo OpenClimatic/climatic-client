@@ -1,10 +1,8 @@
 import 'package:client/services/ThemeNotifier.dart';
+import 'package:client/widgets/CustomFlatButton.dart';
+import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
-import 'package:client/pages/settings/Allgemein.dart';
-import 'package:client/pages/settings/Support.dart';
-import 'package:client/pages/settings/UeberUns.dart';
-import 'package:client/pages/settings/Datenschutz.dart';
 import 'package:provider/provider.dart';
 import 'package:client/themes/theme.dart' as theme;
 
@@ -58,88 +56,34 @@ class _SettingsState extends State<Settings> {
       margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
       child: Column(
         children: <Widget>[
-          _settingsButton(
-            "Profil Einstellungen",
-            FeatherIcons.settings,
-            Allgemein(),
-            context,
-          ),
-          _settingsButton(
-              "Privatsphäre", FeatherIcons.shield, Datenschutz(), context),
-          _settingsButton("Hilfe", FeatherIcons.lifeBuoy, Support(), context),
-          _settingsButton("Über", FeatherIcons.info, About(), context),
+          CustomFlatButton(
+              icon: FeatherIcons.settings,
+              label: "Profil Einstellungen",
+              pageRoute: "Settings/Allgemein"),
+          CustomFlatButton(
+              icon: FeatherIcons.shield,
+              label: "Privatsphäre",
+              pageRoute: "Settings/Datenschutz"),
+          CustomFlatButton(
+              icon: FeatherIcons.lifeBuoy,
+              label: "Hilfe",
+              pageRoute: "Settings/Support"),
+          CustomFlatButton(
+              icon: FeatherIcons.info,
+              label: "Über",
+              pageRoute: "Settings/UeberUns"),
         ],
       ),
-    );
-  }
-
-  Widget _settingsButton(route, icon, pressed, context) {
-    return FlatButton(
-      onPressed: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (BuildContext context) => (pressed)));
-      },
-      child: Container(
-          height: 70,
-          margin: EdgeInsets.fromLTRB(0, 8, 0, 8),
-          padding: EdgeInsets.fromLTRB(8, 0, 8, 0),
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            color: Theme.of(context).colorScheme.surface,
-            boxShadow: [theme.boxshadowSmall],
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Row(children: [
-                Container(
-                    height: 50,
-                    width: 50,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(10),
-                        color: theme.blueBG),
-                    child: Icon(icon, color: theme.blue)),
-                Container(
-                  padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
-                  width: 200,
-                  child:
-                      Text(route, style: Theme.of(context).textTheme.subtitle1),
-                ),
-              ]),
-              Icon(
-                FeatherIcons.chevronRight,
-                color: Theme.of(context).colorScheme.onSurface,
-              )
-            ],
-          )),
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 55,
-        leading: Padding(
-            padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-            child: IconButton(
-              icon: Icon(
-                FeatherIcons.arrowLeftCircle,
-                size: 32,
-              ),
-              onPressed: () {
-                Navigator.popUntil(context, ModalRoute.withName("Profile"));
-              },
-            )),
-        title: Padding(
-          padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-          child: Text("Einstellungen",
-              style: Theme.of(context).textTheme.headline2),
-        ),
-      ),
       body: ListView(
         children: <Widget>[
+          StaticTopBar(
+              label: "Einstellungen", action: false, backRoute: "Profile"),
           _darkMode(),
           _settings(),
         ],
