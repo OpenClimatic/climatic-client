@@ -1,5 +1,6 @@
 import 'package:client/services/storage.dart';
 import 'package:client/themes/theme.dart';
+import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 
@@ -57,44 +58,15 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-            leading: Padding(
-              padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-              child: IconButton(
-                icon: Icon(
-                  FeatherIcons.arrowLeftCircle,
-                  size: 32,
-                ),
-                onPressed: () {
-                  Navigator.popUntil(context, ModalRoute.withName("Home"));
-                },
-              ),
-            ),
-            title: Padding(
-              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
-              child: Text(
-                "Profile",
-                style: Theme.of(context).textTheme.headline2,
-              ),
-            ),
-            actions: <Widget>[
-              // action button
-              Padding(
-                padding: EdgeInsets.fromLTRB(0, 12, 15, 0),
-                child: IconButton(
-                  icon: Icon(
-                    FeatherIcons.settings,
-                    size: 30,
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(context, "Settings");
-                  },
-                ),
-              ),
-            ]),
         body: Center(
             child: Column(children: <Widget>[
-          _header(),
-        ])));
+      StaticTopBar(
+          label: "Profile",
+          action: true,
+          actionIcon: FeatherIcons.settings,
+          actionRoute: "Settings",
+          backRoute: "Home"),
+      _header(),
+    ])));
   }
 }

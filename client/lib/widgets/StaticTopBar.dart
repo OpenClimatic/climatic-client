@@ -18,62 +18,68 @@ class StaticTopBar extends StatelessWidget {
       : super(key: key);
 
   Widget withoutAction(BuildContext context) {
-    return Row(children: [
-      Padding(
-        padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+    return SafeArea(
+        child: Row(children: [
+      Container(
+        width: MediaQuery.of(context).size.width * 0.2,
+        padding: EdgeInsets.fromLTRB(0, 11, 0, 0),
         child: IconButton(
           icon: Icon(
             FeatherIcons.arrowLeftCircle,
-            size: 32,
+            size: 30,
           ),
           onPressed: () {
             Navigator.popUntil(context, ModalRoute.withName(backRoute));
           },
         ),
       ),
-      Padding(
-        padding: EdgeInsets.fromLTRB(4, 13, 0, 0),
-        child: Text(
-          label,
-          style: Theme.of(context).textTheme.headline2,
-        ),
-      ),
-    ]);
-  }
-
-  Widget withAction(BuildContext context) {
-    return Row(children: <Widget>[
-      Padding(
-        padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
-        child: IconButton(
-          icon: Icon(
-            FeatherIcons.arrowLeftCircle,
-            size: 32,
-          ),
-          onPressed: () {
-            Navigator.popUntil(context, ModalRoute.withName(backRoute));
-          },
-        ),
-      ),
-      Padding(
+      Container(
+        width: MediaQuery.of(context).size.width * 0.8,
         padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
         child: Text(
           label,
           style: Theme.of(context).textTheme.headline2,
         ),
       ),
-      Padding(
-        padding: EdgeInsets.fromLTRB(0, 12, 15, 0),
+    ]));
+  }
+
+  Widget withAction(BuildContext context) {
+    return SafeArea(
+        child: Row(children: <Widget>[
+      Container(
+        width: MediaQuery.of(context).size.width * 0.2,
+        padding: EdgeInsets.fromLTRB(0, 11, 0, 0),
         child: IconButton(
-            icon: Icon(
-              this.actionIcon,
-              size: 30,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, actionRoute);
-            }),
-      )
-    ]);
+          icon: Icon(
+            FeatherIcons.arrowLeftCircle,
+            size: 30,
+          ),
+          onPressed: () {
+            Navigator.popUntil(context, ModalRoute.withName(backRoute));
+          },
+        ),
+      ),
+      Container(
+        width: MediaQuery.of(context).size.width * 0.6,
+        padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+        child: Text(
+          label,
+          style: Theme.of(context).textTheme.headline2,
+        ),
+      ),
+      Container(
+          width: MediaQuery.of(context).size.width * 0.2,
+          padding: EdgeInsets.fromLTRB(0, 10, 0, 0),
+          child: IconButton(
+              icon: Icon(
+                this.actionIcon,
+                size: 28,
+              ),
+              onPressed: () {
+                Navigator.pushNamed(context, actionRoute);
+              })),
+    ]));
   }
 
   @override
