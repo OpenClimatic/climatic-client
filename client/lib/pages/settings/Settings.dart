@@ -1,12 +1,12 @@
 import 'package:client/services/ThemeNotifier.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
-import './Allgemein.dart';
-import './Support.dart';
-import './UeberUns.dart';
-import './Datenschutz.dart';
+import 'package:client/pages/settings/Allgemein.dart';
+import 'package:client/pages/settings/Support.dart';
+import 'package:client/pages/settings/UeberUns.dart';
+import 'package:client/pages/settings/Datenschutz.dart';
 import 'package:provider/provider.dart';
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 
 class Settings extends StatefulWidget {
   Settings({Key key}) : super(key: key);
@@ -18,14 +18,14 @@ class Settings extends StatefulWidget {
 class _SettingsState extends State<Settings> {
   Widget _darkMode() {
     final themeNotifier = Provider.of<ThemeNotifier>(context);
-    bool _darkTheme = (themeNotifier.getTheme() == darkTheme);
+    bool _darkTheme = (themeNotifier.getTheme() == theme.darkTheme);
 
     return Container(
       margin: EdgeInsets.fromLTRB(16, 24, 16, 0),
       width: MediaQuery.of(context).size.width * 0.9,
       height: 70,
       decoration: BoxDecoration(
-          boxShadow: [boxshadowSmall],
+          boxShadow: [theme.boxshadowSmall],
           color: Theme.of(context).colorScheme.surface,
           borderRadius: BorderRadius.circular(10)),
       child: Row(
@@ -87,7 +87,7 @@ class _SettingsState extends State<Settings> {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             color: Theme.of(context).colorScheme.surface,
-            boxShadow: [boxshadowSmall],
+            boxShadow: [theme.boxshadowSmall],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -98,8 +98,8 @@ class _SettingsState extends State<Settings> {
                     width: 50,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
-                        color: cc.blueBG),
-                    child: Icon(icon, color: cc.blue)),
+                        color: theme.blueBG),
+                    child: Icon(icon, color: theme.blue)),
                 Container(
                   padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
                   width: 200,
@@ -129,7 +129,7 @@ class _SettingsState extends State<Settings> {
                 size: 32,
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.popUntil(context, ModalRoute.withName("Profile"));
               },
             )),
         title: Padding(

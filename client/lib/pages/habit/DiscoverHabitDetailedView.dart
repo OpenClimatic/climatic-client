@@ -1,4 +1,4 @@
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 import 'package:flutter/material.dart';
 import '../../models/Habit.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -59,7 +59,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         lineHeight: 12.0,
                         percent: 0.5,
                         linearStrokeCap: LinearStrokeCap.roundAll,
-                        backgroundColor: cc.gray,
+                        backgroundColor: theme.gray,
                         progressColor: Theme.of(context).colorScheme.primary,
                       ),
                       Row(
@@ -89,7 +89,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               lineHeight: 12.0,
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
-                              backgroundColor: cc.gray,
+                              backgroundColor: theme.gray,
                               progressColor:
                                   Theme.of(context).colorScheme.primary,
                             ),
@@ -124,7 +124,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               lineHeight: 12.0,
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
-                              backgroundColor: cc.gray,
+                              backgroundColor: theme.gray,
                               progressColor:
                                   Theme.of(context).colorScheme.primary,
                             ),

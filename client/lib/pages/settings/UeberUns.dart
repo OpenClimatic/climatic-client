@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 
 class About extends StatefulWidget {
   About({Key key}) : super(key: key);
@@ -12,6 +12,7 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   Widget aboutCard() {
     return Container(
+      margin: EdgeInsets.all(20),
       height: 400,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.9,
@@ -100,8 +101,8 @@ class _AboutState extends State<About> {
                       width: 50,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
-                          color: cc.blueBG),
-                      child: Icon(icon, color: cc.blue)),
+                          color: theme.blueBG),
+                      child: Icon(icon, color: theme.blue)),
                   Container(
                     width: 200,
                     child: Text(route,
@@ -118,35 +119,28 @@ class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
-        appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
-            child: IconButton(
-              icon: Icon(
-                FeatherIcons.arrowLeftCircle,
-                size: 32,
-                color: Theme.of(context).colorScheme.onSurface,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
+      appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+          child: IconButton(
+            icon: Icon(
+              FeatherIcons.arrowLeftCircle,
+              size: 32,
             ),
+            onPressed: () {
+              Navigator.popUntil(context, ModalRoute.withName("Settings"));
+            },
           ),
-          title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 15, 0.0, 0),
-            child: Text(
-              "Über",
-              style: Theme.of(context).textTheme.headline2,
-            ),
-          ),
-          backgroundColor: Theme.of(context).colorScheme.background,
-          elevation: 0,
         ),
-        body: Center(
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: <Widget>[aboutCard(), links()]),
-        ));
+        title: Padding(
+          padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+          child: Text(
+            "Climatic",
+            style: Theme.of(context).textTheme.headline2,
+          ),
+        ),
+      ),
+      body: ListView(children: <Widget>[aboutCard(), links()]),
+    );
   }
 }

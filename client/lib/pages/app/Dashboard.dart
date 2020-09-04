@@ -53,7 +53,7 @@ class _DashboardState extends State<Dashboard> {
                       alignment: Alignment.centerRight,
                       child: FlatButton(
                         onPressed: () =>
-                            Navigator.pushNamed(context, "/Profile"),
+                            Navigator.pushNamed(context, "Profile"),
                         child: Container(
                             height: 46,
                             width: 46,

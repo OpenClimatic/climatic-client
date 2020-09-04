@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 
 class CustomButton extends StatelessWidget {
   final String label;
@@ -7,7 +7,7 @@ class CustomButton extends StatelessWidget {
   final bool secondary;
   final double width;
 
-  CustomButton(
+  const CustomButton(
       {Key key,
       @required this.label,
       @required this.onPressed,
@@ -21,7 +21,7 @@ class CustomButton extends StatelessWidget {
       width: this.width,
       decoration: new BoxDecoration(
           color: Theme.of(context).colorScheme.primary,
-          boxShadow: [boxshadow],
+          boxShadow: [theme.boxshadow],
           borderRadius: new BorderRadius.circular(10)),
       child: Center(
         child: Padding(

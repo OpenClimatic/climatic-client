@@ -66,7 +66,7 @@ class _ProfileState extends State<Profile> {
                   size: 32,
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.popUntil(context, ModalRoute.withName("Home"));
                 },
               ),
             ),
@@ -87,7 +87,7 @@ class _ProfileState extends State<Profile> {
                     size: 30,
                   ),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/Settings");
+                    Navigator.pushNamed(context, "Settings");
                   },
                 ),
               ),

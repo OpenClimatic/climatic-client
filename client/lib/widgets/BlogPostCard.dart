@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/BlogPost.dart';
 import '../pages/blog-posts/DiscoverBlogPostDetailedView.dart';
@@ -38,8 +39,9 @@ class BlogPostCard extends StatelessWidget {
         onTap: () async {
           Navigator.push(
               context,
-              FadeSizeScaleRoute(
-                  page: DiscoverBlogPostDetailedView(blogPost: blogPost)));
+              CupertinoPageRoute(
+                  builder: (_) =>
+                      DiscoverBlogPostDetailedView(blogPost: blogPost)));
         },
         child: Column(
           children: [

@@ -70,7 +70,7 @@ class _DiscoverState extends State<Discover> {
                       style: Theme.of(context).textTheme.headline2,
                     ),
                     FlatButton(
-                      onPressed: () => Navigator.pushNamed(context, "/Profile"),
+                      onPressed: () => Navigator.pushNamed(context, "Profile"),
                       child: Container(
                           height: 46,
                           width: 46,

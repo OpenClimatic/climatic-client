@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/Habit.dart';
 import '../pages/habit/DiscoverHabitDetailedView.dart';
@@ -12,8 +13,10 @@ class HabitPostCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
         onTap: () async {
-          Navigator.push(context,
-              SizeRoute(page: DiscoverHabitDetailedView(habit: habit)));
+          Navigator.push(
+              context,
+              CupertinoPageRoute(
+                  builder: (_) => DiscoverHabitDetailedView(habit: habit)));
         },
         child: Column(
           children: [
