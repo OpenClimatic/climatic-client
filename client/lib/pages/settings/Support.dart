@@ -23,7 +23,7 @@ class _SupportState extends State<Support> {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.popUntil(context, ModalRoute.withName("Settings"));
               },
             ),
           ),

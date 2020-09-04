@@ -39,10 +39,7 @@ class _AppIntroState extends State<AppIntro> {
                 label: "Lass uns starten",
                 width: 250,
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (BuildContext context) => (IntroPage1())));
+                  Navigator.pushNamed(context, "AppIntro/1");
                 })
           ],
         ),

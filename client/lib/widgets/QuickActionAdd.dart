@@ -1,7 +1,6 @@
-import 'package:client/pages/app/SavingSplash.dart';
 import 'package:flutter/material.dart';
-import 'SliderCard.dart';
-import 'CustomButton.dart';
+import 'package:client/widgets/SliderCard.dart';
+import 'package:client/widgets/CustomButton.dart';
 
 class QuickActionAdd extends StatefulWidget {
   final String imgPath;
@@ -21,12 +20,7 @@ class _QuickActionAddState extends State<QuickActionAdd> {
   addAction() {
     print("adding action");
     Navigator.pop(context);
-    Navigator.push(
-        context,
-        MaterialPageRoute(
-            builder: (BuildContext context) => (SavingsSplash(
-                  saved: 3.4,
-                ))));
+    Navigator.pushNamed(context, "SavingSplash", arguments: 3.4);
   }
 
   @override

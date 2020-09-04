@@ -35,7 +35,9 @@ class _ProfileState extends State<Profile> {
         width: MediaQuery.of(context).size.width * 0.9,
         height: 150,
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround, children: <Widget>[ Container(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            Container(
                 height: 80,
                 width: 80,
                 child: Image.asset('assets/images/profile.png')),
@@ -55,40 +57,37 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).colorScheme.background,
         appBar: AppBar(
             leading: Padding(
-              padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+              padding: EdgeInsets.fromLTRB(10, 10, 0, 0),
               child: IconButton(
                 icon: Icon(
                   FeatherIcons.arrowLeftCircle,
                   size: 32,
-                  color: Theme.of(context).colorScheme.onBackground,
                 ),
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.popUntil(context, ModalRoute.withName("Home"));
                 },
               ),
             ),
             title: Padding(
-              padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
+              padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
               child: Text(
                 "Profile",
                 style: Theme.of(context).textTheme.headline2,
               ),
             ),
-            backgroundColor: Theme.of(context).colorScheme.background,
-            elevation: 0,
             actions: <Widget>[
               // action button
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 15, 20, 0),
+                padding: EdgeInsets.fromLTRB(0, 12, 15, 0),
                 child: IconButton(
-                  icon: Icon(FeatherIcons.settings,
-                      size: 26,
-                      color: Theme.of(context).colorScheme.onBackground),
+                  icon: Icon(
+                    FeatherIcons.settings,
+                    size: 30,
+                  ),
                   onPressed: () {
-                    Navigator.pushNamed(context, "/Settings");
+                    Navigator.pushNamed(context, "Settings");
                   },
                 ),
               ),

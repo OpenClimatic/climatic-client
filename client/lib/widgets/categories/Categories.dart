@@ -1,4 +1,4 @@
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 import 'package:client/widgets/ActionCard.dart';
 import 'package:client/widgets/QuickActionAdd.dart';
 import 'package:flutter/material.dart';
@@ -77,15 +77,23 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableCategoryCard("Ernährung", "assets/images/categories/food.png",
-            3, cc.blue, cc.blueBG),
-        clickableCategoryCard("Haushalt",
-            "assets/images/categories/haushalt.png", 4, cc.blue, cc.blueBG),
+            3, theme.blue, theme.blueBG),
+        clickableCategoryCard(
+            "Haushalt",
+            "assets/images/categories/haushalt.png",
+            4,
+            theme.blue,
+            theme.blueBG),
         clickableCategoryCard("Konsum", "assets/images/categories/konsum.png",
-            5, cc.purple, cc.purpleBG),
+            5, theme.purple, theme.purpleBG),
         clickableCategoryCard("Reisen", "assets/images/categories/reisen.png",
-            6, cc.yellow, cc.yellowBG),
-        clickableCategoryCard("Transport",
-            "assets/images/categories/transport.png", 2, cc.blue, cc.blueBG),
+            6, theme.yellow, theme.yellowBG),
+        clickableCategoryCard(
+            "Transport",
+            "assets/images/categories/transport.png",
+            2,
+            theme.blue,
+            theme.blueBG),
       ],
     );
   }
@@ -98,13 +106,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("eBike", "assets/images/categories/haushalt.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
       ],
     );
   }
@@ -117,9 +125,9 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableActionCard("Licht", "assets/images/categories/food.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("Heizen", "assets/images/categories/haushalt.png",
-            0, cc.blue, cc.blueBG),
+            0, theme.blue, theme.blueBG),
       ],
     );
   }
@@ -132,9 +140,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableActionCard("Vegan", "assets/images/categories/food.png", 0,
-            cc.blue, cc.blueBG),
-        clickableActionCard("Unverpackt",
-            "assets/images/categories/haushalt.png", 0, cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
+        clickableActionCard(
+            "Unverpackt",
+            "assets/images/categories/haushalt.png",
+            0,
+            theme.blue,
+            theme.blueBG),
       ],
     );
   }
@@ -147,13 +159,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("eBike", "assets/images/categories/haushalt.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
       ],
     );
   }
@@ -166,11 +178,11 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         clickableActionCard("Flugzeug", "assets/images/categories/food.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("Zug", "assets/images/categories/haushalt.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
         clickableActionCard("Auto", "assets/images/categories/konsum.png", 0,
-            cc.blue, cc.blueBG),
+            theme.blue, theme.blueBG),
       ],
     );
   }

@@ -1,4 +1,4 @@
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 
@@ -31,7 +31,7 @@ class _DiagramCardState extends State<DiagramCard> {
       new CircularStackEntry(
         <CircularSegmentEntry>[
           new CircularSegmentEntry(20.0, Colors.transparent, rankKey: 'saved'),
-          new CircularSegmentEntry(20.0, cc.gray, rankKey: 'max'),
+          new CircularSegmentEntry(20.0, theme.gray, rankKey: 'max'),
         ],
         rankKey: 'kg of CO2 saved',
       ),
@@ -138,7 +138,7 @@ class _DiagramCardState extends State<DiagramCard> {
         height: 275,
         decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
-            boxShadow: [boxshadow],
+            boxShadow: [theme.boxshadow],
             borderRadius: BorderRadius.circular(16)),
         width: MediaQuery.of(context).size.width * 0.9,
         child: Column(

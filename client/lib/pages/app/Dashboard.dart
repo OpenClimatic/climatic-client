@@ -1,8 +1,8 @@
+import 'package:client/services/storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
 import '../../widgets/HabitCard.dart';
-import '../../widgets/ProgressBar.dart';
 import '../../widgets/DiagramCard/DiagramCard.dart';
 
 final GlobalKey<AnimatedCircularChartState> _chartKey1 =
@@ -19,42 +19,49 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  Widget _header() {
+  String _username = "Klimaschützer/in";
+
+  @override
+  void initState() {
+    super.initState();
+    storage.read(key: NAME).then((value) {
+      setState(() {
+        _username = value.split(" ")[0];
+      });
+    });
+  }
+
+  Widget _welcomeMessage() {
     return Container(
-      child: Container(
-        height: MediaQuery.of(context).size.height * 0.55,
-        decoration: new BoxDecoration(
-          color: Theme.of(context).colorScheme.background,
-          borderRadius: new BorderRadius.only(
-              bottomRight: const Radius.circular(30.0),
-              bottomLeft: const Radius.circular(30.0)),
-        ),
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Home",
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                    FlatButton(
-                      onPressed: () => Navigator.pushNamed(context, "/Profile"),
-                      child: Container(
-                          height: 46,
-                          width: 46,
-                          child: Image.asset('assets/images/profile.png')),
-                    )
-                  ],
-                ),
-              ),
-            ),
-            DiagramCard(),
-          ],
-        ),
+      padding: EdgeInsets.fromLTRB(20, 18, 0, 20),
+      child: Column(
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.6,
+                  child: Text(
+                    "Hallo, " + _username,
+                    style: _username.length < 16
+                        ? Theme.of(context).textTheme.headline2
+                        : Theme.of(context).textTheme.headline4,
+                  )),
+              Container(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  child: Align(
+                      alignment: Alignment.centerRight,
+                      child: FlatButton(
+                        onPressed: () =>
+                            Navigator.pushNamed(context, "Profile"),
+                        child: Container(
+                            height: 46,
+                            width: 46,
+                            child: Image.asset('assets/images/profile.png')),
+                      )))
+            ],
+          ),
+        ],
       ),
     );
   }
@@ -85,41 +92,15 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 
-  Widget _impact() {
-    return Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: <Widget>[
-            Container(
-                width: MediaQuery.of(context).size.width,
-                height: 50,
-                child: Text(
-                  "Your Impact",
-                  style: Theme.of(context).textTheme.headline3,
-                )),
-            Container(
-                child: ListView(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              children: <Widget>[
-                ProgressBar(),
-                ProgressBar(),
-                ProgressBar(),
-                ProgressBar()
-              ],
-            ))
-          ],
-        ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Theme.of(context).colorScheme.background,
         body: SingleChildScrollView(
           child: Container(
+            padding: EdgeInsets.all(0),
             child: Column(
-              children: <Widget>[_header(), _habits(), _impact()],
+              children: <Widget>[_welcomeMessage(), DiagramCard(), _habits()],
             ),
           ),
         ));

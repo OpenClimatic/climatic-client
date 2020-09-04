@@ -66,7 +66,7 @@ class _IntroPage4State extends State<IntroPage4> {
           secondary: true,
           label: "Zurück",
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.popUntil(context, ModalRoute.withName("AppIntro/3"));
           },
         ),
         CustomButton(
@@ -75,7 +75,7 @@ class _IntroPage4State extends State<IntroPage4> {
           onPressed: () {
             storage.write(key: FINISHED_INTRO, value: "true");
             storage.write(key: NAME, value: username);
-            Navigator.pushNamedAndRemoveUntil(context, "/Home", (r) => false);
+            Navigator.pushNamedAndRemoveUntil(context, "Home", (r) => false);
           },
         )
       ],

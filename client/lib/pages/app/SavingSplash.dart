@@ -8,7 +8,7 @@ class SavingsSplash extends StatelessWidget {
 
   share(context) {
     print("SHARE NOW");
-    Navigator.popAndPushNamed(context, "/Dashboard");
+    Navigator.popAndPushNamed(context, "Dashboard");
   }
 
   @override

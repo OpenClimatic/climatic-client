@@ -38,7 +38,7 @@ class _AllgemeinState extends State<Allgemein> {
                 color: Theme.of(context).colorScheme.onSurface,
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.popUntil(context, ModalRoute.withName("Settings"));
               },
             ),
           ),
@@ -85,7 +85,8 @@ class _AllgemeinState extends State<Allgemein> {
                             onPressed: () {
                               print(_username);
                               storage.write(key: NAME, value: _username);
-                              Navigator.pop(context);
+                              Navigator.pushNamedAndRemoveUntil(
+                                  context, "Home", (r) => false);
                             },
                           ))
                     ],

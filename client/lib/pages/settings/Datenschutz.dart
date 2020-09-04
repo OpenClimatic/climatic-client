@@ -23,7 +23,7 @@ class _DatenschutzState extends State<Datenschutz> {
               color: Theme.of(context).colorScheme.onSurface,
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.popUntil(context, ModalRoute.withName("Settings"));
             },
           ),
         ),

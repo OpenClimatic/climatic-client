@@ -1,49 +1,45 @@
+library constants;
+
 import 'package:flutter/material.dart';
 
-/// cc contains all the colors used trought the app
-/// there is a bg version for raw colors like green and blue
-CustomColors cc = CustomColors();
+const Color primary = Color(0xff12C787);
+const Color secondary = Color(0xff1D6C9D);
+const Color blue = Color(0xff2C67BF);
+const Color blueBG = Color(0xffCCF2FF);
+const Color green = Color(0xff089A5C);
+const Color greenBG = Color(0xffCDFFCC);
+const Color purple = Color(0xff4D44AE);
+const Color purpleBG = Color(0xffE0DEF7);
+const Color brown = Color(0xffCE651A);
+const Color brownBG = Color(0xffF7DFCE);
+const Color yellow = Color(0xffD99E2A);
+const Color yellowBG = Color(0xffFFF5A2);
+const Color gray = Color(0xffCCCCCC);
 
-class CustomColors {
-  final Color primary = Color(0xff12C787);
-  final Color secondary = Color(0xff1D6C9D);
-  final Color blue = Color(0xff2C67BF);
-  final Color blueBG = Color(0xffCCF2FF);
-  final Color green = Color(0xff089A5C);
-  final Color greenBG = Color(0xffCDFFCC);
-  final Color purple = Color(0xff4D44AE);
-  final Color purpleBG = Color(0xffE0DEF7);
-  final Color brown = Color(0xffCE651A);
-  final Color brownBG = Color(0xffF7DFCE);
-  final Color yellow = Color(0xffD99E2A);
-  final Color yellowBG = Color(0xffFFF5A2);
-  final Color gray = Color(0xffCCCCCC);
+/// this is a dark color!
+const Color darkText = Color(0xff00213F);
 
-  /// this is a dark color!
-  final Color darkText = Color(0xff00213F);
+/// this this a dark color!
+const Color darkHeading = Color(0xff00162A);
 
-  /// this this a dark color!
-  final Color darkHeading = Color(0xff00162A);
+/// this is a light color!
+const Color lightText = Color(0xffF0F0F0);
 
-  /// this is a light color!
-  final Color lightText = Color(0xffF0F0F0);
-
-  /// this is a light color!
-  final Color lightHeading = Color(0xffF4F4F4);
-}
+/// this is a light color!
+const Color lightHeading = Color(0xffF4F4F4);
 
 // TEXT STYLE TEMPLATE
 TextStyle lightHeadingTextStyle = TextStyle(
-    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: cc.darkHeading);
+    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: darkHeading);
 
 TextStyle lightBodyTextStyle = TextStyle(
-    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: cc.darkText);
+    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: darkText);
 
 TextStyle darkHeadingTextStyle = TextStyle(
-    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: cc.lightHeading);
+    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: lightHeading);
 
 TextStyle darkBodyTextStyle = TextStyle(
-    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: cc.lightText);
+    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: lightText);
 
 // Shadows
 BoxShadow boxshadow = new BoxShadow(
@@ -67,27 +63,37 @@ final lightTheme = ThemeData(
   canvasColor: _lightScheme.background,
   scaffoldBackgroundColor: _lightScheme.background,
   bottomAppBarColor: _lightScheme.surface,
+  appBarTheme: _lightAppBarTheme,
   colorScheme: _lightScheme,
   textTheme: _lightTextTheme,
 );
 
-ColorScheme _lightScheme = new ColorScheme(
-  primary: cc.primary,
+AppBarTheme _lightAppBarTheme = AppBarTheme(
+  actionsIconTheme: IconThemeData(color: _lightScheme.onBackground),
+  brightness: Brightness.light,
+  color: _lightScheme.background,
+  elevation: 9999,
+  iconTheme: IconThemeData(color: _lightScheme.onBackground),
+  textTheme: _lightTextTheme,
+);
+
+ColorScheme _lightScheme = ColorScheme(
+  primary: primary,
   primaryVariant: Color(0xffCDFFCC),
-  secondary: cc.secondary,
+  secondary: secondary,
   secondaryVariant: Color(0xffCCF2FF),
   surface: Colors.white,
   background: Color(0xffEDF1F5),
   error: Color(0xffEB5757),
   onPrimary: Colors.white,
   onSecondary: Colors.white,
-  onSurface: cc.darkText,
-  onBackground: cc.darkText,
+  onSurface: darkText,
+  onBackground: darkText,
   onError: Colors.black,
   brightness: Brightness.light,
 );
 
-TextTheme _lightTextTheme = new TextTheme(
+TextTheme _lightTextTheme = TextTheme(
   headline1: lightHeadingTextStyle.copyWith(fontSize: 48),
   headline2: lightHeadingTextStyle.copyWith(fontSize: 28),
   headline3:
@@ -103,7 +109,7 @@ TextTheme _lightTextTheme = new TextTheme(
   overline:
       lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
   button: lightBodyTextStyle.copyWith(
-      fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
+      fontSize: 18, color: lightText, fontWeight: FontWeight.w600),
 );
 
 // DARK THEME
@@ -112,12 +118,22 @@ final darkTheme = ThemeData(
   primaryColor: _darkScheme.primary,
   canvasColor: _darkScheme.background,
   scaffoldBackgroundColor: _darkScheme.background,
+  appBarTheme: _darkAppBarTheme,
   bottomAppBarColor: _darkScheme.surface,
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,
 );
 
-ColorScheme _darkScheme = new ColorScheme(
+AppBarTheme _darkAppBarTheme = AppBarTheme(
+  actionsIconTheme: IconThemeData(color: _darkScheme.onBackground),
+  brightness: Brightness.dark,
+  color: _darkScheme.background,
+  elevation: 9999,
+  iconTheme: IconThemeData(color: _darkScheme.onBackground),
+  textTheme: _darkTextTheme,
+);
+
+ColorScheme _darkScheme = ColorScheme(
   primary: Color(0xff12C787),
   primaryVariant: Color(0xffCDFFCC),
   secondary: Color(0xff1D6C9D),
@@ -133,7 +149,7 @@ ColorScheme _darkScheme = new ColorScheme(
   brightness: Brightness.dark,
 );
 
-TextTheme _darkTextTheme = new TextTheme(
+TextTheme _darkTextTheme = TextTheme(
   headline1: darkHeadingTextStyle.copyWith(fontSize: 48),
   headline2: darkHeadingTextStyle.copyWith(fontSize: 28),
   headline3:
@@ -148,5 +164,5 @@ TextTheme _darkTextTheme = new TextTheme(
   overline:
       darkBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
   button: darkBodyTextStyle.copyWith(
-      fontSize: 18, color: cc.lightText, fontWeight: FontWeight.w600),
+      fontSize: 18, color: lightText, fontWeight: FontWeight.w600),
 );

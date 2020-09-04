@@ -58,17 +58,14 @@ class _IntroPage2State extends State<IntroPage2> {
           secondary: true,
           label: "Zurück",
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.popUntil(context, ModalRoute.withName("AppIntro/1"));
           },
         ),
         CustomButton(
           width: 140,
           label: "Weiter",
           onPressed: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (BuildContext context) => (IntroPage3())));
+            Navigator.pushNamed(context, "AppIntro/3");
           },
         )
       ],

@@ -18,9 +18,9 @@ class _AuthLoadingState extends State<AuthLoading> {
     super.initState();
     _checkIfFirstStart().then((success) {
       if (success) {
-        Navigator.pushReplacementNamed(context, '/AppIntro');
+        Navigator.pushNamed(context, 'AppIntro');
       } else {
-        Navigator.pushReplacementNamed(context, '/Home');
+        Navigator.pushNamed(context, 'Home');
       }
     });
   }

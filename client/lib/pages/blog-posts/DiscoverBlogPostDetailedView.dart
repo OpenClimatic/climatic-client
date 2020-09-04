@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
-import '../../models/BlogPost.dart';
+import "package:flutter/material.dart";
+import "package:client/models/BlogPost.dart";
 
 class DiscoverBlogPostDetailedView extends StatelessWidget {
   final BlogPost blogPost;
 
-  const DiscoverBlogPostDetailedView({Key key, @required this.blogPost})
+  const DiscoverBlogPostDetailedView({Key key, this.blogPost})
       : super(key: key);
 
   @override
