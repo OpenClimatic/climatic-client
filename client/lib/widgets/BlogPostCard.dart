@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/BlogPost.dart';
 import '../pages/blog-posts/DiscoverBlogPostDetailedView.dart';
-import '../pages/transitions/FadeSizeScaleRoute.dart';
 
 class BlogPostCard extends StatelessWidget {
   final BlogPost blogPost;

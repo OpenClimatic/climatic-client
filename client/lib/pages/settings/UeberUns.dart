@@ -2,6 +2,7 @@ import 'package:client/widgets/CustomFlatButton.dart';
 import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
+import 'package:client/themes/theme.dart' as theme;
 
 class About extends StatefulWidget {
   About({Key key}) : super(key: key);
@@ -13,20 +14,21 @@ class About extends StatefulWidget {
 class _AboutState extends State<About> {
   Widget aboutCard() {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.all(18),
       height: 400,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.9,
         height: 350,
         decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
+            boxShadow: [theme.boxshadowSmall],
             borderRadius: BorderRadius.circular(20)),
         child: Column(
           children: <Widget>[
             Container(
               child: Image.asset('assets/icon/icon.png'),
-              height: 160,
-              width: 160,
+              height: 125,
+              width: 125,
             ),
             Column(
               children: <Widget>[

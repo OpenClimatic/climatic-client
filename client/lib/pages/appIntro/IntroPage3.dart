@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../widgets/CustomButton.dart';
-import 'package:client/pages/appIntro/IntroPage4.dart';
 
 class IntroPage3 extends StatefulWidget {
   IntroPage3({Key key}) : super(key: key);

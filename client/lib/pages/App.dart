@@ -67,13 +67,11 @@ class _AppState extends State<App> {
       ))),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () {
           _settingModalBottomSheet(context);
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
-        elevation: 2.0,
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),

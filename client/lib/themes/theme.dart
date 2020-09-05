@@ -63,10 +63,14 @@ final lightTheme = ThemeData(
   canvasColor: _lightScheme.background,
   scaffoldBackgroundColor: _lightScheme.background,
   bottomAppBarColor: _lightScheme.surface,
+  floatingActionButtonTheme: _lightFABTD,
   appBarTheme: _lightAppBarTheme,
   colorScheme: _lightScheme,
   textTheme: _lightTextTheme,
 );
+
+FloatingActionButtonThemeData _lightFABTD = FloatingActionButtonThemeData(
+    backgroundColor: _lightScheme.primary, elevation: 2);
 
 AppBarTheme _lightAppBarTheme = AppBarTheme(
   actionsIconTheme: IconThemeData(color: _lightScheme.onBackground),
@@ -120,9 +124,13 @@ final darkTheme = ThemeData(
   scaffoldBackgroundColor: _darkScheme.background,
   appBarTheme: _darkAppBarTheme,
   bottomAppBarColor: _darkScheme.surface,
+  floatingActionButtonTheme: _darkFABTD,
   colorScheme: _darkScheme,
   textTheme: _darkTextTheme,
 );
+
+FloatingActionButtonThemeData _darkFABTD = FloatingActionButtonThemeData(
+    backgroundColor: _darkScheme.primary, elevation: 2);
 
 AppBarTheme _darkAppBarTheme = AppBarTheme(
   actionsIconTheme: IconThemeData(color: _darkScheme.onBackground),

@@ -2,7 +2,6 @@ import 'package:client/services/storage.dart';
 import 'package:client/widgets/CustomButton.dart';
 import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
-import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:client/widgets/TextField/TextField.dart';
 
 class Allgemein extends StatefulWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'IntroPage2.dart';
 import '../../widgets/CustomButton.dart';
 
 class IntroPage1 extends StatefulWidget {

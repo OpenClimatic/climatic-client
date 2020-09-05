@@ -28,6 +28,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.getInstance().then((prefs) {
     var darkModeOn = prefs.getBool("darkMode") ?? true;
+    
     runApp(
       ChangeNotifierProvider<ThemeNotifier>(
         create: (_) =>
