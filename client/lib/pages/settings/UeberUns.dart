@@ -15,21 +15,22 @@ class _AboutState extends State<About> {
   Widget aboutCard() {
     return Container(
       margin: EdgeInsets.all(18),
-      height: 400,
       child: Container(
         width: MediaQuery.of(context).size.width * 0.9,
-        height: 350,
+        padding: EdgeInsets.fromLTRB(15, 0, 0, 15),
         decoration: BoxDecoration(
             color: Theme.of(context).colorScheme.surface,
             boxShadow: [theme.boxshadowSmall],
             borderRadius: BorderRadius.circular(20)),
         child: Column(
           children: <Widget>[
+            SizedBox(height: 15),
             Container(
               child: Image.asset('assets/icon/icon.png'),
               height: 125,
               width: 125,
             ),
+            SizedBox(height: 25),
             Column(
               children: <Widget>[
                 Text("Climatic", style: Theme.of(context).textTheme.headline3),
@@ -66,9 +67,15 @@ class _AboutState extends State<About> {
         StaticTopBar(action: false, label: "Climatic", backRoute: "Settings"),
         aboutCard(),
         CustomFlatButton(
-            icon: FeatherIcons.cloud, label: "Webseite", pageRoute: "Home"),
+            link: true,
+            icon: FeatherIcons.cloud,
+            label: "Webseite",
+            url: "https://climatic.app"),
         CustomFlatButton(
-            icon: FeatherIcons.github, label: "Quellcode", pageRoute: "Home"),
+            link: true,
+            icon: FeatherIcons.github,
+            label: "Quellcode",
+            url: "https://github.com/OpenClimatic/climatic-client"),
       ]),
     );
   }

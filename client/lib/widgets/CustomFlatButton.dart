@@ -1,8 +1,11 @@
 import 'package:client/themes/theme.dart' as theme;
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomFlatButton extends StatelessWidget {
+  final bool link;
+  final String url;
   final IconData icon;
   final String label;
   final String pageRoute;
@@ -11,18 +14,28 @@ class CustomFlatButton extends StatelessWidget {
 
   const CustomFlatButton(
       {Key key,
+      this.link = false,
+      this.url,
       @required this.icon,
       @required this.label,
-      @required this.pageRoute,
+      this.pageRoute,
       this.iconColor = theme.blue,
       this.iconBGColor = theme.blueBG})
       : super(key: key);
+
+  _launchURL() async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return FlatButton(
       onPressed: () {
-        Navigator.pushNamed(context, pageRoute);
+        link ? _launchURL() : Navigator.pushNamed(context, pageRoute);
       },
       child: Container(
           height: 70,

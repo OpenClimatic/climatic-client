@@ -35,7 +35,7 @@ class StaticTopBar extends StatelessWidget {
       ),
       Container(
         width: MediaQuery.of(context).size.width * 0.8,
-        padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+        padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
         child: Text(
           label,
           style: Theme.of(context).textTheme.headline2,
@@ -62,7 +62,7 @@ class StaticTopBar extends StatelessWidget {
       ),
       Container(
         width: MediaQuery.of(context).size.width * 0.6,
-        padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+        padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
         child: Text(
           label,
           style: Theme.of(context).textTheme.headline2,
