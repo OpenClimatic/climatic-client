@@ -28,6 +28,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.getInstance().then((prefs) {
     var darkModeOn = prefs.getBool("darkMode") ?? true;
+    
     runApp(
       ChangeNotifierProvider<ThemeNotifier>(
         create: (_) =>
@@ -46,6 +47,7 @@ class MyApp extends StatelessWidget {
       title: "Climalytic",
       theme: themeNotifier.getTheme(),
       initialRoute: "/",
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case "/":

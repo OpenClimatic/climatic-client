@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import '../models/Habit.dart';
 import '../pages/habit/DiscoverHabitDetailedView.dart';
-import '../pages/transitions/SizeRoute.dart';
 
 class HabitPostCard extends StatelessWidget {
   final Habit habit;

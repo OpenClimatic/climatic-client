@@ -10,7 +10,7 @@ class DiscoverBlogPostDetailedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(
+        body: ListView(
       children: [
         Container(
             child: Container(
@@ -33,10 +33,12 @@ class DiscoverBlogPostDetailedView extends StatelessWidget {
             children: <Widget>[
               Padding(
                   padding: const EdgeInsets.all(16.0),
-                  child: Text(blogPost.title, style: TextStyle(fontSize: 30))),
+                  child: Text(blogPost.title,
+                      style: Theme.of(context).textTheme.headline2)),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(blogPost.content, style: TextStyle(fontSize: 18)),
+                child: Text(blogPost.content,
+                    style: Theme.of(context).textTheme.bodyText1),
               )
             ],
           ),

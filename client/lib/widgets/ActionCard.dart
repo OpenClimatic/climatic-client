@@ -1,4 +1,4 @@
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 import 'package:flutter/material.dart';
 
 class ActionCard extends StatelessWidget {
@@ -25,7 +25,7 @@ class ActionCard extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 0.9,
             decoration: new BoxDecoration(
               borderRadius: new BorderRadius.circular(10),
-              boxShadow: [boxshadow],
+              boxShadow: [theme.boxshadow],
             ),
             child: Container(
               decoration: new BoxDecoration(

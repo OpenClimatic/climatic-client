@@ -17,7 +17,7 @@ class _AppState extends State<App> {
 
   _pullTab() {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.fromLTRB(0, 15, 0, 10),
       child: new Container(
           height: 7.0,
           width: 50.0,
@@ -31,55 +31,52 @@ class _AppState extends State<App> {
   void _settingModalBottomSheet(context) {
     showModalBottomSheet(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10), topRight: Radius.circular(10)),
         ),
         context: context,
         isScrollControlled: true,
+        enableDrag: true,
         builder: (BuildContext bc) {
-          return FractionallySizedBox(
-              heightFactor: 0.8,
-              child: Container(
-                  height: MediaQuery.of(context).size.height,
-                  child: Column(
+          return SafeArea(
+              child: FractionallySizedBox(
+                  heightFactor: 0.95,
+                  child: Container(
+                      child: Column(
                     children: <Widget>[
                       _pullTab(),
                       Padding(
-                        padding: const EdgeInsets.only(top: 25, bottom: 5),
+                        padding: const EdgeInsets.only(top: 15, bottom: 5),
                         child: Center(
                           child: Text("Einsparung aufzeichnen",
-                              style: TextStyle(
-                                  fontSize: 22, fontWeight: FontWeight.bold)),
+                              style: Theme.of(context).textTheme.headline2),
                         ),
                       ),
                       Container(child: Categories()),
                     ],
-                  )));
+                  ))));
         });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          child: Align(
-              child: SafeArea(
+      body: SafeArea(
         child: _pageOptions[_selectedTab],
-      ))),
+      ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).colorScheme.primary,
         onPressed: () {
           _settingModalBottomSheet(context);
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),
-        elevation: 2.0,
       ),
       bottomNavigationBar: BottomAppBar(
         shape: CircularNotchedRectangle(),
         child: Container(
           child: Padding(
-            padding: const EdgeInsets.only(left: 0.0, right: 0.0),
+            padding: const EdgeInsets.only(left: 0, right: 0),
             child: new Row(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -96,7 +93,7 @@ class _AppState extends State<App> {
                     }),
                 IconButton(
                     icon: Icon(FeatherIcons.user),
-                    color: _selectedTab == 2
+                    color: _selectedTab == 1
                         ? Theme.of(context).colorScheme.primary
                         : Colors.grey,
                     onPressed: () {
