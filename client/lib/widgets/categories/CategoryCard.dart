@@ -1,4 +1,4 @@
-import 'package:client/themes/theme.dart';
+import 'package:client/themes/theme.dart' as theme;
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -23,6 +23,7 @@ class CategoryCard extends StatelessWidget {
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
+          boxShadow: [theme.boxshadowSmall],
           color: Theme.of(context).colorScheme.surface,
         ),
         width: width,
@@ -37,9 +38,8 @@ class CategoryCard extends StatelessWidget {
             Container(
               width: width,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Theme.of(context).colorScheme.surface),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Center(child: Text(label)),
@@ -59,7 +59,7 @@ class CategoryCard extends StatelessWidget {
               borderRadius: new BorderRadius.only(
                   topLeft: const Radius.circular(10.0),
                   topRight: const Radius.circular(10.0)),
-              boxShadow: [boxshadow],
+              boxShadow: [theme.boxshadow],
             ),
             child: Column(
               children: [

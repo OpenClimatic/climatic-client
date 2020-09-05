@@ -58,7 +58,7 @@ class _DiagramCardState extends State<DiagramCard> {
                 initialChartData: data1,
                 chartType: CircularChartType.Radial,
                 edgeStyle: SegmentEdgeStyle.round,
-                holeLabel: "\n \n \n 88% abgeschlossen",
+                holeLabel: "\n \n \n Fortschritt: 88%",
                 holeRadius: 70,
                 labelStyle: Theme.of(context).textTheme.overline),
           ],
@@ -72,6 +72,7 @@ class _DiagramCardState extends State<DiagramCard> {
       flex: 3,
       child: Center(
           child: Container(
+        padding: EdgeInsets.fromLTRB(0, 20, 0, 0),
         child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[

@@ -25,7 +25,7 @@ class _CategoriesState extends State<Categories> {
     });
   }
 
-  Widget clickableActionCard(label, img, page, iconColor, bgColor) {
+  Widget _clickableActionCard(label, img, page, iconColor, bgColor) {
     return (GestureDetector(
       onTap: () {
         if (page == 0) {
@@ -46,7 +46,7 @@ class _CategoriesState extends State<Categories> {
     ));
   }
 
-  Widget clickableCategoryCard(label, img, page, iconColor, bgColor) {
+  Widget _clickableCategoryCard(label, img, page, iconColor, bgColor) {
     return (GestureDetector(
       onTap: () {
         if (page == 0) {
@@ -69,79 +69,73 @@ class _CategoriesState extends State<Categories> {
     ));
   }
 
-  Widget mainCategory() {
+  Widget _mainCategory() {
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
       children: <Widget>[
-        clickableCategoryCard("Ernährung", "assets/images/categories/food.png",
+        _clickableCategoryCard("Ernährung", "assets/images/categories/food.png",
             3, theme.blue, theme.blueBG),
-        clickableCategoryCard(
+        _clickableCategoryCard(
             "Haushalt",
             "assets/images/categories/haushalt.png",
             4,
             theme.blue,
             theme.blueBG),
-        clickableCategoryCard("Konsum", "assets/images/categories/konsum.png",
+        _clickableCategoryCard("Konsum", "assets/images/categories/konsum.png",
             5, theme.purple, theme.purpleBG),
-        clickableCategoryCard("Reisen", "assets/images/categories/reisen.png",
+        _clickableCategoryCard("Reisen", "assets/images/categories/reisen.png",
             6, theme.yellow, theme.yellowBG),
-        clickableCategoryCard(
-            "Transport",
-            "assets/images/categories/transport.png",
-            2,
-            theme.blue,
-            theme.blueBG),
       ],
     );
   }
 
-  Widget transportCategory() {
+  Widget _transportCategory() {
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
       children: <Widget>[
-        clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
+        _clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("eBike", "assets/images/categories/haushalt.png", 0,
+        _clickableActionCard("eBike", "assets/images/categories/haushalt.png",
+            0, theme.blue, theme.blueBG),
+        _clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            theme.blue, theme.blueBG),
-        clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
+        _clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
             theme.blue, theme.blueBG),
       ],
     );
   }
 
-  Widget haushaltCategory() {
+  Widget _haushaltCategory() {
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
       children: <Widget>[
-        clickableActionCard("Licht", "assets/images/categories/food.png", 0,
+        _clickableActionCard("Licht", "assets/images/categories/food.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("Heizen", "assets/images/categories/haushalt.png",
+        _clickableActionCard("Heizen", "assets/images/categories/haushalt.png",
             0, theme.blue, theme.blueBG),
       ],
     );
   }
 
-  Widget foodCategory() {
+  Widget _foodCategory() {
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
       children: <Widget>[
-        clickableActionCard("Vegan", "assets/images/categories/food.png", 0,
+        _clickableActionCard("Vegan", "assets/images/categories/food.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard(
+        _clickableActionCard(
             "Unverpackt",
             "assets/images/categories/haushalt.png",
             0,
@@ -151,37 +145,37 @@ class _CategoriesState extends State<Categories> {
     );
   }
 
-  Widget konsumCategory() {
+  Widget _konsumCategory() {
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
       children: <Widget>[
-        clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
+        _clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("eBike", "assets/images/categories/haushalt.png", 0,
+        _clickableActionCard("eBike", "assets/images/categories/haushalt.png",
+            0, theme.blue, theme.blueBG),
+        _clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            theme.blue, theme.blueBG),
-        clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
+        _clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
             theme.blue, theme.blueBG),
       ],
     );
   }
 
-  Widget reisenCategory() {
+  Widget _reisenCategory() {
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
       children: <Widget>[
-        clickableActionCard("Flugzeug", "assets/images/categories/food.png", 0,
+        _clickableActionCard("Flugzeug", "assets/images/categories/food.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("Zug", "assets/images/categories/haushalt.png", 0,
+        _clickableActionCard("Zug", "assets/images/categories/haushalt.png", 0,
             theme.blue, theme.blueBG),
-        clickableActionCard("Auto", "assets/images/categories/konsum.png", 0,
+        _clickableActionCard("Auto", "assets/images/categories/konsum.png", 0,
             theme.blue, theme.blueBG),
       ],
     );
@@ -196,12 +190,12 @@ class _CategoriesState extends State<Categories> {
         question: question,
         selections: selections,
       ),
-      mainCategory(),
-      transportCategory(),
-      foodCategory(),
-      haushaltCategory(),
-      konsumCategory(),
-      reisenCategory()
+      _mainCategory(),
+      _transportCategory(),
+      _foodCategory(),
+      _haushaltCategory(),
+      _konsumCategory(),
+      _reisenCategory()
     ];
 
     return Container(

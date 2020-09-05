@@ -1,4 +1,5 @@
 import 'package:client/services/storage.dart';
+import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_circular_chart/flutter_circular_chart.dart';
 // import '../../widgets/flutter_circular_chart/lib/flutter_circular_chart.dart';
@@ -19,7 +20,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  String _username = "Klimaschützer/in";
+  String _username = "";
 
   @override
   void initState() {
@@ -29,41 +30,6 @@ class _DashboardState extends State<Dashboard> {
         _username = value.split(" ")[0];
       });
     });
-  }
-
-  Widget _welcomeMessage() {
-    return Container(
-      padding: EdgeInsets.fromLTRB(20, 18, 0, 20),
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.6,
-                  child: Text(
-                    "Hallo, " + _username,
-                    style: _username.length < 16
-                        ? Theme.of(context).textTheme.headline2
-                        : Theme.of(context).textTheme.headline4,
-                  )),
-              Container(
-                  width: MediaQuery.of(context).size.width * 0.3,
-                  child: Align(
-                      alignment: Alignment.centerRight,
-                      child: FlatButton(
-                        onPressed: () =>
-                            Navigator.pushNamed(context, "Profile"),
-                        child: Container(
-                            height: 46,
-                            width: 46,
-                            child: Image.asset('assets/images/profile.png')),
-                      )))
-            ],
-          ),
-        ],
-      ),
-    );
   }
 
   Widget _habits() {
@@ -100,7 +66,11 @@ class _DashboardState extends State<Dashboard> {
           child: Container(
             padding: EdgeInsets.all(0),
             child: Column(
-              children: <Widget>[_welcomeMessage(), DiagramCard(), _habits()],
+              children: <Widget>[
+                StaticTopBar(back: false, label: "Hallo, " + _username),
+                DiagramCard(),
+                _habits()
+              ],
             ),
           ),
         ));

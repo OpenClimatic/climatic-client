@@ -8,7 +8,7 @@ class BlogPostCard extends StatelessWidget {
 
   const BlogPostCard({Key key, @required this.blogPost}) : super(key: key);
 
-  Widget postCard() {
+  Widget postCard(BuildContext context) {
     return Container(
         width: 200,
         child: Column(
@@ -21,7 +21,7 @@ class BlogPostCard extends StatelessWidget {
                   bottomLeft: Radius.circular(10),
                   bottomRight: Radius.circular(10),
                 ),
-                color: Colors.white,
+                color: Theme.of(context).colorScheme.surface,
               ),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
@@ -51,7 +51,7 @@ class BlogPostCard extends StatelessWidget {
                 child: Container(
                     child: Hero(
                   tag: blogPost.id,
-                  child: postCard(),
+                  child: postCard(context),
                 ))),
           ],
         ));

@@ -1,3 +1,4 @@
+import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import '../../models/Habit.dart';
 import '../../models/BlogPost.dart';
@@ -53,38 +54,6 @@ class _DiscoverState extends State<Discover> {
       "assets/images/blog-posts/Earth.png",
     ),
   ];
-
-  Widget _header() {
-    return Container(
-      child: Container(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Text(
-                      "Entdecken",
-                      style: Theme.of(context).textTheme.headline2,
-                    ),
-                    FlatButton(
-                      onPressed: () => Navigator.pushNamed(context, "Profile"),
-                      child: Container(
-                          height: 46,
-                          width: 46,
-                          child: Image.asset('assets/images/profile.png')),
-                    )
-                  ],
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 
   Widget _buildHabits() {
     List<Widget> habitContainer = [];
@@ -158,7 +127,11 @@ class _DiscoverState extends State<Discover> {
         body: SingleChildScrollView(
       child: Container(
         child: Column(
-          children: <Widget>[_header(), _habits(), _news()],
+          children: <Widget>[
+            StaticTopBar(back: false, label: "Entdecken"),
+            _habits(),
+            _news()
+          ],
         ),
       ),
     ));
