@@ -28,7 +28,7 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   SharedPreferences.getInstance().then((prefs) {
     var darkModeOn = prefs.getBool("darkMode") ?? true;
-    
+
     runApp(
       ChangeNotifierProvider<ThemeNotifier>(
         create: (_) =>
@@ -51,19 +51,19 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: (RouteSettings settings) {
         switch (settings.name) {
           case "/":
-            return CupertinoPageRoute(
+            return MaterialPageRoute(
                 builder: (_) => AuthLoading(), settings: settings);
           case "Home":
             return CupertinoPageRoute(
                 builder: (_) => App(), settings: settings);
           case "Dashboard":
-            return CupertinoPageRoute(
+            return MaterialPageRoute(
                 builder: (_) => Dashboard(), settings: settings);
           case "Discover":
-            return CupertinoPageRoute(
+            return MaterialPageRoute(
                 builder: (_) => Discover(), settings: settings);
           case "SavingSplash":
-            return CupertinoPageRoute(
+            return MaterialPageRoute(
                 builder: (_) => SavingsSplash(), settings: settings);
           case "Settings":
             return CupertinoPageRoute(
