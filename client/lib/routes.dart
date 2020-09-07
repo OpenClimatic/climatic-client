@@ -22,15 +22,14 @@ import "package:client/pages/settings/UeberUns.dart";
 Function routes = (RouteSettings settings) {
   switch (settings.name) {
     case "/":
-      return CupertinoPageRoute(
+      return MaterialPageRoute(
           builder: (_) => AuthLoading(), settings: settings);
     case "Home":
       return CupertinoPageRoute(builder: (_) => App(), settings: settings);
     case "Dashboard":
-      return CupertinoPageRoute(
-          builder: (_) => Dashboard(), settings: settings);
+      return MaterialPageRoute(builder: (_) => Dashboard(), settings: settings);
     case "Discover":
-      return CupertinoPageRoute(builder: (_) => Discover(), settings: settings);
+      return MaterialPageRoute(builder: (_) => Discover(), settings: settings);
     case "SavingSplash":
       return CupertinoPageRoute(
           builder: (_) => SavingsSplash(), settings: settings);
