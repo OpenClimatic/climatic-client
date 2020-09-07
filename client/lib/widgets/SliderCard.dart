@@ -18,13 +18,14 @@ class _SliderCardState extends State<SliderCard> {
   double rating = 0;
 
   Widget build(BuildContext context) {
-    return Card(
-      color: Theme.of(context).colorScheme.surface,
+    return Container(
+      padding: EdgeInsets.fromLTRB(8, 10, 8, 5),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Text(widget.question),
-          Text(widget.selection[rating.toInt()]),
+          Text(widget.question, style: Theme.of(context).textTheme.headline3),
+          Text(widget.selection[rating.toInt()],
+              style: Theme.of(context).textTheme.bodyText2),
           Slider(
             value: rating,
             label: widget.selection[rating.toInt()],

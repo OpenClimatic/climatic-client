@@ -53,7 +53,9 @@ class StaticTopBar extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(0, 14, 0, 0),
         child: Text(
           label,
-          style: Theme.of(context).textTheme.headline2,
+          style: label.length < 16
+              ? Theme.of(context).textTheme.headline2
+              : Theme.of(context).textTheme.headline3,
         ),
       ),
     ]));

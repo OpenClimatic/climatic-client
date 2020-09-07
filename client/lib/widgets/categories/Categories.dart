@@ -77,17 +77,17 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         _clickableCategoryCard("Ernährung", "assets/images/categories/food.png",
-            3, theme.blue, theme.blueBG),
+            3, theme.cBlue, theme.cBlueBG),
         _clickableCategoryCard(
             "Haushalt",
             "assets/images/categories/haushalt.png",
             4,
-            theme.blue,
-            theme.blueBG),
+            theme.cBlue,
+            theme.cBlueBG),
         _clickableCategoryCard("Konsum", "assets/images/categories/konsum.png",
-            5, theme.purple, theme.purpleBG),
+            5, theme.cPurple, theme.cPurpleBG),
         _clickableCategoryCard("Reisen", "assets/images/categories/reisen.png",
-            6, theme.yellow, theme.yellowBG),
+            6, theme.cYellow, theme.cYellowBG),
       ],
     );
   }
@@ -100,13 +100,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         _clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("eBike", "assets/images/categories/haushalt.png",
-            0, theme.blue, theme.blueBG),
+            0, theme.cBlue, theme.cBlueBG),
         _clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
       ],
     );
   }
@@ -119,9 +119,9 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         _clickableActionCard("Licht", "assets/images/categories/food.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("Heizen", "assets/images/categories/haushalt.png",
-            0, theme.blue, theme.blueBG),
+            0, theme.cBlue, theme.cBlueBG),
       ],
     );
   }
@@ -134,13 +134,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         _clickableActionCard("Vegan", "assets/images/categories/food.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard(
             "Unverpackt",
             "assets/images/categories/haushalt.png",
             0,
-            theme.blue,
-            theme.blueBG),
+            theme.cBlue,
+            theme.cBlueBG),
       ],
     );
   }
@@ -153,13 +153,13 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         _clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("eBike", "assets/images/categories/haushalt.png",
-            0, theme.blue, theme.blueBG),
+            0, theme.cBlue, theme.cBlueBG),
         _clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
       ],
     );
   }
@@ -172,11 +172,11 @@ class _CategoriesState extends State<Categories> {
       alignment: WrapAlignment.center,
       children: <Widget>[
         _clickableActionCard("Flugzeug", "assets/images/categories/food.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("Zug", "assets/images/categories/haushalt.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
         _clickableActionCard("Auto", "assets/images/categories/konsum.png", 0,
-            theme.blue, theme.blueBG),
+            theme.cBlue, theme.cBlueBG),
       ],
     );
   }

@@ -6,11 +6,13 @@ class CustomButton extends StatelessWidget {
   final Function onPressed;
   final bool secondary;
   final double width;
+  final Color colorBG;
 
   const CustomButton(
       {Key key,
       @required this.label,
       @required this.onPressed,
+      this.colorBG = theme.cPrimary,
       this.secondary = false,
       this.width = 150})
       : super(key: key);
@@ -20,7 +22,7 @@ class CustomButton extends StatelessWidget {
       height: 50,
       width: this.width,
       decoration: new BoxDecoration(
-          color: Theme.of(context).colorScheme.primary,
+          color: colorBG,
           boxShadow: [theme.boxshadow],
           borderRadius: new BorderRadius.circular(10)),
       child: Center(
@@ -38,14 +40,15 @@ class CustomButton extends StatelessWidget {
       height: 50,
       decoration: new BoxDecoration(
           borderRadius: new BorderRadius.circular(10),
-          border: Border.all(
-              width: 3, color: Theme.of(context).colorScheme.primary)),
+          border: Border.all(width: 3, color: colorBG)),
       child: Center(
           child: Padding(
               padding: EdgeInsets.only(left: 25, right: 25, top: 0, bottom: 0),
               child: Text(label,
-                  style: Theme.of(context).textTheme.button.copyWith(
-                      color: Theme.of(context).colorScheme.primary)))),
+                  style: Theme.of(context)
+                      .textTheme
+                      .button
+                      .copyWith(color: colorBG)))),
     );
   }
 

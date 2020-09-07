@@ -25,25 +25,29 @@ class _QuickActionAddState extends State<QuickActionAdd> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          Center(
-            child: ClipRRect(
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-              child: Image.asset(
-                widget.imgPath,
-              ),
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 40),
+        Container(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: Image.asset(
+              widget.imgPath,
+              height: 125,
+              width: 125,
+              fit: BoxFit.cover,
             ),
           ),
-          Text(widget.title),
-          SliderCard(question: widget.question, selection: widget.selections),
-          CustomButton(
-            label: "Add this Action",
-            onPressed: addAction,
-          )
-        ],
-      ),
+        ),
+        SizedBox(height: 20),
+        SliderCard(question: widget.question, selection: widget.selections),
+        SizedBox(height: 20),
+        CustomButton(
+          label: "Jetzt aufzeichnen",
+          onPressed: addAction,
+          width: 235,
+        )
+      ],
     );
   }
 }
