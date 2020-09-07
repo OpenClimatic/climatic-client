@@ -17,29 +17,29 @@ const Color yellowBG = Color(0xffFFF5A2);
 const Color gray = Color(0xffCCCCCC);
 
 /// this is a dark color!
-const Color darkText = Color(0xff00213F);
+const Color _darkText = Color(0xff00213F);
 
 /// this this a dark color!
-const Color darkHeading = Color(0xff00162A);
+const Color _darkHeading = Color(0xff00162A);
 
 /// this is a light color!
-const Color lightText = Color(0xffF0F0F0);
+const Color _lightText = Color(0xffF0F0F0);
 
 /// this is a light color!
-const Color lightHeading = Color(0xffF4F4F4);
+const Color _lightHeading = Color(0xffF4F4F4);
 
 // TEXT STYLE TEMPLATE
 TextStyle lightHeadingTextStyle = TextStyle(
-    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: darkHeading);
+    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: _darkHeading);
 
 TextStyle lightBodyTextStyle = TextStyle(
-    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: darkText);
+    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: _darkText);
 
 TextStyle darkHeadingTextStyle = TextStyle(
-    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: lightHeading);
+    fontFamily: "Nunito", fontWeight: FontWeight.w700, color: _lightHeading);
 
 TextStyle darkBodyTextStyle = TextStyle(
-    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: lightText);
+    fontFamily: "Poppins", fontWeight: FontWeight.w400, color: _lightText);
 
 // Shadows
 BoxShadow boxshadow = new BoxShadow(
@@ -91,8 +91,8 @@ ColorScheme _lightScheme = ColorScheme(
   error: Color(0xffEB5757),
   onPrimary: Colors.white,
   onSecondary: Colors.white,
-  onSurface: darkText,
-  onBackground: darkText,
+  onSurface: _darkText,
+  onBackground: _darkText,
   onError: Colors.black,
   brightness: Brightness.light,
 );
@@ -113,7 +113,7 @@ TextTheme _lightTextTheme = TextTheme(
   overline:
       lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
   button: lightBodyTextStyle.copyWith(
-      fontSize: 18, color: lightText, fontWeight: FontWeight.w600),
+      fontSize: 18, color: _lightText, fontWeight: FontWeight.w600),
 );
 
 // DARK THEME
@@ -172,5 +172,5 @@ TextTheme _darkTextTheme = TextTheme(
   overline:
       darkBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
   button: darkBodyTextStyle.copyWith(
-      fontSize: 18, color: lightText, fontWeight: FontWeight.w600),
+      fontSize: 18, color: _lightText, fontWeight: FontWeight.w600),
 );
