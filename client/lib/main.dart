@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         theme: themeNotifier.getTheme(),
         initialRoute: "/",
         debugShowCheckedModeBanner: false,
-        onGenerateRoute: routes);
+        onGenerateRoute: routes
+    );
   }
 }
