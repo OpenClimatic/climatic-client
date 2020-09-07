@@ -2,19 +2,19 @@ library constants;
 
 import 'package:flutter/material.dart';
 
-const Color primary = Color(0xff12C787);
-const Color secondary = Color(0xff1D6C9D);
-const Color blue = Color(0xff2C67BF);
-const Color blueBG = Color(0xffCCF2FF);
-const Color green = Color(0xff089A5C);
-const Color greenBG = Color(0xffCDFFCC);
-const Color purple = Color(0xff4D44AE);
-const Color purpleBG = Color(0xffE0DEF7);
-const Color brown = Color(0xffCE651A);
-const Color brownBG = Color(0xffF7DFCE);
-const Color yellow = Color(0xffD99E2A);
-const Color yellowBG = Color(0xffFFF5A2);
-const Color gray = Color(0xffCCCCCC);
+const Color cPrimary = Color(0xff12C787);
+const Color cSecondary = Color(0xff1D6C9D);
+const Color cBlue = Color(0xff2C67BF);
+const Color cBlueBG = Color(0xffCCF2FF);
+const Color cGreen = Color(0xff089A5C);
+const Color cGreenBG = Color(0xffCDFFCC);
+const Color cPurple = Color(0xff4D44AE);
+const Color cPurpleBG = Color(0xffE0DEF7);
+const Color cBrown = Color(0xffCE651A);
+const Color cBrownBG = Color(0xffF7DFCE);
+const Color cYellow = Color(0xffD99E2A);
+const Color cYellowBG = Color(0xffFFF5A2);
+const Color cGray = Color(0xffCCCCCC);
 
 /// this is a dark color!
 const Color _darkText = Color(0xff00213F);
@@ -82,9 +82,9 @@ AppBarTheme _lightAppBarTheme = AppBarTheme(
 );
 
 ColorScheme _lightScheme = ColorScheme(
-  primary: primary,
+  primary: cPrimary,
   primaryVariant: Color(0xffCDFFCC),
-  secondary: secondary,
+  secondary: cSecondary,
   secondaryVariant: Color(0xffCCF2FF),
   surface: Colors.white,
   background: Color(0xffEDF1F5),
@@ -105,13 +105,13 @@ TextTheme _lightTextTheme = TextTheme(
   headline4:
       lightHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
   subtitle1: lightBodyTextStyle.copyWith(fontSize: 18),
+  subtitle2: lightHeadingTextStyle,
   bodyText1: lightBodyTextStyle.copyWith(fontSize: 16),
-  bodyText2:
-      lightBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w500),
+  bodyText2: lightBodyTextStyle.copyWith(fontSize: 14),
   caption:
-      lightBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
+      lightBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w300),
   overline:
-      lightBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
+      lightBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w300),
   button: lightBodyTextStyle.copyWith(
       fontSize: 18, color: _lightText, fontWeight: FontWeight.w600),
 );
@@ -165,12 +165,14 @@ TextTheme _darkTextTheme = TextTheme(
   headline4:
       darkHeadingTextStyle.copyWith(fontSize: 20, fontWeight: FontWeight.w600),
   subtitle1: darkBodyTextStyle.copyWith(fontSize: 18),
+  subtitle2:
+      darkBodyTextStyle.copyWith(fontSize: 13, fontWeight: FontWeight.w500),
   bodyText1: darkBodyTextStyle.copyWith(fontSize: 16),
   bodyText2: darkBodyTextStyle.copyWith(fontSize: 14),
   caption:
       darkBodyTextStyle.copyWith(fontSize: 11, fontWeight: FontWeight.w300),
   overline:
-      darkBodyTextStyle.copyWith(fontSize: 12, fontWeight: FontWeight.w300),
+      darkBodyTextStyle.copyWith(fontSize: 14, fontWeight: FontWeight.w300),
   button: darkBodyTextStyle.copyWith(
       fontSize: 18, color: _lightText, fontWeight: FontWeight.w600),
 );

@@ -50,8 +50,6 @@ class _SettingsState extends State<Settings> {
   }
 
   Widget _settings() {
-    const url = "https://climatic.app";
-
     return Container(
       margin: EdgeInsets.fromLTRB(0, 8, 0, 0),
       child: Column(

@@ -19,8 +19,8 @@ class CustomFlatButton extends StatelessWidget {
       @required this.icon,
       @required this.label,
       this.pageRoute,
-      this.iconColor = theme.blue,
-      this.iconBGColor = theme.blueBG})
+      this.iconColor = theme.cBlue,
+      this.iconBGColor = theme.cBlueBG})
       : super(key: key);
 
   _launchURL() async {

@@ -1,4 +1,5 @@
 import 'package:client/themes/theme.dart' as theme;
+import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import '../../models/Habit.dart';
 import 'package:percent_indicator/percent_indicator.dart';
@@ -17,25 +18,23 @@ class DiscoverHabitDetailedView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
+      body: ListView(
         children: [
           Container(
-              child: Container(
-                  width: MediaQuery.of(context).size.width,
-                  decoration: new BoxDecoration(
-                      borderRadius: new BorderRadius.only(
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10))),
-                  child: Hero(
-                    tag: habit.id,
-                    child: Image.asset(
-                      habit.imgPath,
-                      fit: BoxFit.cover,
-                    ),
-                  ))),
+              width: MediaQuery.of(context).size.width,
+              decoration: new BoxDecoration(
+                  borderRadius: new BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10))),
+              child: Hero(
+                tag: habit.id,
+                child: Image.asset(
+                  habit.imgPath,
+                  fit: BoxFit.cover,
+                ),
+              )),
           Container(
-              padding: EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(22.0),
               child: Text(habit.shortDescription,
                   style: Theme.of(context).textTheme.bodyText1)),
           Container(
@@ -59,7 +58,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         lineHeight: 12.0,
                         percent: 0.5,
                         linearStrokeCap: LinearStrokeCap.roundAll,
-                        backgroundColor: theme.gray,
+                        backgroundColor: theme.cGray,
                         progressColor: Theme.of(context).colorScheme.primary,
                       ),
                       Row(
@@ -89,7 +88,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               lineHeight: 12.0,
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
-                              backgroundColor: theme.gray,
+                              backgroundColor: theme.cGray,
                               progressColor:
                                   Theme.of(context).colorScheme.primary,
                             ),
@@ -124,7 +123,7 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                               lineHeight: 12.0,
                               percent: 0.5,
                               linearStrokeCap: LinearStrokeCap.roundAll,
-                              backgroundColor: theme.gray,
+                              backgroundColor: theme.cGray,
                               progressColor:
                                   Theme.of(context).colorScheme.primary,
                             ),
@@ -153,9 +152,12 @@ class DiscoverHabitDetailedView extends StatelessWidget {
                         child: Text(habit.description,
                             style: Theme.of(context).textTheme.bodyText1),
                       ),
-                      Center(
+                      Container(
+                        margin: EdgeInsets.all(25),
+                        alignment: Alignment.center,
                         child: CustomButton(
                           label: "Lass es uns angehen!",
+                          width: 250,
                           onPressed: onButtonPressed,
                         ),
                       )
@@ -167,6 +169,6 @@ class DiscoverHabitDetailedView extends StatelessWidget {
           )
         ],
       ),
-    ));
+    );
   }
 }

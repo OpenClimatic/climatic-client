@@ -31,7 +31,7 @@ class _DiagramCardState extends State<DiagramCard> {
       new CircularStackEntry(
         <CircularSegmentEntry>[
           new CircularSegmentEntry(20.0, Colors.transparent, rankKey: 'saved'),
-          new CircularSegmentEntry(20.0, theme.gray, rankKey: 'max'),
+          new CircularSegmentEntry(20.0, theme.cGray, rankKey: 'max'),
         ],
         rankKey: 'kg of CO2 saved',
       ),
