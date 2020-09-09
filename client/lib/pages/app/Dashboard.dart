@@ -50,7 +50,6 @@ class _DashboardState extends State<Dashboard> {
               // This next line does the trick.
               scrollDirection: Axis.horizontal,
               shrinkWrap: false,
-              children: <Widget>[HabitCard(), HabitCard(), HabitCard()],
             ),
           ),
         )
@@ -69,7 +68,7 @@ class _DashboardState extends State<Dashboard> {
               children: <Widget>[
                 StaticTopBar(back: false, label: "Hallo, " + _username),
                 DiagramCard(),
-                _habits()
+                // _habits()
               ],
             ),
           ),
