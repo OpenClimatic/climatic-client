@@ -1,32 +1,42 @@
+import 'package:client/models/Habit.dart';
 import 'package:client/themes/theme.dart';
 import 'package:flutter/material.dart';
 
 class HabitCard extends StatelessWidget {
-  const HabitCard({Key key}) : super(key: key);
+  HabitCard({
+    Key key,
+    @required this.habit,
+  }) : super(key: key);
+  final Habit habit;
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-        onTap: () {
-          print("Container clicked");
-        },
+      onTap: () {
+        // TODO: Implement onTab for HabitCard
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 9.0, vertical: 11.0),
+        margin: EdgeInsets.all(9.0),
+        width: 145,
+        decoration: new BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
+            boxShadow: [boxshadow],
+            borderRadius: new BorderRadius.circular(10)),
         child: Column(
-          children: [
-            Container(
-                padding: EdgeInsets.all(16.0),
-                child: Container(
-                  padding: EdgeInsets.all(16.0),
-                  width: 200,
-                  height: 100,
-                  decoration: new BoxDecoration(
-                      color: Theme.of(context).colorScheme.surface,
-                      boxShadow: [boxshadow],
-                      borderRadius: new BorderRadius.circular(10)),
-                  child: Text(
-                    "Category",
-                    style: Theme.of(context).textTheme.overline,
-                  ),
-                )),
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Text(
+              habit.category,
+              style: Theme.of(context).textTheme.overline,
+            ),
+            Text(habit.title, style: Theme.of(context).textTheme.bodyText1),
+            Padding(padding: EdgeInsets.all(6)),
+            Expanded(child: Image(image: AssetImage(habit.imgPath))),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }
