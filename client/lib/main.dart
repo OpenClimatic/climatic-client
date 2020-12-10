@@ -24,13 +24,12 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
     return new MaterialApp(
-        title: "Climalytic",
+        title: "Climatic",
         theme: themeNotifier.getTheme(),
         initialRoute: "/",
         debugShowCheckedModeBanner: false,
-        onGenerateRoute: routes
-    );
+        onGenerateRoute: routes);
   }
 }

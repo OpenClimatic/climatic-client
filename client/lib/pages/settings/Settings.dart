@@ -15,7 +15,7 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   Widget _darkMode() {
-    final themeNotifier = Provider.of<ThemeNotifier>(context);
+    final themeNotifier = Provider.of<ThemeNotifier>(context, listen: false);
     bool _darkTheme = (themeNotifier.getTheme() == theme.darkTheme);
 
     return Container(
