@@ -4,10 +4,7 @@ import 'package:flutter/material.dart';
 class SliderCard extends StatefulWidget {
   final Attribute attr;
 
-  SliderCard({
-    Key key,
-    @required this.attr,
-  }) : super(key: key);
+  const SliderCard({Key key, @required this.attr}) : super(key: key);
 
   @override
   _SliderCardState createState() => _SliderCardState();
@@ -16,11 +13,10 @@ class SliderCard extends StatefulWidget {
 class _SliderCardState extends State<SliderCard> {
   double _current;
 
-  _SliderCardState() {
-    this._current = widget.attr.rangeDefault;
-  }
-
   Widget build(BuildContext context) {
+    if (_current == null) {
+      _current = widget.attr.rangeDefault;
+    }
     return Container(
       padding: EdgeInsets.fromLTRB(8, 10, 8, 5),
       child: Column(

@@ -1,4 +1,5 @@
 import 'package:client/models/Action.dart';
+import 'package:client/models/Attribute.dart';
 import 'package:flutter/material.dart';
 import 'package:client/widgets/SliderCard.dart';
 import 'package:client/widgets/CustomButton.dart';
@@ -17,8 +18,6 @@ class QuickActionAdd extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var _attr = action.attribute;
-
     return Column(
       children: <Widget>[
         Container(
@@ -40,7 +39,7 @@ class QuickActionAdd extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1)),
         SizedBox(height: 20),
         SliderCard(
-          attr: _attr,
+          attr: action.attribute,
         ),
         SizedBox(height: 20),
         CustomButton(

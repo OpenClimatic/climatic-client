@@ -16,25 +16,14 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   int _selectedTab = 5;
-  ActionModel _selectedAction;
-
-  switchTo(i) {
-    setState(() {
-      _selectedTab = i;
-    });
-  }
+  ActionModel selectedAction;
 
   Widget _clickableActionCard(ActionModel action) {
     return (GestureDetector(
       onTap: () {
         setState(() {
-          _selectedAction = action;
+          selectedAction = action;
           _selectedTab = 6;
         });
       },
@@ -148,6 +137,11 @@ class _CategoriesState extends State<Categories> {
     );
   }
 
+  Widget _calculationScreen() {
+    print(selectedAction);
+    return QuickActionAdd(selectedAction, context);
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
@@ -157,7 +151,7 @@ class _CategoriesState extends State<Categories> {
       _konsumCategory(),
       _reisenCategory(),
       _mainCategory(),
-      QuickActionAdd(_selectedAction, context),
+      _calculationScreen(),
     ];
 
     return Container(
