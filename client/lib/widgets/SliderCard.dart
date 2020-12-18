@@ -1,13 +1,12 @@
+import 'package:client/models/Attribute.dart';
 import 'package:flutter/material.dart';
 
 class SliderCard extends StatefulWidget {
-  final String question;
-  final List<String> selection;
+  final Attribute attr;
 
-  const SliderCard({
+  SliderCard({
     Key key,
-    this.question,
-    this.selection,
+    @required this.attr,
   }) : super(key: key);
 
   @override
@@ -15,7 +14,11 @@ class SliderCard extends StatefulWidget {
 }
 
 class _SliderCardState extends State<SliderCard> {
-  double rating = 0;
+  double _current;
+
+  _SliderCardState() {
+    this._current = widget.attr.rangeDefault;
+  }
 
   Widget build(BuildContext context) {
     return Container(
@@ -23,18 +26,16 @@ class _SliderCardState extends State<SliderCard> {
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
-          Text(widget.question, style: Theme.of(context).textTheme.headline3),
-          Text(widget.selection[rating.toInt()],
+          Text(_current.round().toString() + " " + widget.attr.rangeUnit,
               style: Theme.of(context).textTheme.bodyText2),
           Slider(
-            value: rating,
-            label: widget.selection[rating.toInt()],
-            min: 0.0,
-            max: widget.selection.length.toDouble() - 1,
-            divisions: widget.selection.length - 1,
-            onChanged: (newRating) {
+            value: _current,
+            min: widget.attr.rangeStart,
+            max: widget.attr.rangeEnd,
+            label: _current.round().toString() + " " + widget.attr.rangeUnit,
+            onChanged: (newValue) {
               setState(() {
-                rating = newRating;
+                _current = newValue;
               });
             },
           )

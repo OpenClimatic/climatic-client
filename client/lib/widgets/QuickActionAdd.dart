@@ -1,22 +1,14 @@
+import 'package:client/models/Action.dart';
 import 'package:flutter/material.dart';
 import 'package:client/widgets/SliderCard.dart';
 import 'package:client/widgets/CustomButton.dart';
 
-class QuickActionAdd extends StatefulWidget {
-  final String imgPath;
-  final String question;
-  final List<String> selections;
-  final String title;
+class QuickActionAdd extends StatelessWidget {
+  final ActionModel action;
+  final BuildContext context;
 
-  QuickActionAdd(
-      {Key key, this.imgPath, this.question, this.selections, this.title})
-      : super(key: key);
+  const QuickActionAdd(this.action, this.context);
 
-  @override
-  _QuickActionAddState createState() => _QuickActionAddState();
-}
-
-class _QuickActionAddState extends State<QuickActionAdd> {
   addAction() {
     print("adding action");
     Navigator.pop(context);
@@ -25,22 +17,31 @@ class _QuickActionAddState extends State<QuickActionAdd> {
 
   @override
   Widget build(BuildContext context) {
+    var _attr = action.attribute;
+
     return Column(
       children: <Widget>[
-        SizedBox(height: 40),
         Container(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              widget.imgPath,
+              action.imgPath,
               height: 125,
               width: 125,
               fit: BoxFit.cover,
             ),
           ),
         ),
+        SizedBox(height: 36),
+        Text(action.title, style: Theme.of(context).textTheme.headline2),
+        Padding(
+            padding: EdgeInsets.fromLTRB(24, 12, 12, 20),
+            child: Text(action.description,
+                style: Theme.of(context).textTheme.bodyText1)),
         SizedBox(height: 20),
-        SliderCard(question: widget.question, selection: widget.selections),
+        SliderCard(
+          attr: _attr,
+        ),
         SizedBox(height: 20),
         CustomButton(
           label: "Jetzt aufzeichnen",

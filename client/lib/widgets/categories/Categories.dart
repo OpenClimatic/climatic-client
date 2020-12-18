@@ -1,3 +1,6 @@
+import 'package:client/models/Action.dart';
+import 'package:client/models/Category.dart';
+import 'package:client/resources/categories.dart';
 import 'package:client/themes/theme.dart' as theme;
 import 'package:client/widgets/ActionCard.dart';
 import 'package:client/widgets/QuickActionAdd.dart';
@@ -13,189 +16,148 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
-  int _selectedTab = 1;
-  String title;
-  String imgPath;
-  String question = "junge was machst du?";
-  List<String> selections = ["1", "2", "3", "4", "5"];
+  @override
+  void initState() {
+    super.initState();
+  }
 
-  switchTo(page) {
+  int _selectedTab = 5;
+  ActionModel _selectedAction;
+
+  switchTo(i) {
     setState(() {
-      _selectedTab = 2;
+      _selectedTab = i;
     });
   }
 
-  Widget _clickableActionCard(label, img, page, iconColor, bgColor) {
+  Widget _clickableActionCard(ActionModel action) {
     return (GestureDetector(
       onTap: () {
-        if (page == 0) {
-          setState(() {
-            title = label;
-            imgPath = img;
-          });
-        }
-        print(title);
         setState(() {
-          _selectedTab = page;
+          _selectedAction = action;
+          _selectedTab = 6;
         });
       },
       child: ActionCard(
-        label: label,
-        image: img,
+        label: action.title,
+        image: action.imgPath,
       ),
     ));
   }
 
-  Widget _clickableCategoryCard(label, img, page, iconColor, bgColor) {
+  Widget _clickableCategoryCard(Category category) {
     return (GestureDetector(
       onTap: () {
-        if (page == 0) {
-          setState(() {
-            title = label;
-            imgPath = img;
-          });
-        }
-        print(title);
         setState(() {
-          _selectedTab = page;
+          _selectedTab = category.id;
         });
       },
       child: CategoryCard(
-        label: label,
-        image: img,
-        iconColor: iconColor,
-        bgColor: bgColor,
+        label: category.title,
+        image: category.imgPath,
       ),
     ));
   }
 
   Widget _mainCategory() {
+    List<Widget> _clickableCategoryCards = <Widget>[];
+    for (Category category in categories) {
+      _clickableCategoryCards.add(_clickableCategoryCard(category));
+    }
+
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
-      children: <Widget>[
-        _clickableCategoryCard("Ernährung", "assets/images/categories/food.png",
-            3, theme.cBlue, theme.cBlueBG),
-        _clickableCategoryCard(
-            "Haushalt",
-            "assets/images/categories/haushalt.png",
-            4,
-            theme.cBlue,
-            theme.cBlueBG),
-        _clickableCategoryCard("Konsum", "assets/images/categories/konsum.png",
-            5, theme.cPurple, theme.cPurpleBG),
-        _clickableCategoryCard("Reisen", "assets/images/categories/reisen.png",
-            6, theme.cYellow, theme.cYellowBG),
-      ],
+      children: _clickableCategoryCards,
     );
   }
 
   Widget _transportCategory() {
+    List<Widget> _clickableActionCards = <Widget>[];
+    for (ActionModel action in categories[0].actions) {
+      _clickableActionCards.add(_clickableActionCard(action));
+    }
+
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
-      children: <Widget>[
-        _clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("eBike", "assets/images/categories/haushalt.png",
-            0, theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
-            theme.cBlue, theme.cBlueBG),
-      ],
+      children: _clickableActionCards,
     );
   }
 
   Widget _haushaltCategory() {
+    List<Widget> _clickableActionCards = <Widget>[];
+    for (ActionModel action in categories[1].actions) {
+      _clickableActionCards.add(_clickableActionCard(action));
+    }
+
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
-      children: <Widget>[
-        _clickableActionCard("Licht", "assets/images/categories/food.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("Heizen", "assets/images/categories/haushalt.png",
-            0, theme.cBlue, theme.cBlueBG),
-      ],
+      children: _clickableActionCards,
     );
   }
 
   Widget _foodCategory() {
+    List<Widget> _clickableActionCards = <Widget>[];
+    for (ActionModel action in categories[2].actions) {
+      _clickableActionCards.add(_clickableActionCard(action));
+    }
+
     return new Wrap(
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: 0.0, // gap between adjacent chips
-      runSpacing: 2.0, // gap between lines
-      alignment: WrapAlignment.center,
-      children: <Widget>[
-        _clickableActionCard("Vegan", "assets/images/categories/food.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard(
-            "Unverpackt",
-            "assets/images/categories/haushalt.png",
-            0,
-            theme.cBlue,
-            theme.cBlueBG),
-      ],
-    );
+        crossAxisAlignment: WrapCrossAlignment.center,
+        spacing: 0.0, // gap between adjacent chips
+        runSpacing: 2.0, // gap between lines
+        alignment: WrapAlignment.center,
+        children: _clickableActionCards);
   }
 
   Widget _konsumCategory() {
+    List<Widget> _clickableActionCards = <Widget>[];
+    for (ActionModel action in categories[3].actions) {
+      _clickableActionCards.add(_clickableActionCard(action));
+    }
+
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
-      children: <Widget>[
-        _clickableActionCard("Fahrrad", "assets/images/categories/food.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("eBike", "assets/images/categories/haushalt.png",
-            0, theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("Laufen", "assets/images/categories/konsum.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("ÖPNV", "assets/images/categories/reisen.png", 0,
-            theme.cBlue, theme.cBlueBG),
-      ],
+      children: _clickableActionCards,
     );
   }
 
   Widget _reisenCategory() {
+    List<Widget> _clickableActionCards = <Widget>[];
+    for (ActionModel action in categories[4].actions) {
+      _clickableActionCards.add(_clickableActionCard(action));
+    }
+
     return new Wrap(
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: 0.0, // gap between adjacent chips
       runSpacing: 2.0, // gap between lines
       alignment: WrapAlignment.center,
-      children: <Widget>[
-        _clickableActionCard("Flugzeug", "assets/images/categories/food.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("Zug", "assets/images/categories/haushalt.png", 0,
-            theme.cBlue, theme.cBlueBG),
-        _clickableActionCard("Auto", "assets/images/categories/konsum.png", 0,
-            theme.cBlue, theme.cBlueBG),
-      ],
+      children: _clickableActionCards,
     );
   }
 
   @override
   Widget build(BuildContext context) {
     List<Widget> _pageOptions = [
-      QuickActionAdd(
-        imgPath: imgPath,
-        title: title,
-        question: question,
-        selections: selections,
-      ),
-      _mainCategory(),
       _transportCategory(),
       _foodCategory(),
       _haushaltCategory(),
       _konsumCategory(),
-      _reisenCategory()
+      _reisenCategory(),
+      _mainCategory(),
+      QuickActionAdd(_selectedAction, context),
     ];
 
     return Container(

@@ -1,24 +1,24 @@
-class Action {
-  final String title;
-  final String question;
+import 'package:client/models/Attribute.dart';
+import 'CounterPart.dart';
+
+class ActionModel {
   final int id;
+  final String title;
   final String description;
-  final String shortDescription;
-  final String category;
-  final int impact;
-  final int expenses;
-  final List<String> selection;
+  final double co2save;
+  final Attribute attribute;
+  final List<CounterPart> counterParts;
   final String imgPath;
 
-  Action(
-      this.id,
-      this.title,
-      this.shortDescription,
-      this.description,
-      this.category,
-      this.imgPath,
-      this.impact,
-      this.expenses,
-      this.selection,
-      this.question);
+  /// [co2save] in kg
+  /// [imgPath] are constents see resources/statics.dart
+  ActionModel(
+    this.id,
+    this.title,
+    this.description,
+    this.co2save,
+    this.attribute,
+    this.counterParts,
+    this.imgPath,
+  );
 }

@@ -4,18 +4,11 @@ import 'package:flutter/material.dart';
 class CategoryCard extends StatelessWidget {
   final String label;
   final String image;
-  final Color iconColor;
-  final Color bgColor;
   final Function onClick;
   final double width = 150;
 
   const CategoryCard(
-      {Key key,
-      @required this.label,
-      @required this.image,
-      @required this.bgColor,
-      @required this.iconColor,
-      this.onClick})
+      {Key key, @required this.label, @required this.image, this.onClick})
       : super(key: key);
 
   Widget postCard(BuildContext context) {
