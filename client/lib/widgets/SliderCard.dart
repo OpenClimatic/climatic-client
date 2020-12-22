@@ -3,12 +3,18 @@ import 'package:flutter/material.dart';
 class SliderCard extends StatefulWidget {
   final String question;
   final List<String> selection;
+  final String perUnit;
+  final double value;
+  final Function onChanged;
 
-  const SliderCard({
-    Key key,
-    this.question,
-    this.selection,
-  }) : super(key: key);
+  const SliderCard(
+      {Key key,
+      this.question,
+      this.selection,
+      this.perUnit,
+      this.value,
+      this.onChanged})
+      : super(key: key);
 
   @override
   _SliderCardState createState() => _SliderCardState();
@@ -24,18 +30,16 @@ class _SliderCardState extends State<SliderCard> {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           Text(widget.question, style: Theme.of(context).textTheme.headline3),
-          Text(widget.selection[rating.toInt()],
+          Text(widget.selection[rating.toInt()] + ' ' + widget.perUnit,
               style: Theme.of(context).textTheme.bodyText2),
           Slider(
-            value: rating,
+            value: widget.value,
             label: widget.selection[rating.toInt()],
             min: 0.0,
             max: widget.selection.length.toDouble() - 1,
             divisions: widget.selection.length - 1,
-            onChanged: (newRating) {
-              setState(() {
-                rating = newRating;
-              });
+            onChanged: (newValue) {
+              widget.onChanged(newValue);
             },
           )
         ],
