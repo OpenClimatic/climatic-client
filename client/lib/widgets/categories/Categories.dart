@@ -1,7 +1,6 @@
 import 'package:client/models/Action.dart';
 import 'package:client/models/Category.dart';
 import 'package:client/resources/categories.dart';
-import 'package:client/themes/theme.dart' as theme;
 import 'package:client/widgets/ActionCard.dart';
 import 'package:client/widgets/QuickActionAdd.dart';
 import 'package:flutter/material.dart';
