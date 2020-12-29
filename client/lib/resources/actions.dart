@@ -10,8 +10,8 @@ ActionModel fahrradFahren = ActionModel(
   0.05,
   Attribute(0, "Wie weit bist du gefahren?", "km", 1, 100, 5),
   [
-    CounterPart("Auto (Benzin)", 0.18),
-    CounterPart("Auto (Diesel)", 0.21),
+    CounterPart("Auto - Benzin", 0.18),
+    CounterPart("Auto - Diesel", 0.21),
     CounterPart("Bus", 0.08),
     CounterPart("ÖPNV", 0.06)
   ],
@@ -25,8 +25,8 @@ ActionModel eBikeFahren = ActionModel(
   0.01,
   Attribute(1, "Wie weit bist du gefahren?", "km", 1, 100, 5),
   [
-    CounterPart("Auto (Benzin)", 0.18),
-    CounterPart("Auto (Diesel)", 0.21),
+    CounterPart("Auto - Benzin", 0.18),
+    CounterPart("Auto - Diesel", 0.21),
     CounterPart("Bus", 0.08),
     CounterPart("Fahrrad", 0.05),
     CounterPart("ÖPNV", 0.06)

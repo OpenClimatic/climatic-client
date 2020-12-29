@@ -1,14 +1,57 @@
 import 'package:client/models/Action.dart';
 import 'package:client/models/Attribute.dart';
+import 'package:client/models/CounterPart.dart';
 import 'package:flutter/material.dart';
 import 'package:client/widgets/SliderCard.dart';
 import 'package:client/widgets/CustomButton.dart';
 
-class QuickActionAdd extends StatelessWidget {
+class QuickActionAdd extends StatefulWidget {
   final ActionModel action;
   final BuildContext context;
 
-  const QuickActionAdd(this.action, this.context);
+  const QuickActionAdd(
+      {Key key, @required this.action, @required this.context});
+
+  @override
+  _QuickActionAddState createState() => _QuickActionAddState();
+}
+
+class _QuickActionAddState extends State<QuickActionAdd> {
+  String _currentCp;
+
+  DropdownButton<String> _addDropdown(List<CounterPart> cps) {
+    return DropdownButton<String>(
+        hint: Text("Was hast du ersetzt?"),
+        value: _currentCp,
+        items: cps.map<DropdownMenuItem<String>>((value) {
+          print("item: " + value.title);
+          return new DropdownMenuItem<String>(
+            value: value.title,
+            child: new Text(value.title),
+          );
+        }).toList(),
+        onChanged: (newValue) {
+          _currentCp = newValue;
+        });
+  }
+
+  _insertSliderIfNeeded(Attribute attr) {
+    if (attr == null) {
+      return SizedBox(height: 0);
+    } else {
+      return SliderCard(
+        attr: widget.action.attribute,
+      );
+    }
+  }
+
+  _insertDropdownIfNeeded(List<CounterPart> cps) {
+    if (cps.isEmpty) {
+      return SizedBox(height: 0);
+    } else {
+      return _addDropdown(cps);
+    }
+  }
 
   addAction() {
     print("adding action");
@@ -24,7 +67,7 @@ class QuickActionAdd extends StatelessWidget {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(10),
             child: Image.asset(
-              action.imgPath,
+              widget.action.imgPath,
               height: 125,
               width: 125,
               fit: BoxFit.cover,
@@ -32,15 +75,15 @@ class QuickActionAdd extends StatelessWidget {
           ),
         ),
         SizedBox(height: 36),
-        Text(action.title, style: Theme.of(context).textTheme.headline2),
+        Text(widget.action.title, style: Theme.of(context).textTheme.headline2),
         Padding(
             padding: EdgeInsets.fromLTRB(24, 12, 12, 20),
-            child: Text(action.description,
+            child: Text(widget.action.description,
                 style: Theme.of(context).textTheme.bodyText1)),
-        SizedBox(height: 20),
-        SliderCard(
-          attr: action.attribute,
-        ),
+        SizedBox(height: 10),
+        _insertDropdownIfNeeded(widget.action.counterParts),
+        SizedBox(height: 10),
+        _insertSliderIfNeeded(widget.action.attribute),
         SizedBox(height: 20),
         CustomButton(
           label: "Jetzt aufzeichnen",

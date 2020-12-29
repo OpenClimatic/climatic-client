@@ -138,7 +138,7 @@ class _CategoriesState extends State<Categories> {
 
   Widget _calculationScreen() {
     print(selectedAction);
-    return QuickActionAdd(selectedAction, context);
+    return QuickActionAdd(action: selectedAction, context: context);
   }
 
   @override
