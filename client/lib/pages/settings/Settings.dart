@@ -1,5 +1,7 @@
 import 'package:client/services/ThemeNotifier.dart';
 import 'package:client/widgets/CustomFlatButton.dart';
+import 'package:client/services/storage.dart';
+import 'package:client/widgets/CustomButton.dart';
 import 'package:client/widgets/StaticTopBar.dart';
 import 'package:flutter/material.dart';
 import 'package:feather_icons_flutter/feather_icons_flutter.dart';
@@ -75,6 +77,17 @@ class _SettingsState extends State<Settings> {
     );
   }
 
+  Widget _logout() {
+    return CustomButton(
+      label: "Logout",
+      onPressed: () async {
+        await storage.delete(key: FINISHED_INTRO);
+        Navigator.pushReplacementNamed(context, "/");
+      },
+      colorBG: theme.cBlue,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -84,6 +97,7 @@ class _SettingsState extends State<Settings> {
               label: "Einstellungen", action: false, backRoute: "Profile"),
           _darkMode(),
           _settings(),
+          _logout()
         ],
       ),
     );
