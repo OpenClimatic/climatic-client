@@ -18,18 +18,15 @@ class _CategoriesState extends State<Categories> {
   int _selectedTab = 5;
   ActionModel selectedAction;
 
-  Widget _clickableActionCard(ActionModel action) {
+  Widget _clickableActionCard(ActionModel action, String category) {
     return (GestureDetector(
+      child: ActionCard(action: action),
       onTap: () {
         setState(() {
           selectedAction = action;
           _selectedTab = 6;
         });
       },
-      child: ActionCard(
-        label: action.title,
-        image: action.imgPath,
-      ),
     ));
   }
 
@@ -40,10 +37,7 @@ class _CategoriesState extends State<Categories> {
           _selectedTab = category.id;
         });
       },
-      child: CategoryCard(
-        label: category.title,
-        image: category.imgPath,
-      ),
+      child: CategoryCard(category: category),
     ));
   }
 
@@ -65,7 +59,8 @@ class _CategoriesState extends State<Categories> {
   Widget _transportCategory() {
     List<Widget> _clickableActionCards = <Widget>[];
     for (ActionModel action in categories[0].actions) {
-      _clickableActionCards.add(_clickableActionCard(action));
+      _clickableActionCards
+          .add(_clickableActionCard(action, categories[0].title));
     }
 
     return new Wrap(
@@ -80,7 +75,8 @@ class _CategoriesState extends State<Categories> {
   Widget _haushaltCategory() {
     List<Widget> _clickableActionCards = <Widget>[];
     for (ActionModel action in categories[1].actions) {
-      _clickableActionCards.add(_clickableActionCard(action));
+      _clickableActionCards
+          .add(_clickableActionCard(action, categories[1].title));
     }
 
     return new Wrap(
@@ -95,7 +91,8 @@ class _CategoriesState extends State<Categories> {
   Widget _foodCategory() {
     List<Widget> _clickableActionCards = <Widget>[];
     for (ActionModel action in categories[2].actions) {
-      _clickableActionCards.add(_clickableActionCard(action));
+      _clickableActionCards
+          .add(_clickableActionCard(action, categories[2].title));
     }
 
     return new Wrap(
@@ -109,7 +106,8 @@ class _CategoriesState extends State<Categories> {
   Widget _konsumCategory() {
     List<Widget> _clickableActionCards = <Widget>[];
     for (ActionModel action in categories[3].actions) {
-      _clickableActionCards.add(_clickableActionCard(action));
+      _clickableActionCards
+          .add(_clickableActionCard(action, categories[3].title));
     }
 
     return new Wrap(
@@ -124,7 +122,8 @@ class _CategoriesState extends State<Categories> {
   Widget _reisenCategory() {
     List<Widget> _clickableActionCards = <Widget>[];
     for (ActionModel action in categories[4].actions) {
-      _clickableActionCards.add(_clickableActionCard(action));
+      _clickableActionCards
+          .add(_clickableActionCard(action, categories[4].title));
     }
 
     return new Wrap(

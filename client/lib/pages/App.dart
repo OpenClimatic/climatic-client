@@ -67,7 +67,7 @@ class _AppState extends State<App> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _settingModalBottomSheet(context);
+          Navigator.pushNamed(context, "SelectCategoryView");
         },
         tooltip: 'Increment',
         child: Icon(Icons.add),

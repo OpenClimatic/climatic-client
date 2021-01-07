@@ -1,17 +1,16 @@
+import 'package:client/models/Category.dart';
 import 'package:client/themes/theme.dart' as theme;
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
-  final String label;
-  final String image;
-  final Function onClick;
+  final Category category;
+  final Function onTab;
   final double width = 150;
 
-  const CategoryCard(
-      {Key key, @required this.label, @required this.image, this.onClick})
+  const CategoryCard({Key key, @required this.category, this.onTab})
       : super(key: key);
 
-  Widget postCard(BuildContext context) {
+  Widget _postCard(BuildContext context) {
     return Container(
         padding: EdgeInsets.all(5),
         decoration: BoxDecoration(
@@ -19,23 +18,23 @@ class CategoryCard extends StatelessWidget {
           boxShadow: [theme.boxshadowSmall],
           color: Theme.of(context).colorScheme.surface,
         ),
-        width: width,
+        width: this.width,
         child: Column(
           children: <Widget>[
             ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
-                image,
+                this.category.imgPath,
               ),
             ),
             Container(
-              width: width,
+              width: this.width,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10),
                   color: Theme.of(context).colorScheme.surface),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
-                child: Center(child: Text(label)),
+                child: Center(child: Text(this.category.title)),
               ),
             )
           ],
@@ -44,9 +43,10 @@ class CategoryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Padding(
-          padding: const EdgeInsets.all(10),
+    return Padding(
+        padding: const EdgeInsets.all(10),
+        child: GestureDetector(
+          onTap: this.onTab,
           child: Container(
             decoration: new BoxDecoration(
               borderRadius: new BorderRadius.only(
@@ -60,11 +60,11 @@ class CategoryCard extends StatelessWidget {
                     decoration: new BoxDecoration(
                         borderRadius: new BorderRadius.circular(10)),
                     child: Container(
-                      child: postCard(context),
+                      child: _postCard(context),
                     )),
               ],
             ),
-          )),
-    );
+          ),
+        ));
   }
 }

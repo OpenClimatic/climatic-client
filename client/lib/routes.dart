@@ -18,6 +18,7 @@ import "package:client/pages/settings/Datenschutz.dart";
 import "package:client/pages/settings/Settings.dart";
 import "package:client/pages/settings/Support.dart";
 import "package:client/pages/settings/UeberUns.dart";
+import 'package:client/pages/quickActionView/SelectCategoryView.dart';
 
 Function routes = (RouteSettings settings) {
   switch (settings.name) {
@@ -64,6 +65,9 @@ Function routes = (RouteSettings settings) {
     case "DiscoverBlogPostDetailedView":
       return CupertinoPageRoute(
           builder: (_) => DiscoverBlogPostDetailedView(), settings: settings);
+    case "SelectCategoryView":
+      return CupertinoPageRoute(
+          builder: (_) => SelectCategoryView(), settings: settings);
     default:
       return CupertinoPageRoute(
           builder: (_) => VierNullVier(), settings: settings);

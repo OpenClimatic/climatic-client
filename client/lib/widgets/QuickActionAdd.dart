@@ -20,18 +20,19 @@ class _QuickActionAddState extends State<QuickActionAdd> {
   String _currentCp;
 
   DropdownButton<String> _addDropdown(List<CounterPart> cps) {
+    _currentCp = cps[0].title;
     return DropdownButton<String>(
-        hint: Text("Was hast du ersetzt?"),
         value: _currentCp,
         items: cps.map<DropdownMenuItem<String>>((value) {
-          print("item: " + value.title);
           return new DropdownMenuItem<String>(
             value: value.title,
             child: new Text(value.title),
           );
         }).toList(),
         onChanged: (newValue) {
-          _currentCp = newValue;
+          setState(() {
+            _currentCp = newValue;
+          });
         });
   }
 
